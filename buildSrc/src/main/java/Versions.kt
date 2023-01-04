@@ -4,6 +4,7 @@ object Versions {
     const val appcompat_version = "1.5.1"
     const val material_version = "1.7.0"
     const val constraintLayout_version = "2.1.4"
+    const val jacoco_version = "0.8.6"
 
     // Tests Libs versions
     const val junit_version = "4.13.2"
