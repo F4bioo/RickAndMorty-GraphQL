@@ -15,4 +15,5 @@ dependencyResolutionManagement {
 rootProject.name = "RickAndMorty-GraphQL"
 
 include ':app',
-        ':core:common:navigation'
+        ':core:common:navigation',
+        ':core:data'
