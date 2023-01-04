@@ -1,0 +1,15 @@
+package com.fappslab.rickandmortygraphql.di
+
+import org.junit.Test
+import org.koin.core.context.startKoin
+import org.koin.test.check.checkModules
+
+class AppModuleTest {
+
+    @Test
+    fun `checkModules Should Koin provides dependencies When invoke AppModule`() {
+        startKoin {
+            modules(AppModule.modules)
+        }.checkModules()
+    }
+}

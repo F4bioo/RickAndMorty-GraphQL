@@ -3,7 +3,9 @@ dependencies {
 
     // TestLibs
     testImplementation(TestLibs.junitTest)
+    testImplementation(TestLibs.koinCoreTest)
 
     androidTestImplementation(TestLibs.extJunitTest)
     androidTestImplementation(TestLibs.espressoTest)
+    androidTestImplementation(TestLibs.koinCoreTest)
 }
