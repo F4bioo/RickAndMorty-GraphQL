@@ -4,6 +4,8 @@ dependencies {
     // TestLibs
     testImplementation(TestLibs.junitTest)
     testImplementation(TestLibs.koinCoreTest)
+    testImplementation(TestLibs.apolloMockserver)
+    testImplementation(TestLibs.apolloTestingSupport)
 
     androidTestImplementation(TestLibs.extJunitTest)
     androidTestImplementation(TestLibs.espressoTest)
