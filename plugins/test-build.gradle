@@ -1,0 +1,9 @@
+dependencies {
+    // Libs
+
+    // TestLibs
+    testImplementation(TestLibs.junitTest)
+
+    androidTestImplementation(TestLibs.extJunitTest)
+    androidTestImplementation(TestLibs.espressoTest)
+}
