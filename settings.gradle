@@ -13,4 +13,7 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "RickAndMorty-GraphQL"
-include ':app'
+
+include ':app',
+        ':core:common:navigation',
+        ':core:data:remote'

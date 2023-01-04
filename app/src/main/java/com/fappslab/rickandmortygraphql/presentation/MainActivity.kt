@@ -1,7 +1,7 @@
 package com.fappslab.rickandmortygraphql.presentation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.fappslab.rickandmortygraphql.R
 
 class MainActivity : AppCompatActivity() {

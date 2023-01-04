@@ -1,0 +1,36 @@
+import static Versions.apollo_version
+
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.apollographql.apollo3' version "$apollo_version"
+}
+apply from: "$rootDir/plugins/android-build.gradle"
+
+android {
+    namespace "${Config.applicationId}.remote"
+    defaultConfig {
+        buildConfigField "String", "BASE_URL", '"https://rickandmortyapi.com/graphql"'
+    }
+}
+
+dependencies {
+    // Libs
+    implementation(Libs.okhttpLoggingInterceptor)
+    implementation(Libs.okhttp)
+    api(Libs.gson)
+    api(Libs.apolloApi)
+    api(Libs.apolloCache)
+    api(Libs.apolloRuntime)
+
+    // Modules
+
+}
+
+apollo {
+    service("service") {
+        packageName.set("${Config.applicationId}.remote")
+        generateOptionalOperationVariables.set(false)
+        generateDataBuilders.set(true)
+    }
+}

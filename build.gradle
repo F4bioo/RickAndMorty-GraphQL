@@ -1,6 +1,6 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+import static Versions.detekt_version
+
 buildscript {
-    ext.detekt_version = "1.22.0"
     dependencies {
         classpath(Root.classPathJaCoCo)
     }

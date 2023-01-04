@@ -7,4 +7,10 @@ object Libs {
     const val koinViewModel = "io.insert-koin:koin-androidx-viewmodel:${Versions.koin_version}"
     const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle_version}"
     const val lifecycleRuntime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle_version}"
+    const val gson = "com.google.code.gson:gson:${Versions.gson_version}"
+    const val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttp_version}"
+    const val okhttpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp_version}"
+    const val apolloRuntime = "com.apollographql.apollo3:apollo-runtime:${Versions.apollo_version}"
+    const val apolloApi = "com.apollographql.apollo3:apollo-api:${Versions.apollo_version}"
+    const val apolloCache = "com.apollographql.apollo3:apollo-normalized-cache-sqlite:${Versions.apollo_version}"
 }
