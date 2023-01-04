@@ -54,4 +54,8 @@ dependencies {
     implementation(Libs.appcompat)
     implementation(Libs.material)
     implementation(Libs.constraintLayout)
+    implementation(Libs.koinScope)
+    implementation(Libs.koinViewModel)
+    implementation(Libs.lifecycleViewModel)
+    implementation(Libs.lifecycleRuntime)
 }
