@@ -1,0 +1,6 @@
+dependencies {
+    // Libs
+
+    // TestLibs
+    testImplementation(TestLibs.junitTest)
+}
