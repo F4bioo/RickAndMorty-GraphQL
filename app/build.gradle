@@ -65,4 +65,5 @@ dependencies {
     // Modules
     implementation project(Modules.navigation)
     implementation project(Modules.remote)
+    implementation project(Modules.hubSrc)
 }
