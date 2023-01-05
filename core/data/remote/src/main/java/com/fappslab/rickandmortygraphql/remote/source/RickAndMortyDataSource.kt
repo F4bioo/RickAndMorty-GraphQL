@@ -4,5 +4,5 @@ import com.fappslab.rickandmortygraphql.remote.GetCharactersQuery
 import kotlinx.coroutines.flow.Flow
 
 interface RickAndMortyDataSource {
-    fun getCharacters(page: Int): Flow<GetCharactersQuery.Characters?>
+    fun getCharacters(page: Int): Flow<GetCharactersQuery.Data>
 }
