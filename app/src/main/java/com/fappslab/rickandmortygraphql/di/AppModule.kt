@@ -6,7 +6,7 @@ import org.koin.dsl.module
 object AppModule {
 
     val modules
-        get() = presentationModule + dataModule
+        get() = listOf(presentationModule, dataModule)
 
     private val presentationModule: Module = module { }
 
