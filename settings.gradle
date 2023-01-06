@@ -20,4 +20,5 @@ include ':app',
         ':core:data:hubSrc',
         ':core:data:remote',
         ':libraries:arch',
-        ':libraries:design'
+        ':libraries:design',
+        ':features'
