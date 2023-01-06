@@ -1,5 +1,6 @@
 package com.fappslab.rickandmortygraphql.hubsrc.extension
 
+import com.fappslab.rickandmortygraphql.arch.extension.orZero
 import com.fappslab.rickandmortygraphql.domain.model.Character
 import com.fappslab.rickandmortygraphql.remote.GetCharactersQuery
 
@@ -8,9 +9,9 @@ fun List<GetCharactersQuery.Episode?>?.toEpisodes() =
 
 fun GetCharactersQuery.Info?.toInfo() =
     Character.Info(
-        pages = this?.pages ?: 0,
-        count = this?.pages ?: 0,
-        next = this?.pages ?: 0
+        pages = this?.pages.orZero(),
+        count = this?.pages.orZero(),
+        next = this?.pages.orZero()
     )
 
 fun GetCharactersQuery.Characters?.toCharacters() =

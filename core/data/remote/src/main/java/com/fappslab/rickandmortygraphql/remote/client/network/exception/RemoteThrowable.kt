@@ -1,8 +1,5 @@
 package com.fappslab.rickandmortygraphql.remote.client.network.exception
 
-import com.google.gson.annotations.Expose
-import com.google.gson.annotations.SerializedName
-
 const val CLIENT_DEFAULT_ERROR_MESSAGE =
     "Please check the internet connection and try again."
 
@@ -15,17 +12,17 @@ const val UNKNOWN_DEFAULT_ERROR_MESSAGE =
 sealed class RemoteThrowable(cause: Throwable?) : Throwable(cause) {
 
     class ClientThrowable(
-        @Expose override val message: String? = CLIENT_DEFAULT_ERROR_MESSAGE,
-        @Expose private val throwable: Throwable? = null
+        override val message: String? = CLIENT_DEFAULT_ERROR_MESSAGE,
+        throwable: Throwable? = null
     ) : RemoteThrowable(throwable)
 
     class ServerThrowable(
-        @Expose override val message: String? = SERVER_DEFAULT_ERROR_MESSAGE,
-        @Expose private val throwable: Throwable? = null
+        override val message: String? = SERVER_DEFAULT_ERROR_MESSAGE,
+        throwable: Throwable? = null
     ) : RemoteThrowable(throwable)
 
     data class UnknownThrowable(
-        @SerializedName("message") override val message: String? = UNKNOWN_DEFAULT_ERROR_MESSAGE,
-        @Expose private val throwable: Throwable? = null
+        override val message: String? = UNKNOWN_DEFAULT_ERROR_MESSAGE,
+        val throwable: Throwable? = null
     ) : RemoteThrowable(throwable)
 }

@@ -1,8 +1,8 @@
 package com.fappslab.rickandmortygraphql.hubsrc.repository
 
+import com.fappslab.rickandmortygraphql.arch.jsonhandle.readFromJSONToModel
+import com.fappslab.rickandmortygraphql.arch.jsonhandle.readFromJSONToString
 import stub.QueryResponse
-import stub.readFromJSONToModel
-import stub.readFromJSONToString
 
 private const val SUCCESS_RESPONSE = "characters_success_response.json"
 private const val FAILURE_RESPONSE = "failure_response.json"

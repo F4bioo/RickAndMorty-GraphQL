@@ -18,7 +18,6 @@ dependencies {
     // Libs
     implementation(Libs.okhttpLoggingInterceptor)
     implementation(Libs.okhttp)
-    api(Libs.gson)
     api(Libs.apolloApi)
     api(Libs.apolloRuntime)
 

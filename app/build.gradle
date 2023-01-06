@@ -67,4 +67,6 @@ dependencies {
     implementation project(Modules.remote)
     implementation project(Modules.hubSrc)
     implementation project(Modules.domain)
+    implementation project(Modules.arch)
+    implementation project(Modules.design)
 }
