@@ -21,6 +21,7 @@
             <option value="$PROJECT_DIR$/core/data/remote" />
             <option value="$PROJECT_DIR$/libraries" />
             <option value="$PROJECT_DIR$/libraries/arch" />
+            <option value="$PROJECT_DIR$/libraries/design" />
           </set>
         </option>
       </GradleProjectSettings>
