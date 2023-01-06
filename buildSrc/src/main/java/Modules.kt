@@ -4,4 +4,7 @@ object Modules {
     const val navigation = ":core:common:navigation"
     const val hubSrc = ":core:data:hubSrc"
     const val remote = ":core:data:remote"
+
+    // Libraries
+    const val arch = ":libraries:arch"
 }

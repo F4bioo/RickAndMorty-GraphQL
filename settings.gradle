@@ -19,4 +19,4 @@ include ':app',
         ':core:common:navigation',
         ':core:data:hubSrc',
         ':core:data:remote',
-        ':libraries'
+        ':libraries:arch'

@@ -20,6 +20,7 @@
             <option value="$PROJECT_DIR$/core/data/hubSrc" />
             <option value="$PROJECT_DIR$/core/data/remote" />
             <option value="$PROJECT_DIR$/libraries" />
+            <option value="$PROJECT_DIR$/libraries/arch" />
           </set>
         </option>
       </GradleProjectSettings>

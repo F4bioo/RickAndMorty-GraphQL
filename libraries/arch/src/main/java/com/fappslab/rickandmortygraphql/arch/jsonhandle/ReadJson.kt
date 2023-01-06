@@ -1,4 +1,4 @@
-package stub
+package com.fappslab.rickandmortygraphql.arch.jsonhandle
 
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
