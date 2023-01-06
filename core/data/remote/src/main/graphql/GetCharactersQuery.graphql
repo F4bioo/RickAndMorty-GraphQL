@@ -1,0 +1,34 @@
+query GetCharactersQuery($page: Int) {
+    characters(page: $page) {
+        results {
+            id
+            name
+            image
+            status
+            species
+            gender
+            episode {
+                id
+                name
+                air_date
+            }
+            location {
+                id
+                name
+                type
+                dimension
+            }
+            origin {
+                id
+                name
+                type
+                dimension
+            }
+        }
+        info {
+            pages
+            count
+            next
+        }
+    }
+}

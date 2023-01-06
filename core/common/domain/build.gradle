@@ -1,0 +1,20 @@
+plugins {
+    id 'java-library'
+    id 'org.jetbrains.kotlin.jvm'
+}
+apply from: "$rootDir/plugins/kotlin-module-build.gradle"
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+sourceSets {
+    test { java.srcDirs = ['src/test/java'] }
+}
+
+dependencies {
+    // Libs
+    implementation(Libs.coroutines)
+    implementation(Libs.coroutinesCore)
+}
