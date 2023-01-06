@@ -12,4 +12,7 @@ internal class RickAndMortyDataSourceImpl(
 
     override fun getCharacters(page: Int): Flow<GetCharactersQuery.Data> =
         client.query(GetCharactersQuery(page)).orParseHttpError()
+
+    override suspend fun getCharactersPagination(page: Int): GetCharactersQuery.Data? =
+        client.query(GetCharactersQuery(page)).execute().data
 }

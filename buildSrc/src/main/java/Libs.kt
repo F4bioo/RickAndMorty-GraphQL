@@ -13,6 +13,7 @@ object Libs {
     const val apolloRuntime = "com.apollographql.apollo3:apollo-runtime:${Versions.apollo_version}"
     const val apolloApi = "com.apollographql.apollo3:apollo-api:${Versions.apollo_version}"
     const val apolloCache = "com.apollographql.apollo3:apollo-normalized-cache-sqlite:${Versions.apollo_version}"
-    const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutine_version}"
-    const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutine_version}"
+    const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines_version}"
+    const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines_version}"
+    const val pagingRuntime = "androidx.paging:paging-runtime:${Versions.pagingRuntime_version}"
 }

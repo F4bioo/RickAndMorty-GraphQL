@@ -11,11 +11,15 @@ object Versions {
     const val gson_version = "2.9.0"
     const val okhttp_version = "4.9.0"
     const val apollo_version = "3.7.3"
-    const val coroutine_version = "1.6.4"
+    const val coroutines_version = "1.6.4"
+    const val pagingRuntime_version = "3.1.1"
 
     // Tests Libs versions
     const val junit_version = "4.13.2"
     const val androidxJunit_version = "1.1.3"
     const val espresso_version = "3.4.0"
     const val mockk_version = "1.11.0"
+    const val turbine_version = "0.8.0"
+    const val testRules_version = "1.3.0"
+    const val kotlin_version = "1.7.20"
 }

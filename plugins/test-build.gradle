@@ -1,6 +1,4 @@
 dependencies {
-    // Libs
-
     // TestLibs
     testImplementation(TestLibs.junitTest)
     testImplementation(TestLibs.koinTest)
@@ -9,6 +7,11 @@ dependencies {
     testImplementation(TestLibs.apolloTestingSupport)
     testImplementation(TestLibs.apolloTestingSupport)
     testImplementation(TestLibs.mockkUnitTest)
+    testImplementation(TestLibs.coroutinesTest)
+    testImplementation(TestLibs.turbineTest)
+    testImplementation(TestLibs.runnerTest)
+    testImplementation(TestLibs.kotlinTest)
+    testImplementation(TestLibs.kotlinJUnitTest)
 
     androidTestImplementation(TestLibs.extJunitTest)
     androidTestImplementation(TestLibs.espressoTest)

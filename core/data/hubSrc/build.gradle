@@ -5,7 +5,7 @@ plugins {
 apply from: "$rootDir/plugins/android-build.gradle"
 
 android {
-    namespace "${Config.applicationId}.hubSrc"
+    namespace "${Config.applicationId}.hubsrc"
 }
 
 dependencies {
@@ -13,4 +13,5 @@ dependencies {
 
     // Modules
     implementation project(Modules.remote)
+    implementation project(Modules.domain)
 }

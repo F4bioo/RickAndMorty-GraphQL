@@ -58,4 +58,6 @@ dependencies {
     implementation(Libs.koinViewModel)
     implementation(Libs.lifecycleViewModel)
     implementation(Libs.lifecycleRuntime)
+    implementation(Libs.coroutines)
+    implementation(Libs.coroutinesCore)
 }
