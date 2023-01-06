@@ -18,4 +18,5 @@ include ':app',
         ':core:common:domain',
         ':core:common:navigation',
         ':core:data:hubSrc',
-        ':core:data:remote'
+        ':core:data:remote',
+        ':libraries'
