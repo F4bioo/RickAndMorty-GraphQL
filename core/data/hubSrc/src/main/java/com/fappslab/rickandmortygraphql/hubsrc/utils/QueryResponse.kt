@@ -1,14 +1,14 @@
-package stub
+package com.fappslab.rickandmortygraphql.hubsrc.utils
 
 import com.fappslab.rickandmortygraphql.arch.extension.orZero
 import com.fappslab.rickandmortygraphql.domain.model.Character
+import com.fappslab.rickandmortygraphql.domain.model.Characters
+import com.fappslab.rickandmortygraphql.hubsrc.utils.QueryResponse.DataResponse.CharactersResponse
+import com.fappslab.rickandmortygraphql.hubsrc.utils.QueryResponse.DataResponse.CharactersResponse.ResultResponse
+import com.fappslab.rickandmortygraphql.hubsrc.utils.QueryResponse.DataResponse.CharactersResponse.ResultResponse.EpisodeResponse
+import com.fappslab.rickandmortygraphql.hubsrc.utils.QueryResponse.DataResponse.CharactersResponse.ResultResponse.LocationResponse
+import com.fappslab.rickandmortygraphql.hubsrc.utils.QueryResponse.DataResponse.CharactersResponse.ResultResponse.OriginResponse
 import com.google.gson.annotations.SerializedName
-import stub.QueryResponse.DataResponse.CharactersResponse
-import stub.QueryResponse.DataResponse.CharactersResponse.InfoResponse
-import stub.QueryResponse.DataResponse.CharactersResponse.ResultResponse
-import stub.QueryResponse.DataResponse.CharactersResponse.ResultResponse.EpisodeResponse
-import stub.QueryResponse.DataResponse.CharactersResponse.ResultResponse.LocationResponse
-import stub.QueryResponse.DataResponse.CharactersResponse.ResultResponse.OriginResponse
 
 data class QueryResponse(
     @SerializedName("data")
@@ -95,17 +95,17 @@ data class QueryResponse(
 fun List<EpisodeResponse?>?.toEpisodes() =
     this?.map { it.toEpisode() }.orEmpty()
 
-fun InfoResponse?.toInfo() =
-    Character.Info(
-        pages = this?.pages.orZero(),
-        count = this?.pages.orZero(),
-        next = this?.pages.orZero()
-    )
+fun List<ResultResponse?>?.toCharacters() =
+    this?.map { it.toCharacter() }.orEmpty()
 
 fun CharactersResponse?.toCharacters() =
-    this?.results?.map { it.toCharacter(info.toInfo()) }.orEmpty()
+    Characters(
+        characters = this?.results.toCharacters(),
+        totalPages = this?.info?.pages.orZero(),
+        nextPage = this?.info?.next.orZero()
+    )
 
-fun ResultResponse?.toCharacter(info: Character.Info) =
+fun ResultResponse?.toCharacter() =
     Character(
         id = this?.id.orEmpty(),
         name = this?.name.orEmpty(),
@@ -115,8 +115,7 @@ fun ResultResponse?.toCharacter(info: Character.Info) =
         gender = this?.gender.orEmpty(),
         episode = this?.episodes.toEpisodes(),
         location = this?.location.toLocation(),
-        origin = this?.origin.toOrigin(),
-        info = info
+        origin = this?.origin.toOrigin()
     )
 
 fun EpisodeResponse?.toEpisode() =

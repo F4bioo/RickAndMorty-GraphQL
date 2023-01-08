@@ -46,6 +46,9 @@ android {
         abortOnError false
         xmlReport true
     }
+    packagingOptions {
+        resources.excludes += "DebugProbesKt.bin"
+    }
 }
 
 dependencies {
@@ -58,6 +61,8 @@ dependencies {
     implementation(Libs.koinViewModel)
     implementation(Libs.lifecycleViewModel)
     implementation(Libs.lifecycleRuntime)
+    implementation(Libs.fragment)
+    implementation(Libs.fragmentKtx)
     implementation(Libs.coroutines)
     implementation(Libs.coroutinesCore)
 }

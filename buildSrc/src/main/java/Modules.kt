@@ -5,6 +5,9 @@ object Modules {
     const val hubSrc = ":core:data:hubSrc"
     const val remote = ":core:data:remote"
 
+    // Features
+    const val home = ":features:home"
+
     // Libraries
     const val arch = ":libraries:arch"
     const val design = ":libraries:design"

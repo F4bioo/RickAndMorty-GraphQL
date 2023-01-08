@@ -1,0 +1,22 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+apply from: "$rootDir/plugins/android-build.gradle"
+
+android {
+    namespace "${Config.applicationId}.home"
+    resourcePrefix "home"
+}
+
+dependencies {
+    // Libs
+
+    // Modules
+    implementation project(Modules.remote)
+    implementation project(Modules.domain)
+    implementation project(Modules.arch)
+    implementation project(Modules.hubSrc)
+    implementation(Libs.coroutines)
+    implementation(Libs.coroutinesCore)
+}

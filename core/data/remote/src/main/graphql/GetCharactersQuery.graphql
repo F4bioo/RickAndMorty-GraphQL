@@ -27,7 +27,6 @@ query GetCharactersQuery($page: Int) {
         }
         info {
             pages
-            count
             next
         }
     }

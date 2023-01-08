@@ -12,4 +12,6 @@ dependencies {
     // Libs
     api(Libs.gson)
     implementation(Libs.pagingRuntime)
+    implementation(TestLibs.coroutinesTest)
+    implementation(TestLibs.junitTest)
 }
