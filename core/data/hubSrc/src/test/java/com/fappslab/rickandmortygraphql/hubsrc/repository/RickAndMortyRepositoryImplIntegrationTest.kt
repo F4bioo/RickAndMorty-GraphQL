@@ -7,6 +7,10 @@ import com.apollographql.apollo3.mockserver.MockServer
 import com.apollographql.apollo3.mockserver.enqueue
 import com.fappslab.rickandmortygraphql.domain.repository.RickAndMortyRepository
 import com.fappslab.rickandmortygraphql.hubsrc.source.remote.RickAndMortyDataSourceImpl
+import com.fappslab.rickandmortygraphql.hubsrc.utils.StubResponse.expectedFailureBodyResponse
+import com.fappslab.rickandmortygraphql.hubsrc.utils.StubResponse.expectedSuccessBodyResponse
+import com.fappslab.rickandmortygraphql.hubsrc.utils.StubResponse.expectedSuccessDataResponse
+import com.fappslab.rickandmortygraphql.hubsrc.utils.toCharacters
 import com.fappslab.rickandmortygraphql.remote.client.network.exception.CLIENT_DEFAULT_ERROR_MESSAGE
 import com.fappslab.rickandmortygraphql.remote.client.network.exception.SERVER_DEFAULT_ERROR_MESSAGE
 import com.fappslab.rickandmortygraphql.remote.client.network.exception.UNKNOWN_DEFAULT_ERROR_MESSAGE
@@ -15,7 +19,6 @@ import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
-import stub.toCharacters
 import java.net.HttpURLConnection.HTTP_BAD_REQUEST
 import java.net.HttpURLConnection.HTTP_INTERNAL_ERROR
 import java.net.HttpURLConnection.HTTP_MULT_CHOICE
@@ -56,8 +59,8 @@ internal class RickAndMortyRepositoryImplIntegrationTest {
     @Test
     fun `getRemoteDataSuccess Should return success response When invoke getGetCharacters`() {
         // Given
-        val expectedResult = expectedSuccessDataResponse()?.characters.toCharacters()
-        mockServer.enqueue(expectedSuccessBodyResponse(), statusCode = HTTP_OK)
+        val expectedResult = expectedSuccessDataResponse?.characters.toCharacters()
+        mockServer.enqueue(expectedSuccessBodyResponse, statusCode = HTTP_OK)
 
         // When
         val result = subject.getCharacters(page = 1)
@@ -65,8 +68,8 @@ internal class RickAndMortyRepositoryImplIntegrationTest {
         // Then
         runTest {
             result.test {
-                assertEquals(expectedResult.size, awaitItem().size)
-                awaitComplete()
+                assertEquals(expectedResult, awaitItem())
+                cancelAndConsumeRemainingEvents()
             }
         }
     }
@@ -75,7 +78,7 @@ internal class RickAndMortyRepositoryImplIntegrationTest {
     fun `getRemoteDataFailure Should return failure message from backend When invoke getGetCharacters`() {
         // Given
         val expectedMessage = "Error message."
-        mockServer.enqueue(expectedFailureBodyResponse(), statusCode = HTTP_OK)
+        mockServer.enqueue(expectedFailureBodyResponse, statusCode = HTTP_OK)
 
         // When
         val result = subject.getCharacters(page = 1)
@@ -84,7 +87,7 @@ internal class RickAndMortyRepositoryImplIntegrationTest {
         runTest {
             result.test {
                 assertEquals(expectedMessage, awaitError().message)
-                expectNoEvents()
+                cancelAndConsumeRemainingEvents()
             }
         }
     }
@@ -93,7 +96,7 @@ internal class RickAndMortyRepositoryImplIntegrationTest {
     fun `getRemoteDataFailure Should return client side failure message When invoke getGetCharacters`() {
         // Given
         val expectedMessage = CLIENT_DEFAULT_ERROR_MESSAGE
-        mockServer.enqueue(expectedFailureEmptyBodyResponse(), statusCode = HTTP_BAD_REQUEST)
+        mockServer.enqueue(string = "{}", statusCode = HTTP_BAD_REQUEST)
 
         // When
         val result = subject.getCharacters(page = 1)
@@ -102,7 +105,7 @@ internal class RickAndMortyRepositoryImplIntegrationTest {
         runTest {
             result.test {
                 assertEquals(expectedMessage, awaitError().message)
-                expectNoEvents()
+                cancelAndConsumeRemainingEvents()
             }
         }
     }
@@ -111,7 +114,7 @@ internal class RickAndMortyRepositoryImplIntegrationTest {
     fun `getRemoteDataFailure Should return server side failure message When invoke getGetCharacters`() {
         // Given
         val expectedMessage = SERVER_DEFAULT_ERROR_MESSAGE
-        mockServer.enqueue(expectedFailureEmptyBodyResponse(), statusCode = HTTP_INTERNAL_ERROR)
+        mockServer.enqueue(string = "{}", statusCode = HTTP_INTERNAL_ERROR)
 
         // When
         val result = subject.getCharacters(page = 1)
@@ -120,7 +123,7 @@ internal class RickAndMortyRepositoryImplIntegrationTest {
         runTest {
             result.test {
                 assertEquals(expectedMessage, awaitError().message)
-                expectNoEvents()
+                cancelAndConsumeRemainingEvents()
             }
         }
     }
@@ -129,7 +132,7 @@ internal class RickAndMortyRepositoryImplIntegrationTest {
     fun `getRemoteDataFailure Should return generic failure message When invoke getGetCharacters`() {
         // Given
         val expectedMessage = UNKNOWN_DEFAULT_ERROR_MESSAGE
-        mockServer.enqueue(expectedFailureEmptyBodyResponse(), statusCode = HTTP_MULT_CHOICE)
+        mockServer.enqueue(string = "{}", statusCode = HTTP_MULT_CHOICE)
 
         // When
         val result = subject.getCharacters(page = 1)
@@ -138,7 +141,7 @@ internal class RickAndMortyRepositoryImplIntegrationTest {
         runTest {
             result.test {
                 assertEquals(expectedMessage, awaitError().message)
-                expectNoEvents()
+                cancelAndConsumeRemainingEvents()
             }
         }
     }

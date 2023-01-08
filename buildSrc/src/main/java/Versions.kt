@@ -8,11 +8,13 @@ object Versions {
     const val detekt_version = "1.22.0"
     const val koin_version = "2.2.3"
     const val lifecycle_version = "2.5.1"
+    const val fragment_version = "1.5.5"
     const val gson_version = "2.9.0"
     const val okhttp_version = "4.9.0"
     const val apollo_version = "3.7.3"
     const val coroutines_version = "1.6.4"
     const val pagingRuntime_version = "3.1.1"
+    const val annotation_version = "1.4.0"
 
     // Tests Libs versions
     const val junit_version = "4.13.2"

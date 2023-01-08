@@ -6,7 +6,7 @@ import com.fappslab.rickandmortygraphql.remote.client.network.extension.orParseH
 import com.fappslab.rickandmortygraphql.remote.source.RickAndMortyDataSource
 import kotlinx.coroutines.flow.Flow
 
-internal class RickAndMortyDataSourceImpl(
+class RickAndMortyDataSourceImpl(
     private val client: ApolloClient
 ) : RickAndMortyDataSource {
 

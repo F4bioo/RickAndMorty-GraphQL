@@ -2,22 +2,23 @@ package com.fappslab.rickandmortygraphql.hubsrc.extension
 
 import com.fappslab.rickandmortygraphql.arch.extension.orZero
 import com.fappslab.rickandmortygraphql.domain.model.Character
+import com.fappslab.rickandmortygraphql.domain.model.Characters
 import com.fappslab.rickandmortygraphql.remote.GetCharactersQuery
 
 fun List<GetCharactersQuery.Episode?>?.toEpisodes() =
     this?.map { it.toEpisode() }.orEmpty()
 
-fun GetCharactersQuery.Info?.toInfo() =
-    Character.Info(
-        pages = this?.pages.orZero(),
-        count = this?.pages.orZero(),
-        next = this?.pages.orZero()
-    )
+fun List<GetCharactersQuery.Result?>?.toCharacters() =
+    this?.map { it.toCharacter() }.orEmpty()
 
 fun GetCharactersQuery.Characters?.toCharacters() =
-    this?.results?.map { it.toCharacter(info.toInfo()) }.orEmpty()
+    Characters(
+        characters = this?.results.toCharacters(),
+        totalPages = this?.info?.pages.orZero(),
+        nextPage = this?.info?.next.orZero()
+    )
 
-fun GetCharactersQuery.Result?.toCharacter(info: Character.Info) =
+fun GetCharactersQuery.Result?.toCharacter() =
     Character(
         id = this?.id.orEmpty(),
         name = this?.name.orEmpty(),
@@ -27,8 +28,7 @@ fun GetCharactersQuery.Result?.toCharacter(info: Character.Info) =
         gender = this?.gender.orEmpty(),
         episode = this?.episode.toEpisodes(),
         location = this?.location.toLocation(),
-        origin = this?.origin.toOrigin(),
-        info = info
+        origin = this?.origin.toOrigin()
     )
 
 fun GetCharactersQuery.Episode?.toEpisode() =

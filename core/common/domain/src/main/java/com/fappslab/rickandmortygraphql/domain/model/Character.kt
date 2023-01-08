@@ -9,8 +9,7 @@ data class Character(
     val gender: String,
     val episode: List<Episode>,
     val location: Location,
-    val origin: Origin,
-    val info: Info
+    val origin: Origin
 ) {
 
     data class Episode(
@@ -31,11 +30,5 @@ data class Character(
         val name: String,
         val type: String,
         val dimension: String
-    )
-
-    data class Info(
-        val pages: Int,
-        val count: Int,
-        val next: Int,
     )
 }

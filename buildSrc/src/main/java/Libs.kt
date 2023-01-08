@@ -7,6 +7,8 @@ object Libs {
     const val koinViewModel = "io.insert-koin:koin-androidx-viewmodel:${Versions.koin_version}"
     const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle_version}"
     const val lifecycleRuntime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle_version}"
+    const val fragment = "androidx.fragment:fragment:${Versions.fragment_version}"
+    const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragment_version}"
     const val gson = "com.google.code.gson:gson:${Versions.gson_version}"
     const val okhttp = "com.squareup.okhttp3:okhttp:${Versions.okhttp_version}"
     const val okhttpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp_version}"
@@ -16,4 +18,5 @@ object Libs {
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines_version}"
     const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines_version}"
     const val pagingRuntime = "androidx.paging:paging-runtime:${Versions.pagingRuntime_version}"
+    const val annotation = "androidx.annotation:annotation:${Versions.annotation_version}"
 }
