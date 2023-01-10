@@ -10,7 +10,7 @@ import coil.load
 import com.fappslab.rickandmortygraphql.design.dsdialogsm.build
 import com.fappslab.rickandmortygraphql.design.dsdialogsm.dsDialogSm
 import com.fappslab.rickandmortygraphql.design.dsmodal.build
-import com.fappslab.rickandmortygraphql.design.dsmodal.dsModal
+import com.fappslab.rickandmortygraphql.design.dsmodal.dsModalHost
 import com.fappslab.rickandmortygraphql.home.databinding.HomeCharacterItemBinding
 import com.fappslab.rickandmortygraphql.home.presentation.HomeFragment
 import com.fappslab.rickandmortygraphql.home.presentation.model.StatusType.Alive
@@ -45,12 +45,12 @@ internal fun HomeFragment.showErrorDialog(@StringRes stringRes: Int) {
     dsDialogSm {
         titleRes = DS.string.common_error
         messageRes = stringRes
-        isCancelable = false
+        shouldBlock = true
     }.build(childFragmentManager)
 }
 
 internal fun HomeFragment.showDetails() {
-    dsModal {
-        onFragment = { HomeFragment() }
+    dsModalHost {
+        setFragment = { HomeFragment() }
     }.build(childFragmentManager)
 }
