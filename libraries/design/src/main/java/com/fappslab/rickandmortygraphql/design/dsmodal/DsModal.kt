@@ -24,7 +24,7 @@ class DsModal : BottomSheetDialogFragment(R.layout.layout_dsmodal) {
     var onDismiss: () -> Unit? = { dismissAllowingStateLoss() }
     var shouldBlock: Boolean = false
 
-    override fun getTheme(): Int = R.style.DsBottomSheet
+    override fun getTheme() = R.style.DsBottomSheet
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -40,8 +40,8 @@ class DsModal : BottomSheetDialogFragment(R.layout.layout_dsmodal) {
     }
 
     private fun setupHostHeight() {
-        (dialog?.findViewById(GM.id.design_bottom_sheet) as? FrameLayout)?.apply {
-            layoutParams.height = MATCH_PARENT
+        (dialog?.findViewById(GM.id.design_bottom_sheet) as? FrameLayout)?.let { frameLayout ->
+            frameLayout.layoutParams.height = MATCH_PARENT
         }
     }
 
@@ -56,13 +56,13 @@ class DsModal : BottomSheetDialogFragment(R.layout.layout_dsmodal) {
         }
     }
 
-    private fun setupCloseButton() = binding.run {
-        closeButton.setOnClickListener { onCloseButton() }
+    private fun setupCloseButton() {
+        binding.closeButton.setOnClickListener { onCloseButton() }
     }
 
-    private fun setupChild() = binding.run {
+    private fun setupChild() {
         onFragment()?.let { fragment ->
-            childFragmentManager.commit { replace(containerFragment.id, fragment) }
+            childFragmentManager.commit { replace(binding.containerFragment.id, fragment) }
         }
     }
 }

@@ -13,4 +13,5 @@ object TestLibs {
     const val runnerTest = "androidx.test:runner:${Versions.testRules_version}"
     const val kotlinTest = "org.jetbrains.kotlin:kotlin-test:${Versions.kotlin_version}"
     const val kotlinJUnitTest = "org.jetbrains.kotlin:kotlin-test-junit:${Versions.kotlin_version}"
+    const val fragmentTest = "androidx.fragment:fragment-testing:${Versions.fragmentTest_version}"
 }

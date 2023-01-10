@@ -17,6 +17,8 @@ dependencies {
     implementation project(Modules.domain)
     implementation project(Modules.arch)
     implementation project(Modules.hubSrc)
+    implementation project(Modules.design)
+    implementation project(Modules.navigation)
     implementation(Libs.coroutines)
     implementation(Libs.coroutinesCore)
 }

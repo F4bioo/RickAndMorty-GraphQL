@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="home_alive">#4CAF50</color>
+    <color name="home_dead">#F44336</color>
+    <color name="home_unknown">#929191</color>
+</resources>

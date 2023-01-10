@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_character"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/ds_size_01"
+    android:layout_marginTop="@dimen/ds_size_01"
+    app:cardCornerRadius="@dimen/ds_size_02"
+    app:cardElevation="@dimen/ds_size_none"
+    app:strokeColor="#282828"
+    app:strokeWidth="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="124dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/stars">
+
+        <TextView
+            android:id="@+id/text_character"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/ds_size_10"
+            android:background="#282828"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:padding="@dimen/ds_size_02"
+            android:textColor="#FFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@tools:sample/lorem/random" />
+
+        <ImageView
+            android:id="@+id/image_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/ds_size_03"
+            android:contentDescription="@string/home_character_status"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ds_ic_circle_green" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/image_character"
+            android:layout_width="@dimen/ds_size_17"
+            android:layout_height="@dimen/ds_size_17"
+            android:background="#181818"
+            android:importantForAccessibility="no"
+            android:padding="@dimen/ds_size_01"
+            android:translationY="@dimen/ds_size_03"
+            app:layout_constraintBottom_toTopOf="@id/text_character"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearance="@style/DsImageCircle"
+            app:strokeWidth="@dimen/ds_size_01"
+            tools:srcCompat="@drawable/placeholder" />
+
+        <TextView
+            android:id="@+id/text_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/ds_size_02"
+            android:textColor="#03A9F4"
+            android:textStyle="bold|italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="#1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

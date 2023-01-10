@@ -14,15 +14,12 @@ import android.widget.TextView
 import androidx.annotation.StringRes
 import androidx.core.view.isVisible
 import androidx.fragment.app.DialogFragment
-import com.fappslab.rickandmortygraphql.arch.viewbinding.viewBinding
 import com.fappslab.rickandmortygraphql.design.R
 import com.fappslab.rickandmortygraphql.design.databinding.LayoutDsdialogSmBinding
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class DsDialogSm : DialogFragment(R.layout.layout_dsdialog_sm) {
 
-    private val binding: LayoutDsdialogSmBinding by viewBinding()
+    private lateinit var binding: LayoutDsdialogSmBinding
 
     @StringRes
     var titleRes: Int? = null
@@ -37,34 +34,32 @@ class DsDialogSm : DialogFragment(R.layout.layout_dsdialog_sm) {
     var dismissAction: () -> Unit? = {}
     var buttonClose: () -> Unit? = {}
 
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        binding = LayoutDsdialogSmBinding.inflate(layoutInflater)
+        return setupDialog(binding.root)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupTitle()
         setupMessage()
         setupCloseButton()
-        setExpanded()
         setupDialog(view)
     }
 
     private fun setupDialog(view: View): Dialog {
         AlertDialog.Builder(view.context).run {
             setView(view)
-            val builder = create()
-            builder.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            builder.window?.gravityBottom(gravityBottom)
-
-            return builder
+            return create().apply {
+                window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                window?.gravityBottom(gravityBottom)
+            }
         }
     }
 
     override fun onDismiss(dialog: DialogInterface) {
         super.onDismiss(dialog)
         dismissAction.invoke()
-    }
-
-    private fun setExpanded() {
-        (dialog as? BottomSheetDialog)?.behavior?.state =
-            BottomSheetBehavior.STATE_EXPANDED
     }
 
     private fun setupTitle() {

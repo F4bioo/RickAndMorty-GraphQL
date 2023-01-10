@@ -13,7 +13,7 @@
         android:contentDescription="@string/common_close"
         android:padding="@dimen/ds_size_02"
         android:src="@drawable/ds_ic_cancel"
-        app:layout_constraintEnd_toEndOf="@+id/container_fragment"
+        app:layout_constraintEnd_toEndOf="@id/container_fragment"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.fragment.app.FragmentContainerView
@@ -24,6 +24,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/close_button" />
+        app:layout_constraintTop_toBottomOf="@id/close_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,7 @@
 package com.fappslab.rickandmortygraphql.remote.client.network.exception
 
+// Those messages won't be used, they are for mock and tests.
+
 const val CLIENT_DEFAULT_ERROR_MESSAGE =
     "Please check the internet connection and try again."
 

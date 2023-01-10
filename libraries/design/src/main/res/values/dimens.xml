@@ -21,6 +21,9 @@
     <dimen name="ds_size_17">112dp</dimen>
     <dimen name="ds_size_18">120dp</dimen>
     <dimen name="ds_size_19">128dp</dimen>
+    <dimen name="ds_size_20">136dp</dimen>
+    <dimen name="ds_size_21">144dp</dimen>
+    <dimen name="ds_size_22">152dp</dimen>
 
     <dimen name="ds_text_size_01">12sp</dimen>
     <dimen name="ds_text_size_02">16sp</dimen>

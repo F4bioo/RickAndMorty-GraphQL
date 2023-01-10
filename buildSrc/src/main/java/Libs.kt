@@ -19,4 +19,6 @@ object Libs {
     const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines_version}"
     const val pagingRuntime = "androidx.paging:paging-runtime:${Versions.pagingRuntime_version}"
     const val annotation = "androidx.annotation:annotation:${Versions.annotation_version}"
+    const val coil = "io.coil-kt:coil:${Versions.coil_version}"
+    const val lottie = "com.airbnb.android:lottie:${Versions.lottie_version}"
 }

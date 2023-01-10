@@ -15,6 +15,8 @@ object Versions {
     const val coroutines_version = "1.6.4"
     const val pagingRuntime_version = "3.1.1"
     const val annotation_version = "1.4.0"
+    const val coil_version = "2.2.2"
+    const val lottie_version = "5.2.0"
 
     // Tests Libs versions
     const val junit_version = "4.13.2"
@@ -24,4 +26,5 @@ object Versions {
     const val turbine_version = "0.8.0"
     const val testRules_version = "1.3.0"
     const val kotlin_version = "1.7.20"
+    const val fragmentTest_version = "1.5.5"
 }
