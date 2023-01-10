@@ -9,17 +9,17 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.fappslab.rickandmortygraphql.arch.viewbinding.viewBinding
 import com.fappslab.rickandmortygraphql.design.R
-import com.fappslab.rickandmortygraphql.design.databinding.LayoutDsmodalBinding
+import com.fappslab.rickandmortygraphql.design.databinding.LayoutDsmodaHostBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.R as GM
 
-class DsModal : BottomSheetDialogFragment(R.layout.layout_dsmodal) {
+class DsModalHost : BottomSheetDialogFragment(R.layout.layout_dsmoda_host) {
 
-    private val binding: LayoutDsmodalBinding by viewBinding()
+    private val binding: LayoutDsmodaHostBinding by viewBinding()
 
-    var onFragment: () -> Fragment? = { null }
+    var setFragment: (() -> Fragment)? = null
     var onCloseButton: () -> Unit? = { dismissAllowingStateLoss() }
     var onDismiss: () -> Unit? = { dismissAllowingStateLoss() }
     var shouldBlock: Boolean = false
@@ -57,12 +57,15 @@ class DsModal : BottomSheetDialogFragment(R.layout.layout_dsmodal) {
     }
 
     private fun setupCloseButton() {
-        binding.closeButton.setOnClickListener { onCloseButton() }
+        binding.buttonClose.setOnClickListener {
+            onCloseButton()
+            dismiss()
+        }
     }
 
     private fun setupChild() {
-        onFragment()?.let { fragment ->
-            childFragmentManager.commit { replace(binding.containerFragment.id, fragment) }
+        setFragment?.let { fragment ->
+            childFragmentManager.commit { replace(binding.containerFragment.id, fragment()) }
         }
     }
 }

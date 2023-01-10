@@ -19,5 +19,7 @@
     <color name="ds_brand_01">#FFFE012F</color>
     <color name="ds_brand_02">#FFFE8E04</color>
     <color name="ds_brand_03">#8E24AA</color>
+    <color name="ds_bg_ds_modal_host">#FFFFFFFF</color>
+    <color name="ds_color_icon_tint">#333333</color>
 
 </resources>

@@ -29,10 +29,10 @@ class DsDialogSm : DialogFragment(R.layout.layout_dsdialog_sm) {
     var messageRes: Int? = null
     var messageText: String? = null
 
+    var onCloseButton: () -> Unit? = { dismissAllowingStateLoss() }
+    var onDismiss: () -> Unit? = { dismissAllowingStateLoss() }
     var gravityBottom: Boolean = true
-
-    var dismissAction: () -> Unit? = {}
-    var buttonClose: () -> Unit? = {}
+    var shouldBlock: Boolean = false
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         binding = LayoutDsdialogSmBinding.inflate(layoutInflater)
@@ -41,6 +41,7 @@ class DsDialogSm : DialogFragment(R.layout.layout_dsdialog_sm) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupBehavior()
         setupTitle()
         setupMessage()
         setupCloseButton()
@@ -59,18 +60,22 @@ class DsDialogSm : DialogFragment(R.layout.layout_dsdialog_sm) {
 
     override fun onDismiss(dialog: DialogInterface) {
         super.onDismiss(dialog)
-        dismissAction.invoke()
+        onDismiss()
+    }
+
+    private fun setupBehavior() {
+        isCancelable = shouldBlock
     }
 
     private fun setupTitle() {
-        binding.dsTextTitle.apply {
+        binding.textTitle.apply {
             text = getText(titleRes, titleText)
             handleVisibility()
         }
     }
 
     private fun setupMessage() {
-        binding.dsTextMessage.apply {
+        binding.textMessage.apply {
             text = getText(messageRes, messageText)
             movementMethod = ScrollingMovementMethod()
             handleVisibility()
@@ -78,8 +83,8 @@ class DsDialogSm : DialogFragment(R.layout.layout_dsdialog_sm) {
     }
 
     private fun setupCloseButton() {
-        binding.dsButtonClose.setOnClickListener {
-            buttonClose.invoke()
+        binding.buttonClose.setOnClickListener {
+            onCloseButton()
             dismiss()
         }
     }
