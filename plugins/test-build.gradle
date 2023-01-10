@@ -22,4 +22,5 @@ dependencies {
     androidTestImplementation(TestLibs.koinTest)
     androidTestImplementation(TestLibs.koinCoreTest)
     androidTestImplementation(TestLibs.mockkAndroidTest)
+    androidTestImplementation(TestLibs.fragmentTest)
 }

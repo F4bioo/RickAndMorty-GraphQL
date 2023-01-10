@@ -12,7 +12,8 @@ import kotlin.test.assertEquals
  * @author [Fabio Marinho]
  * @see <a href="https://github.com/F4bioo">GitHub</a>
  *
- * <P>Test the state and action flows of a ViewModel. This function allows you to specify a block of code
+ * <P>Test state (StateFlow<T>) flow and action flow (SharedFlow<T>) from ViewModel.
+ * This function allows you to specify a block of code
  * that will be executed with the state and action flows as arguments, and will assert that the state
  * flow produces the expected values.</p>
  *
@@ -25,25 +26,25 @@ suspend fun <S, A> ViewModel<S, A>.testFlows(
     backgroundScope: CoroutineScope,
     flowsBlock: suspend StateEvents<S>.(A) -> Unit
 ) {
-    val events = StateEvents<S>()
     val stateTurbine = state.testIn(backgroundScope)
-
-    action.test {
-        flowsBlock(events, awaitItem())
-        cancelAndConsumeRemainingEvents()
-    }
+    val actionTurbine = action.testIn(backgroundScope)
+    val events = StateEvents<S>()
 
     events.states.forEach { state ->
         assertEquals(state, stateTurbine.awaitItem())
     }
+
+    flowsBlock(events, actionTurbine.awaitItem())
+
     stateTurbine.cancelAndConsumeRemainingEvents()
+    actionTurbine.cancelAndConsumeRemainingEvents()
 }
 
 /**
  * @author [Fabio Marinho]
  * @see <a href="https://github.com/F4bioo">GitHub</a>
  *
- * <P>Test the state flow of a ViewModel. This function allows you to specify a block of code that will
+ * <P>Test the state flow (StateFlow<T>) from ViewModel. This function allows you to specify a block of code that will
  * be executed with the state flow as an argument, and will assert that the state flow produces the
  * expected values.</p>
  *
@@ -69,7 +70,7 @@ suspend fun <S, A> ViewModel<S, A>.testStateFlow(
  * @author [Fabio Marinho]
  * @see <a href="https://github.com/F4bioo">GitHub</a>
  *
- * <P>Test the action flow of a ViewModel. This function allows you to specify a block of code that will
+ * <P>Test the action flow (SharedFlow<T>) from ViewModel. This function allows you to specify a block of code that will
  * be executed with the action flow as an argument, and will assert that the action flow produces the
  * expected values.</p>
  *

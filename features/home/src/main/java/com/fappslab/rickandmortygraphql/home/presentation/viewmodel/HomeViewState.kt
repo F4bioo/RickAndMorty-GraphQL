@@ -5,18 +5,29 @@ import com.fappslab.rickandmortygraphql.domain.model.Character
 import com.fappslab.rickandmortygraphql.domain.model.Characters
 
 internal const val FIRST_PAGE = 1
+internal const val PAGING_SPAN_COUNT_PORTRAIT = 3
+internal const val PAGING_SPAN_COUNT_LANDSCAPE = 6
 
 internal data class HomeViewState(
     val character: Character? = null,
+    val shouldShowTryAgain: Boolean = false,
     val shouldShowLoading: Boolean = false,
     val shouldShowDetails: Boolean = false,
-    val characters: Set<Character> = emptySet(),
+    val shouldShowEmptyLayout: Boolean = false,
+    val characters: List<Character> = emptyList(),
     val totalPages: Int? = null,
     val nextPage: Int = FIRST_PAGE
 ) {
 
-    fun submitLIst(newCharacters: Characters) = copy(
-        characters = newCharacters.characters join characters,
+    fun getCharactersFailureState() = copy(
+        shouldShowEmptyLayout = characters.isEmpty(),
+        shouldShowTryAgain = true
+    )
+
+    fun getCharactersSuccessState(newCharacters: Characters) = copy(
+        shouldShowEmptyLayout = false,
+        shouldShowTryAgain = false,
+        characters = unionList(newList = newCharacters.characters),
         totalPages = newCharacters.totalPages,
         nextPage = nextPage.inc()
     )
@@ -25,12 +36,15 @@ internal data class HomeViewState(
         shouldFetchNextPage: Boolean,
         fetchNextPage: (Int) -> Unit
     ) {
-        if (shouldFetchNextPage && nextPage.inc() <= totalPages.orZero()) {
-            fetchNextPage(nextPage)
-        }
+        if (
+            shouldFetchNextPage and
+            shouldShowLoading.not() and
+            shouldShowTryAgain.not() and
+            (nextPage <= totalPages.orZero())
+        ) fetchNextPage(nextPage)
     }
 
-    private infix fun List<Character>.join(
-        oldList: Set<Character>
-    ): Set<Character> = oldList + this
+    private fun unionList(newList: List<Character>): List<Character> {
+        return characters.union(newList).toList()
+    }
 }

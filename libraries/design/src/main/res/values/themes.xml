@@ -2,7 +2,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="Theme.Ds" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Ds" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/ds_primary</item>
         <item name="colorPrimaryVariant">@color/ds_primary_dark</item>
@@ -65,6 +65,11 @@
 
     <style name="BottomSheetTopRadius" parent="@style/Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/ds_bg_bottom_sheet_top_radius</item>
+    </style>
+
+    <style name="DsImageCircle">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
     </style>
 
 </resources>

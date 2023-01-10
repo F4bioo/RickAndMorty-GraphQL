@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_character_id">#%s</string>
+    <string name="home_empty_list">Where\'s the app list, Morty? It\'s empty!</string>
+    <string name="home_character_status">Represents the status of character like: Alive (green), Dead (red) or Unknown (dark)</string>
+</resources>
