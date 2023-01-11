@@ -1,6 +1,7 @@
 package com.fappslab.rickandmortygraphql
 
 import android.app.Application
+import com.fappslab.rickandmortygraphql.details.di.DetailsModule
 import com.fappslab.rickandmortygraphql.di.AppModule
 import com.fappslab.rickandmortygraphql.home.di.HomeModule
 import com.fappslab.rickandmortygraphql.remote.di.RemoteModule
@@ -19,7 +20,8 @@ class Application : Application() {
     private val modules by lazy {
         AppModule.modules +
                 RemoteModule.modules +
-                HomeModule.modules
+                HomeModule.modules +
+                DetailsModule.modules
     }
 
     override fun onCreate() {

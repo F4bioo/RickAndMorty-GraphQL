@@ -19,6 +19,7 @@ include ':app',
         ':core:common:navigation',
         ':core:data:hubSrc',
         ':core:data:remote',
+        ':features:details',
         ':features:home',
         ':libraries:arch',
         ':libraries:design'

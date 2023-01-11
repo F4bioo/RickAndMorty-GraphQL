@@ -23,6 +23,7 @@ class DsModalHost : BottomSheetDialogFragment(R.layout.layout_dsmoda_host) {
     var onCloseButton: () -> Unit? = { dismissAllowingStateLoss() }
     var onDismiss: () -> Unit? = { dismissAllowingStateLoss() }
     var shouldBlock: Boolean = false
+    var shouldExpanded: Boolean = false
 
     override fun getTheme() = R.style.DsBottomSheet
 
@@ -47,7 +48,9 @@ class DsModalHost : BottomSheetDialogFragment(R.layout.layout_dsmoda_host) {
 
     private fun setupBehavior() {
         (dialog as? BottomSheetDialog)?.behavior?.apply {
-            state = BottomSheetBehavior.STATE_EXPANDED
+            if (shouldExpanded) {
+                state = BottomSheetBehavior.STATE_EXPANDED
+            }
             if (shouldBlock) {
                 isHideable = true
                 isCancelable = false

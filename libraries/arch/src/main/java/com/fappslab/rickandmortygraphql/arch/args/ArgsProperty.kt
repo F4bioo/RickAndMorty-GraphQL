@@ -14,11 +14,8 @@ internal class ArgsProperty<H, P : Parcelable>(
     private var value: P? = null
 
     override fun getValue(thisRef: H, property: KProperty<*>): P {
-        return value ?: bundleResolver(thisRef).let { bundle ->
-            val argUntyped = bundle.get(KEY_ARGS)
-            requireNotNull(argUntyped) { "Have you invoked putArguments()?" }
-            @Suppress("UNCHECKED_CAST")
-            argUntyped as P
+        return requireNotNull((value ?: bundleResolver(thisRef).getParcelable(KEY_ARGS))) {
+            "Cannot read property ${property.name} have you invoked putArguments?"
         }
     }
 }

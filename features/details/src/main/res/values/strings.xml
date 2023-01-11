@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="details_title">DETAILS</string>
+    <string name="details_gender_title">Gender</string>
+    <string name="details_species_title">Species</string>
+    <string name="details_origin_title">ORIGIN</string>
+    <string name="details_name_title">Name</string>
+    <string name="details_character_id">#%s</string>
+</resources>
