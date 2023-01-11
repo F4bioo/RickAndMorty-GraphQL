@@ -11,12 +11,15 @@ import com.fappslab.rickandmortygraphql.design.dsdialogsm.build
 import com.fappslab.rickandmortygraphql.design.dsdialogsm.dsDialogSm
 import com.fappslab.rickandmortygraphql.design.dsmodal.build
 import com.fappslab.rickandmortygraphql.design.dsmodal.dsModalHost
+import com.fappslab.rickandmortygraphql.domain.model.Character
 import com.fappslab.rickandmortygraphql.home.databinding.HomeCharacterItemBinding
 import com.fappslab.rickandmortygraphql.home.presentation.HomeFragment
 import com.fappslab.rickandmortygraphql.home.presentation.model.StatusType.Alive
 import com.fappslab.rickandmortygraphql.home.presentation.model.StatusType.Dead
 import com.fappslab.rickandmortygraphql.home.presentation.model.StatusType.Unknown
+import com.fappslab.rickandmortygraphql.home.presentation.model.extension.toCharacterArgs
 import com.fappslab.rickandmortygraphql.home.presentation.viewmodel.HomeViewState
+import com.fappslab.rickandmortygraphql.navigation.DetailsNavigation
 import com.fappslab.rickandmortygraphql.design.R as DS
 
 internal fun HomeFragment.inflate(parent: ViewGroup): HomeCharacterItemBinding =
@@ -49,8 +52,8 @@ internal fun HomeFragment.showErrorDialog(@StringRes stringRes: Int) {
     }.build(childFragmentManager)
 }
 
-internal fun HomeFragment.showDetails() {
+internal fun HomeFragment.showDetails(character: Character, navigation: DetailsNavigation) {
     dsModalHost {
-        setFragment = { HomeFragment() }
+        setFragment = { navigation.navigationToFeature(character.toCharacterArgs()) }
     }.build(childFragmentManager)
 }

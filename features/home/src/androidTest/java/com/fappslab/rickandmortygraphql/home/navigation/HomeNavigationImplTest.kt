@@ -16,6 +16,7 @@ import org.junit.runner.RunWith
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import org.koin.test.KoinTestRule
+import kotlin.test.assertEquals
 import kotlin.test.assertIs
 
 @RunWith(AndroidJUnit4::class)
@@ -37,6 +38,7 @@ internal class HomeNavigationImplTest {
     fun whenInvokeNavigationToFeature_shouldOpenHomeFragment() {
         // Given
         val subject = HomeNavigationImpl()
+        val expectedFragmentName = "HomeFragment"
 
         // When
         val scenario = launchFragment(themeResId = R.style.Theme_Ds) {
@@ -46,6 +48,7 @@ internal class HomeNavigationImplTest {
         // Then
         scenario.onFragment { fragment ->
             assertIs<HomeFragment>(fragment)
+            assertEquals(expectedFragmentName, fragment.javaClass.simpleName)
         }
     }
 }

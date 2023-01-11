@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="ds_bg_ds_modal_host">#424242</color>
+    <color name="ds_bg_ds_modal_host">#222222</color>
     <color name="ds_color_icon_tint">#FFFFFF</color>
 </resources>

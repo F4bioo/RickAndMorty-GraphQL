@@ -25,6 +25,8 @@ import com.fappslab.rickandmortygraphql.home.presentation.viewmodel.HomeViewActi
 import com.fappslab.rickandmortygraphql.home.presentation.viewmodel.HomeViewModel
 import com.fappslab.rickandmortygraphql.home.presentation.viewmodel.HomeViewState
 import com.fappslab.rickandmortygraphql.home.presentation.viewmodel.PAGING_SPAN_COUNT_PORTRAIT
+import com.fappslab.rickandmortygraphql.navigation.DetailsNavigation
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import com.fappslab.rickandmortygraphql.design.R as DS
 
@@ -32,6 +34,7 @@ internal class HomeFragment : Fragment(R.layout.home_fragment) {
 
     private val binding: HomeFragmentBinding by viewBinding()
     private val viewModel: HomeViewModel by sharedViewModel()
+    private val detailsNavigation: DetailsNavigation by inject()
     private val includeEmptyList get() = binding.includeEmptyList
     private val includeFooter get() = binding.includeFooter
     private val charactersAdapter by lazy {
@@ -92,7 +95,7 @@ internal class HomeFragment : Fragment(R.layout.home_fragment) {
     }
 
     private fun HomeCharacterItemBinding.bind(character: Character) {
-        cardCharacter.setOnClickListener { /* TODO Implement - next PR*/ }
+        cardCharacter.setOnClickListener { showDetails(character, detailsNavigation) }
         textId.text = getString(R.string.home_character_id, character.id)
         textCharacter.text = character.name
         imageStatus.imageStatus(character.status)

@@ -6,6 +6,7 @@ object Modules {
     const val remote = ":core:data:remote"
 
     // Features
+    const val details = ":features:details"
     const val home = ":features:home"
 
     // Libraries
