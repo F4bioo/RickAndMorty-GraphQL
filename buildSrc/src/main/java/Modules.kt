@@ -7,6 +7,7 @@ object Modules {
 
     // Features
     const val details = ":features:details"
+    const val filter = ":features:filter"
     const val home = ":features:home"
 
     // Libraries

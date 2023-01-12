@@ -20,6 +20,7 @@ include ':app',
         ':core:data:hubSrc',
         ':core:data:remote',
         ':features:details',
+        ':features:filter',
         ':features:home',
         ':libraries:arch',
         ':libraries:design'

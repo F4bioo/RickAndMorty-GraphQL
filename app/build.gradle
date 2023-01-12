@@ -71,4 +71,5 @@ dependencies {
     implementation project(Modules.design)
     implementation project(Modules.home)
     implementation project(Modules.details)
+    implementation project(Modules.filter)
 }
