@@ -1,0 +1,20 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+apply from: "$rootDir/plugins/android-build.gradle"
+
+android {
+    namespace "${Config.applicationId}.core.data.local"
+    defaultConfig {
+        buildConfigField "String", "PREFS_NAME", '"Prefs"'
+    }
+}
+
+dependencies {
+    // Libs
+
+    // Modules
+    implementation project(Modules.domain)
+
+}

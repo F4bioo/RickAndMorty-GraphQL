@@ -3,6 +3,7 @@ object Modules {
     const val domain = ":core:common:domain"
     const val navigation = ":core:common:navigation"
     const val hubSrc = ":core:data:hubSrc"
+    const val local = ":core:data:local"
     const val remote = ":core:data:remote"
 
     // Features

@@ -1,9 +1,12 @@
 package com.fappslab.rickandmortygraphql
 
 import android.app.Application
+import com.fappslab.rickandmortygraphql.core.data.local.di.LocalModule
 import com.fappslab.rickandmortygraphql.details.di.DetailsModule
 import com.fappslab.rickandmortygraphql.di.AppModule
+import com.fappslab.rickandmortygraphql.filter.di.FilterModule
 import com.fappslab.rickandmortygraphql.home.di.HomeModule
+import com.fappslab.rickandmortygraphql.hubsrc.di.HubSrcModule
 import com.fappslab.rickandmortygraphql.remote.di.RemoteModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -19,9 +22,12 @@ class Application : Application() {
 
     private val modules by lazy {
         AppModule.modules +
+                HubSrcModule.modules +
+                LocalModule.modules +
                 RemoteModule.modules +
                 HomeModule.modules +
-                DetailsModule.modules
+                DetailsModule.modules +
+                FilterModule.modules
     }
 
     override fun onCreate() {

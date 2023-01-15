@@ -8,7 +8,6 @@ data class Character(
     val species: String,
     val gender: String,
     val episode: List<Episode>,
-    val location: Location,
     val origin: Origin
 ) {
 
@@ -18,17 +17,9 @@ data class Character(
         val airDate: String
     )
 
-    data class Location(
-        val id: String,
-        val name: String,
-        val type: String,
-        val dimension: String
-    )
-
     data class Origin(
         val id: String,
         val name: String,
-        val type: String,
         val dimension: String
     )
 }

@@ -6,7 +6,6 @@ import com.fappslab.rickandmortygraphql.domain.model.Characters
 import com.fappslab.rickandmortygraphql.hubsrc.utils.QueryResponse.DataResponse.CharactersResponse
 import com.fappslab.rickandmortygraphql.hubsrc.utils.QueryResponse.DataResponse.CharactersResponse.ResultResponse
 import com.fappslab.rickandmortygraphql.hubsrc.utils.QueryResponse.DataResponse.CharactersResponse.ResultResponse.EpisodeResponse
-import com.fappslab.rickandmortygraphql.hubsrc.utils.QueryResponse.DataResponse.CharactersResponse.ResultResponse.LocationResponse
 import com.fappslab.rickandmortygraphql.hubsrc.utils.QueryResponse.DataResponse.CharactersResponse.ResultResponse.OriginResponse
 import com.google.gson.annotations.SerializedName
 
@@ -114,7 +113,6 @@ fun ResultResponse?.toCharacter() =
         species = this?.species.orEmpty(),
         gender = this?.gender.orEmpty(),
         episode = this?.episodes.toEpisodes(),
-        location = this?.location.toLocation(),
         origin = this?.origin.toOrigin()
     )
 
@@ -125,18 +123,9 @@ fun EpisodeResponse?.toEpisode() =
         airDate = this?.airDate.orEmpty(),
     )
 
-fun LocationResponse?.toLocation() =
-    Character.Location(
-        id = this?.id.orEmpty(),
-        name = this?.name.orEmpty(),
-        type = this?.type.orEmpty(),
-        dimension = this?.dimension.orEmpty()
-    )
-
 fun OriginResponse?.toOrigin() =
     Character.Origin(
         id = this?.id.orEmpty(),
         name = this?.name.orEmpty(),
-        type = this?.type.orEmpty(),
         dimension = this?.dimension.orEmpty()
     )

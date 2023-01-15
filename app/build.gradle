@@ -64,6 +64,7 @@ android {
 dependencies {
     // Modules
     implementation project(Modules.navigation)
+    implementation project(Modules.local)
     implementation project(Modules.remote)
     implementation project(Modules.hubSrc)
     implementation project(Modules.domain)

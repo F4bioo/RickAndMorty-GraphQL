@@ -17,6 +17,7 @@ object Versions {
     const val annotation_version = "1.4.0"
     const val coil_version = "2.2.2"
     const val lottie_version = "5.2.0"
+    const val datastore_version = "1.0.0"
 
     // Tests Libs versions
     const val junit_version = "4.13.2"

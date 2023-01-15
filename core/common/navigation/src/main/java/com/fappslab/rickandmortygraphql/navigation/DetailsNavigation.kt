@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import kotlinx.parcelize.Parcelize
 
 interface DetailsNavigation {
-    fun navigationToFeature(args: CharacterArgs): Fragment
+    fun create(args: CharacterArgs): Fragment
 }
 
 @Parcelize

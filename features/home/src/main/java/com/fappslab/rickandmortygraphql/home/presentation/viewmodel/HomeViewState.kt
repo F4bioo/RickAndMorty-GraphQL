@@ -3,6 +3,8 @@ package com.fappslab.rickandmortygraphql.home.presentation.viewmodel
 import com.fappslab.rickandmortygraphql.arch.extension.orZero
 import com.fappslab.rickandmortygraphql.domain.model.Character
 import com.fappslab.rickandmortygraphql.domain.model.Characters
+import com.fappslab.rickandmortygraphql.domain.model.Filter
+import com.fappslab.rickandmortygraphql.domain.model.KeyType
 
 internal const val FIRST_PAGE = 1
 internal const val PAGING_SPAN_COUNT_PORTRAIT = 3
@@ -14,9 +16,10 @@ internal data class HomeViewState(
     val shouldShowLoading: Boolean = false,
     val shouldShowDetails: Boolean = false,
     val shouldShowEmptyLayout: Boolean = false,
+    val shouldShowFabButton: Boolean = true,
     val characters: List<Character> = emptyList(),
-    val totalPages: Int? = null,
-    val nextPage: Int = FIRST_PAGE
+    val filter: Filter = Filter(),
+    val totalPages: Int? = null
 ) {
 
     fun getCharactersFailureState() = copy(
@@ -27,9 +30,10 @@ internal data class HomeViewState(
     fun getCharactersSuccessState(newCharacters: Characters) = copy(
         shouldShowEmptyLayout = false,
         shouldShowTryAgain = false,
+        shouldShowFabButton = true,
         characters = unionList(newList = newCharacters.characters),
         totalPages = newCharacters.totalPages,
-        nextPage = nextPage.inc()
+        filter = filter.copy(page = filter.page.inc())
     )
 
     fun nextPageHandle(
@@ -40,11 +44,18 @@ internal data class HomeViewState(
             shouldFetchNextPage and
             shouldShowLoading.not() and
             shouldShowTryAgain.not() and
-            (nextPage <= totalPages.orZero())
-        ) fetchNextPage(nextPage)
+            (filter.page <= totalPages.orZero())
+        ) fetchNextPage(filter.page)
     }
 
     private fun unionList(newList: List<Character>): List<Character> {
         return characters.union(newList).toList()
+    }
+
+    fun filterUpdate(keyType: KeyType, filterName: String?) = when (keyType) {
+        KeyType.KeyStatus -> copy(filter = filter.copy(status = filterName, page = FIRST_PAGE))
+        KeyType.KeyGender -> copy(filter = filter.copy(gender = filterName, page = FIRST_PAGE))
+        KeyType.KeySpecies -> copy(filter = filter.copy(species = filterName, page = FIRST_PAGE))
+        else -> this
     }
 }

@@ -6,6 +6,6 @@ import com.fappslab.rickandmortygraphql.navigation.HomeNavigation
 
 internal class HomeNavigationImpl : HomeNavigation {
 
-    override fun navigationToFeature(): Fragment =
-        HomeFragment.createFragment()
+    override fun create(): Fragment =
+        HomeFragment.create()
 }

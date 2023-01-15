@@ -21,4 +21,5 @@ object Libs {
     const val annotation = "androidx.annotation:annotation:${Versions.annotation_version}"
     const val coil = "io.coil-kt:coil:${Versions.coil_version}"
     const val lottie = "com.airbnb.android:lottie:${Versions.lottie_version}"
+    const val datastore = "androidx.datastore:datastore-preferences:${Versions.datastore_version}"
 }

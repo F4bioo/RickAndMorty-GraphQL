@@ -2,10 +2,10 @@ package com.fappslab.rickandmortygraphql.home.presentation
 
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.StringRes
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import coil.load
 import com.fappslab.rickandmortygraphql.arch.adapter.GenericAdapter
 import com.fappslab.rickandmortygraphql.arch.paging.pagingscroll.PagingScrollListener
 import com.fappslab.rickandmortygraphql.arch.viewbinding.viewBinding
@@ -15,31 +15,34 @@ import com.fappslab.rickandmortygraphql.domain.model.Character
 import com.fappslab.rickandmortygraphql.home.R
 import com.fappslab.rickandmortygraphql.home.databinding.HomeCharacterItemBinding
 import com.fappslab.rickandmortygraphql.home.databinding.HomeFragmentBinding
-import com.fappslab.rickandmortygraphql.home.presentation.extension.imageStatus
+import com.fappslab.rickandmortygraphql.home.presentation.extension.bind
 import com.fappslab.rickandmortygraphql.home.presentation.extension.inflate
 import com.fappslab.rickandmortygraphql.home.presentation.extension.loadingEmptyListVisibility
 import com.fappslab.rickandmortygraphql.home.presentation.extension.loadingFooterVisibility
 import com.fappslab.rickandmortygraphql.home.presentation.extension.showDetails
 import com.fappslab.rickandmortygraphql.home.presentation.extension.showErrorDialog
+import com.fappslab.rickandmortygraphql.home.presentation.extension.showFilter
+import com.fappslab.rickandmortygraphql.home.presentation.extension.visibilityHandle
 import com.fappslab.rickandmortygraphql.home.presentation.viewmodel.HomeViewAction
 import com.fappslab.rickandmortygraphql.home.presentation.viewmodel.HomeViewModel
 import com.fappslab.rickandmortygraphql.home.presentation.viewmodel.HomeViewState
 import com.fappslab.rickandmortygraphql.home.presentation.viewmodel.PAGING_SPAN_COUNT_PORTRAIT
 import com.fappslab.rickandmortygraphql.navigation.DetailsNavigation
+import com.fappslab.rickandmortygraphql.navigation.FilterNavigation
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
-import com.fappslab.rickandmortygraphql.design.R as DS
 
 internal class HomeFragment : Fragment(R.layout.home_fragment) {
 
     private val binding: HomeFragmentBinding by viewBinding()
     private val viewModel: HomeViewModel by sharedViewModel()
     private val detailsNavigation: DetailsNavigation by inject()
+    private val filterNavigation: FilterNavigation by inject()
     private val includeEmptyList get() = binding.includeEmptyList
     private val includeFooter get() = binding.includeFooter
     private val charactersAdapter by lazy {
         GenericAdapter<HomeCharacterItemBinding, Character>(::inflate) { binding, item, _ ->
-            binding.bind(character = item)
+            bind(binding, character = item, itemAction = viewModel::onDetails)
         }
     }
 
@@ -53,6 +56,7 @@ internal class HomeFragment : Fragment(R.layout.home_fragment) {
     private fun setupObservables() {
         onViewState(viewModel) { state ->
             loadingState(state)
+            fabButtonVisibilityState(state)
             submitListState(state.characters)
             tryAgainState(state.shouldShowTryAgain)
             emptyLayoutState(state.shouldShowEmptyLayout)
@@ -60,14 +64,22 @@ internal class HomeFragment : Fragment(R.layout.home_fragment) {
 
         onViewAction(viewModel) { action ->
             when (action) {
-                is HomeViewAction.Error -> showErrorDialog(action.message)
+                HomeViewAction.Filter -> showFilterAction()
+                is HomeViewAction.Details -> showDetailsAction(action.character)
+                is HomeViewAction.Error -> showErrorDialogAction(action.message, action.cause)
             }
         }
     }
 
-    private fun setupListeners() {
+    private fun setupListeners() = binding.run {
         includeFooter.buttonTryAgainFooter.setOnClickListener { viewModel.onTryAgain() }
-        binding.recyclerCharacters.addOnScrollListener(PagingScrollListener(viewModel::onPagination))
+        fabFilter.setOnClickListener { viewModel.onFilter() }
+        recyclerCharacters.addOnScrollListener(
+            PagingScrollListener(
+                shouldCallNextPage = viewModel::onPagination,
+                shouldShowFabButton = viewModel::onFabVisibility,
+            )
+        )
     }
 
     private fun setupRecycler() = binding.recyclerCharacters.run {
@@ -82,6 +94,10 @@ internal class HomeFragment : Fragment(R.layout.home_fragment) {
         includeFooter.loadingFooter.loadingFooterVisibility(state)
     }
 
+    private fun fabButtonVisibilityState(state: HomeViewState) = state.run {
+        binding.fabFilter.visibilityHandle { shouldShowFabButton and characters.isNotEmpty() }
+    }
+
     private fun tryAgainState(isVisible: Boolean) {
         includeFooter.buttonTryAgainFooter.isVisible = isVisible
     }
@@ -94,19 +110,19 @@ internal class HomeFragment : Fragment(R.layout.home_fragment) {
         charactersAdapter.submitList(characters)
     }
 
-    private fun HomeCharacterItemBinding.bind(character: Character) {
-        cardCharacter.setOnClickListener { showDetails(character, detailsNavigation) }
-        textId.text = getString(R.string.home_character_id, character.id)
-        textCharacter.text = character.name
-        imageStatus.imageStatus(character.status)
-        imageCharacter.load(character.image) {
-            crossfade(enable = true)
-            placeholder(DS.drawable.placeholder)
-            error(DS.drawable.placeholder)
-        }
+    private fun showFilterAction() {
+        showFilter(filterNavigation, closeAction = viewModel::setFilter)
+    }
+
+    private fun showDetailsAction(character: Character) {
+        showDetails(character, detailsNavigation)
+    }
+
+    private fun showErrorDialogAction(@StringRes messageRes: Int, cause: Throwable) {
+        showErrorDialog(messageRes, cause, closeAction = viewModel::onCloseError)
     }
 
     companion object {
-        fun createFragment(): HomeFragment = HomeFragment()
+        fun create(): HomeFragment = HomeFragment()
     }
 }

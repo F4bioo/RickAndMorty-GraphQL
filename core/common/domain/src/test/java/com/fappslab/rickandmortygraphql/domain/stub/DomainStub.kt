@@ -1,4 +1,4 @@
-package stub
+package com.fappslab.rickandmortygraphql.domain.stub
 
 import com.fappslab.rickandmortygraphql.domain.model.Characters
 

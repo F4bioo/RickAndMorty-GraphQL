@@ -64,7 +64,7 @@ class DsDialogSm : DialogFragment(R.layout.layout_dsdialog_sm) {
     }
 
     private fun setupBehavior() {
-        isCancelable = shouldBlock
+        isCancelable = shouldBlock.not()
     }
 
     private fun setupTitle() {
