@@ -23,7 +23,7 @@ object HomeModule {
         viewModel {
             HomeViewModel(
                 getCharactersUseCase = GetCharactersUseCase(
-                    getRickAndMortyRepository()::getCharacters
+                    getRickAndMortyRepository()::getCharactersFilter
                 )
             )
         }

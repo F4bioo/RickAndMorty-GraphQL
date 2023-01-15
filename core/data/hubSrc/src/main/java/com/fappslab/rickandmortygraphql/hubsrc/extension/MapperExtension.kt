@@ -1,24 +1,27 @@
 package com.fappslab.rickandmortygraphql.hubsrc.extension
 
+import com.apollographql.apollo3.api.Optional
 import com.fappslab.rickandmortygraphql.arch.extension.orZero
 import com.fappslab.rickandmortygraphql.domain.model.Character
 import com.fappslab.rickandmortygraphql.domain.model.Characters
-import com.fappslab.rickandmortygraphql.remote.GetCharactersQuery
+import com.fappslab.rickandmortygraphql.domain.model.Filter
+import com.fappslab.rickandmortygraphql.remote.GetCharactersFilterQuery
+import com.fappslab.rickandmortygraphql.remote.type.FilterCharacter
 
-fun List<GetCharactersQuery.Episode?>?.toEpisodes() =
+fun List<GetCharactersFilterQuery.Episode?>?.toEpisodes() =
     this?.map { it.toEpisode() }.orEmpty()
 
-fun List<GetCharactersQuery.Result?>?.toCharacters() =
+fun List<GetCharactersFilterQuery.Result?>?.toCharacters() =
     this?.map { it.toCharacter() }.orEmpty()
 
-fun GetCharactersQuery.Characters?.toCharacters() =
+fun GetCharactersFilterQuery.Characters?.toCharacters() =
     Characters(
         characters = this?.results.toCharacters(),
         totalPages = this?.info?.pages.orZero(),
         nextPage = this?.info?.next.orZero()
     )
 
-fun GetCharactersQuery.Result?.toCharacter() =
+fun GetCharactersFilterQuery.Result?.toCharacter() =
     Character(
         id = this?.id.orEmpty(),
         name = this?.name.orEmpty(),
@@ -27,29 +30,27 @@ fun GetCharactersQuery.Result?.toCharacter() =
         species = this?.species.orEmpty(),
         gender = this?.gender.orEmpty(),
         episode = this?.episode.toEpisodes(),
-        location = this?.location.toLocation(),
         origin = this?.origin.toOrigin()
     )
 
-fun GetCharactersQuery.Episode?.toEpisode() =
+fun GetCharactersFilterQuery.Episode?.toEpisode() =
     Character.Episode(
         id = this?.id.orEmpty(),
         name = this?.name.orEmpty(),
         airDate = this?.air_date.orEmpty(),
     )
 
-fun GetCharactersQuery.Location?.toLocation() =
-    Character.Location(
-        id = this?.id.orEmpty(),
-        name = this?.name.orEmpty(),
-        type = this?.type.orEmpty(),
-        dimension = this?.dimension.orEmpty()
-    )
-
-fun GetCharactersQuery.Origin?.toOrigin() =
+fun GetCharactersFilterQuery.Origin?.toOrigin() =
     Character.Origin(
         id = this?.id.orEmpty(),
         name = this?.name.orEmpty(),
-        type = this?.type.orEmpty(),
         dimension = this?.dimension.orEmpty()
+    )
+
+fun Filter.toFilterCharacter() =
+    FilterCharacter(
+        name = Optional.present(name),
+        status = Optional.present(status),
+        species = Optional.present(species),
+        gender = Optional.present(gender)
     )

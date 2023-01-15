@@ -1,18 +1,20 @@
 package com.fappslab.rickandmortygraphql.hubsrc.source.remote
 
 import com.apollographql.apollo3.ApolloClient
-import com.fappslab.rickandmortygraphql.remote.GetCharactersQuery
+import com.fappslab.rickandmortygraphql.remote.GetCharactersFilterQuery
 import com.fappslab.rickandmortygraphql.remote.client.network.extension.orParseHttpError
 import com.fappslab.rickandmortygraphql.remote.source.RickAndMortyDataSource
+import com.fappslab.rickandmortygraphql.remote.type.FilterCharacter
 import kotlinx.coroutines.flow.Flow
 
 class RickAndMortyDataSourceImpl(
     private val client: ApolloClient
 ) : RickAndMortyDataSource {
 
-    override fun getCharacters(page: Int): Flow<GetCharactersQuery.Data> =
-        client.query(GetCharactersQuery(page)).orParseHttpError()
-
-    override suspend fun getCharactersPagination(page: Int): GetCharactersQuery.Data? =
-        client.query(GetCharactersQuery(page)).execute().data
+    override fun getCharactersFilter(
+        page: Int,
+        filter: FilterCharacter
+    ): Flow<GetCharactersFilterQuery.Data> = client.query(
+        GetCharactersFilterQuery(page, filter)
+    ).orParseHttpError()
 }

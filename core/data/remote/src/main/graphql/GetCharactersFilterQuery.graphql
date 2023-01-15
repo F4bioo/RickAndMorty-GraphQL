@@ -1,5 +1,5 @@
-query GetCharactersQuery($page: Int) {
-    characters(page: $page) {
+query GetCharactersFilterQuery($page: Int, $filter: FilterCharacter) {
+    characters(page: $page, filter: $filter) {
         results {
             id
             name
@@ -12,16 +12,9 @@ query GetCharactersQuery($page: Int) {
                 name
                 air_date
             }
-            location {
-                id
-                name
-                type
-                dimension
-            }
             origin {
                 id
                 name
-                type
                 dimension
             }
         }

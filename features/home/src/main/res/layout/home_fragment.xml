@@ -18,12 +18,25 @@
         tools:itemCount="1"
         tools:listitem="@layout/home_character_item" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/ds_size_04"
+        android:layout_marginBottom="@dimen/ds_size_07"
+        android:contentDescription="@string/home_filter"
+        android:src="@drawable/ds_ic_filter_list"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/ds_white" />
+
     <include
         android:id="@+id/include_empty_list"
         layout="@layout/home_include_empty_list"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@id/recycler_characters"
+        app:layout_constraintBottom_toTopOf="@+id/include_footer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

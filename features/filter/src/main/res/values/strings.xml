@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="filter_alive">Alive</string>
+    <string name="filter_dead">Dead</string>
+    <string name="filter_unknown">Unknown</string>
+
+    <string name="filter_male">Male</string>
+    <string name="filter_female">Female</string>
+    <string name="filter_genderless">Genderless</string>
+
+    <string name="filter_human">Human</string>
+    <string name="filter_alien">Alien</string>
+    <string name="filter_robot">Robot</string>
+    <string name="filter_mythological">Mythological</string>
+    <string name="filter_humanoid">Humanoid</string>
+    <string name="filter_poopybutthole">Poopybutthole</string>
+    <string name="filter_animal">Animal</string>
+    <string name="filter_disease">Disease</string>
+
+    <string name="filter_title">Filter list</string>
+    <string name="filter_status">Status</string>
+    <string name="filter_gender">Gender</string>
+    <string name="filter_species">Species</string>
+    <string name="filter_none">None</string>
+</resources>

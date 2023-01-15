@@ -35,14 +35,14 @@ internal class HomeNavigationImplTest {
     }
 
     @Test
-    fun whenInvokeNavigationToFeature_shouldOpenHomeFragment() {
+    fun whenInvokeCreate_shouldOpenHomeFragment() {
         // Given
         val subject = HomeNavigationImpl()
         val expectedFragmentName = "HomeFragment"
 
         // When
         val scenario = launchFragment(themeResId = R.style.Theme_Ds) {
-            subject.navigationToFeature()
+            subject.create()
         }
 
         // Then

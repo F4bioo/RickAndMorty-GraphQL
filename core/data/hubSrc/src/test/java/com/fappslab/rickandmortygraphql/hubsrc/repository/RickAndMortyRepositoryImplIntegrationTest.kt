@@ -7,6 +7,7 @@ import com.apollographql.apollo3.mockserver.MockServer
 import com.apollographql.apollo3.mockserver.enqueue
 import com.fappslab.rickandmortygraphql.domain.repository.RickAndMortyRepository
 import com.fappslab.rickandmortygraphql.hubsrc.source.remote.RickAndMortyDataSourceImpl
+import com.fappslab.rickandmortygraphql.hubsrc.stub.filterStub
 import com.fappslab.rickandmortygraphql.hubsrc.utils.StubResponse.expectedFailureBodyResponse
 import com.fappslab.rickandmortygraphql.hubsrc.utils.StubResponse.expectedSuccessBodyResponse
 import com.fappslab.rickandmortygraphql.hubsrc.utils.StubResponse.expectedSuccessDataResponse
@@ -57,13 +58,13 @@ internal class RickAndMortyRepositoryImplIntegrationTest {
     }
 
     @Test
-    fun `getRemoteDataSuccess Should return success response When invoke getGetCharacters`() {
+    fun `getRemoteDataSuccess Should return success response When invoke getCharactersFilter`() {
         // Given
         val expectedResult = expectedSuccessDataResponse?.characters.toCharacters()
         mockServer.enqueue(expectedSuccessBodyResponse, statusCode = HTTP_OK)
 
         // When
-        val result = subject.getCharacters(page = 1)
+        val result = subject.getCharactersFilter(filter = filterStub())
 
         // Then
         runTest {
@@ -75,13 +76,13 @@ internal class RickAndMortyRepositoryImplIntegrationTest {
     }
 
     @Test
-    fun `getRemoteDataFailure Should return failure message from backend When invoke getGetCharacters`() {
+    fun `getRemoteDataFailure Should return failure message from backend When invoke getCharactersFilter`() {
         // Given
         val expectedMessage = "Error message."
         mockServer.enqueue(expectedFailureBodyResponse, statusCode = HTTP_OK)
 
         // When
-        val result = subject.getCharacters(page = 1)
+        val result = subject.getCharactersFilter(filter = filterStub())
 
         // Then
         runTest {
@@ -93,13 +94,13 @@ internal class RickAndMortyRepositoryImplIntegrationTest {
     }
 
     @Test
-    fun `getRemoteDataFailure Should return client side failure message When invoke getGetCharacters`() {
+    fun `getRemoteDataFailure Should return client side failure message When invoke getCharactersFilter`() {
         // Given
         val expectedMessage = CLIENT_DEFAULT_ERROR_MESSAGE
         mockServer.enqueue(string = "{}", statusCode = HTTP_BAD_REQUEST)
 
         // When
-        val result = subject.getCharacters(page = 1)
+        val result = subject.getCharactersFilter(filter = filterStub())
 
         // Then
         runTest {
@@ -111,13 +112,13 @@ internal class RickAndMortyRepositoryImplIntegrationTest {
     }
 
     @Test
-    fun `getRemoteDataFailure Should return server side failure message When invoke getGetCharacters`() {
+    fun `getRemoteDataFailure Should return server side failure message When invoke getCharactersFilter`() {
         // Given
         val expectedMessage = SERVER_DEFAULT_ERROR_MESSAGE
         mockServer.enqueue(string = "{}", statusCode = HTTP_INTERNAL_ERROR)
 
         // When
-        val result = subject.getCharacters(page = 1)
+        val result = subject.getCharactersFilter(filter = filterStub())
 
         // Then
         runTest {
@@ -129,13 +130,13 @@ internal class RickAndMortyRepositoryImplIntegrationTest {
     }
 
     @Test
-    fun `getRemoteDataFailure Should return generic failure message When invoke getGetCharacters`() {
+    fun `getRemoteDataFailure Should return generic failure message When invoke getCharactersFilter`() {
         // Given
         val expectedMessage = UNKNOWN_DEFAULT_ERROR_MESSAGE
         mockServer.enqueue(string = "{}", statusCode = HTTP_MULT_CHOICE)
 
         // When
-        val result = subject.getCharacters(page = 1)
+        val result = subject.getCharactersFilter(filter = filterStub())
 
         // Then
         runTest {

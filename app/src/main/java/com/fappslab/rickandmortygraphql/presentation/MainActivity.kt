@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportFragmentManager.commit {
-            replace(binding.containerFragment.id, homeNavigation.navigationToFeature())
+            replace(binding.containerFragment.id, homeNavigation.create())
         }
     }
 }

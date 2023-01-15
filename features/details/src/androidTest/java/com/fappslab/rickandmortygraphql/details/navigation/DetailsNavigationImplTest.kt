@@ -40,7 +40,7 @@ internal class DetailsNavigationImplTest {
     }
 
     @Test
-    fun whenInvokeNavigationToFeature_shouldOpenDetailsFragment() {
+    fun whenInvokeCreate_shouldOpenDetailsFragment() {
         // Given
         val args = characterArgsStub()
         val bundle = bundleOf(KEY_ARGS to args)
@@ -48,7 +48,7 @@ internal class DetailsNavigationImplTest {
 
         // When
         val scenario = launchFragment(themeResId = R.style.Theme_Ds, fragmentArgs = bundle) {
-            subject.navigationToFeature(args)
+            subject.create(args)
         }
 
         // Then

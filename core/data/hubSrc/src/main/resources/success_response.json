@@ -266,16 +266,9 @@
               "air_date": "September 5, 2021"
             }
           ],
-          "location": {
-            "id": "3",
-            "name": "Citadel of Ricks",
-            "type": "Space station",
-            "dimension": "unknown"
-          },
           "origin": {
             "id": "1",
             "name": "Earth (C-137)",
-            "type": "Planet",
             "dimension": "Dimension C-137"
           }
         },
@@ -543,16 +536,9 @@
               "air_date": "September 5, 2021"
             }
           ],
-          "location": {
-            "id": "3",
-            "name": "Citadel of Ricks",
-            "type": "Space station",
-            "dimension": "unknown"
-          },
           "origin": {
             "id": null,
             "name": "unknown",
-            "type": null,
             "dimension": null
           }
         },
@@ -775,16 +761,9 @@
               "air_date": "September 5, 2021"
             }
           ],
-          "location": {
-            "id": "20",
-            "name": "Earth (Replacement Dimension)",
-            "type": "Planet",
-            "dimension": "Replacement Dimension"
-          },
           "origin": {
             "id": "20",
             "name": "Earth (Replacement Dimension)",
-            "type": "Planet",
             "dimension": "Replacement Dimension"
           }
         },
@@ -1007,16 +986,9 @@
               "air_date": "September 5, 2021"
             }
           ],
-          "location": {
-            "id": "20",
-            "name": "Earth (Replacement Dimension)",
-            "type": "Planet",
-            "dimension": "Replacement Dimension"
-          },
           "origin": {
             "id": "20",
             "name": "Earth (Replacement Dimension)",
-            "type": "Planet",
             "dimension": "Replacement Dimension"
           }
         },
@@ -1224,16 +1196,9 @@
               "air_date": "September 5, 2021"
             }
           ],
-          "location": {
-            "id": "20",
-            "name": "Earth (Replacement Dimension)",
-            "type": "Planet",
-            "dimension": "Replacement Dimension"
-          },
           "origin": {
             "id": "20",
             "name": "Earth (Replacement Dimension)",
-            "type": "Planet",
             "dimension": "Replacement Dimension"
           }
         },
@@ -1251,16 +1216,9 @@
               "air_date": "August 27, 2017"
             }
           ],
-          "location": {
-            "id": "2",
-            "name": "Abadango",
-            "type": "Cluster",
-            "dimension": "unknown"
-          },
           "origin": {
             "id": "2",
             "name": "Abadango",
-            "type": "Cluster",
             "dimension": "unknown"
           }
         },
@@ -1283,16 +1241,9 @@
               "air_date": "April 14, 2014"
             }
           ],
-          "location": {
-            "id": "21",
-            "name": "Testicle Monster Dimension",
-            "type": "Dimension",
-            "dimension": "Testicle Monster Dimension"
-          },
           "origin": {
             "id": "20",
             "name": "Earth (Replacement Dimension)",
-            "type": "Planet",
             "dimension": "Replacement Dimension"
           }
         },
@@ -1310,16 +1261,9 @@
               "air_date": "September 10, 2017"
             }
           ],
-          "location": {
-            "id": "3",
-            "name": "Citadel of Ricks",
-            "type": "Space station",
-            "dimension": "unknown"
-          },
           "origin": {
             "id": null,
             "name": "unknown",
-            "type": null,
             "dimension": null
           }
         },
@@ -1337,16 +1281,9 @@
               "air_date": "August 6, 2017"
             }
           ],
-          "location": {
-            "id": "20",
-            "name": "Earth (Replacement Dimension)",
-            "type": "Planet",
-            "dimension": "Replacement Dimension"
-          },
           "origin": {
             "id": "20",
             "name": "Earth (Replacement Dimension)",
-            "type": "Planet",
             "dimension": "Replacement Dimension"
           }
         },
@@ -1364,16 +1301,9 @@
               "air_date": "August 13, 2017"
             }
           ],
-          "location": {
-            "id": "4",
-            "name": "Worldender's lair",
-            "type": "Planet",
-            "dimension": "unknown"
-          },
           "origin": {
             "id": null,
             "name": "unknown",
-            "type": null,
             "dimension": null
           }
         },
@@ -1391,16 +1321,9 @@
               "air_date": "July 26, 2015"
             }
           ],
-          "location": {
-            "id": "20",
-            "name": "Earth (Replacement Dimension)",
-            "type": "Planet",
-            "dimension": "Replacement Dimension"
-          },
           "origin": {
             "id": "1",
             "name": "Earth (C-137)",
-            "type": "Planet",
             "dimension": "Dimension C-137"
           }
         },
@@ -1418,16 +1341,9 @@
               "air_date": "December 16, 2013"
             }
           ],
-          "location": {
-            "id": "5",
-            "name": "Anatomy Park",
-            "type": "Microverse",
-            "dimension": "Dimension C-137"
-          },
           "origin": {
             "id": "1",
             "name": "Earth (C-137)",
-            "type": "Planet",
             "dimension": "Dimension C-137"
           }
         },
@@ -1445,16 +1361,9 @@
               "air_date": "October 1, 2017"
             }
           ],
-          "location": {
-            "id": "20",
-            "name": "Earth (Replacement Dimension)",
-            "type": "Planet",
-            "dimension": "Replacement Dimension"
-          },
           "origin": {
             "id": null,
             "name": "unknown",
-            "type": null,
             "dimension": null
           }
         },
@@ -1472,16 +1381,9 @@
               "air_date": "April 7, 2014"
             }
           ],
-          "location": {
-            "id": "3",
-            "name": "Citadel of Ricks",
-            "type": "Space station",
-            "dimension": "unknown"
-          },
           "origin": {
             "id": null,
             "name": "unknown",
-            "type": null,
             "dimension": null
           }
         },
@@ -1499,16 +1401,9 @@
               "air_date": "April 7, 2014"
             }
           ],
-          "location": {
-            "id": "3",
-            "name": "Citadel of Ricks",
-            "type": "Space station",
-            "dimension": "unknown"
-          },
           "origin": {
             "id": null,
             "name": "unknown",
-            "type": null,
             "dimension": null
           }
         },
@@ -1526,16 +1421,9 @@
               "air_date": "August 16, 2015"
             }
           ],
-          "location": {
-            "id": "20",
-            "name": "Earth (Replacement Dimension)",
-            "type": "Planet",
-            "dimension": "Replacement Dimension"
-          },
           "origin": {
             "id": null,
             "name": "unknown",
-            "type": null,
             "dimension": null
           }
         },
@@ -1553,16 +1441,9 @@
               "air_date": "December 16, 2013"
             }
           ],
-          "location": {
-            "id": "5",
-            "name": "Anatomy Park",
-            "type": "Microverse",
-            "dimension": "Dimension C-137"
-          },
           "origin": {
             "id": "1",
             "name": "Earth (C-137)",
-            "type": "Planet",
             "dimension": "Dimension C-137"
           }
         },
@@ -1585,16 +1466,9 @@
               "air_date": "September 10, 2017"
             }
           ],
-          "location": {
-            "id": "3",
-            "name": "Citadel of Ricks",
-            "type": "Space station",
-            "dimension": "unknown"
-          },
           "origin": {
             "id": null,
             "name": "unknown",
-            "type": null,
             "dimension": null
           }
         },
@@ -1612,16 +1486,9 @@
               "air_date": "April 7, 2014"
             }
           ],
-          "location": {
-            "id": null,
-            "name": "unknown",
-            "type": null,
-            "dimension": null
-          },
           "origin": {
             "id": null,
             "name": "unknown",
-            "type": null,
             "dimension": null
           }
         },
@@ -1639,16 +1506,9 @@
               "air_date": "March 17, 2014"
             }
           ],
-          "location": {
-            "id": "6",
-            "name": "Interdimensional Cable",
-            "type": "TV",
-            "dimension": "unknown"
-          },
           "origin": {
             "id": null,
             "name": "unknown",
-            "type": null,
             "dimension": null
           }
         }

@@ -7,6 +7,6 @@ import com.fappslab.rickandmortygraphql.navigation.DetailsNavigation
 
 internal class DetailsNavigationImpl : DetailsNavigation {
 
-    override fun navigationToFeature(args: CharacterArgs): Fragment =
+    override fun create(args: CharacterArgs): Fragment =
         DetailsFragment.createFragment(args)
 }

@@ -164,6 +164,24 @@ internal class HomeViewModelTest {
     }
 
     @Test
+    fun `onFabVisibility Should update shouldFetchNextPage state When invoke onPagination`() {
+        // Given
+        val expectedState = initialState.copy(shouldShowFabButton = false)
+        subject = setupSubjectWithSuccess()
+
+        // When
+        subject.onFabVisibility(shouldShowFabButton = false)
+
+        // Then
+        runTest {
+            verify { getCharactersUseCase(any()) }
+            subject.testStateFlow(backgroundScope) {
+                assertStateIs { expectedState }
+            }
+        }
+    }
+
+    @Test
     fun `onShowDetails Should update state When invoke method to show details`() {
         // Given
         val character = expectedSuccessDataResponse?.characters.toCharacters().characters.first()
