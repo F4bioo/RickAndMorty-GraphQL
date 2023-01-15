@@ -13,6 +13,7 @@ dependencies {
     // Libs
 
     // Modules
+    implementation project(Modules.local)
     implementation project(Modules.remote)
     implementation project(Modules.domain)
     implementation project(Modules.arch)

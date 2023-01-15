@@ -5,22 +5,26 @@ import com.fappslab.rickandmortygraphql.arch.viewmodel.ViewModel
 import com.fappslab.rickandmortygraphql.domain.model.Character
 import com.fappslab.rickandmortygraphql.domain.model.Characters
 import com.fappslab.rickandmortygraphql.domain.model.Filter
+import com.fappslab.rickandmortygraphql.domain.model.KeyType
 import com.fappslab.rickandmortygraphql.domain.usecase.GetCharactersUseCase
+import com.fappslab.rickandmortygraphql.domain.usecase.GetFilterUseCase
 import com.fappslab.rickandmortygraphql.remote.client.network.exception.RemoteThrowable.ClientThrowable
 import com.fappslab.rickandmortygraphql.remote.client.network.exception.RemoteThrowable.FilterThrowable
 import com.fappslab.rickandmortygraphql.remote.client.network.exception.RemoteThrowable.ServerThrowable
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.launch
 import com.fappslab.rickandmortygraphql.design.R as DS
 
 internal class HomeViewModel(
-    //private val getFilterUseCase: GetFilterUseCase,
+    private val getFilterUseCase: GetFilterUseCase,
     private val getCharactersUseCase: GetCharactersUseCase,
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : ViewModel<HomeViewState, HomeViewAction>(HomeViewState()) {
@@ -89,7 +93,7 @@ internal class HomeViewModel(
     }
 
     fun setFilter() {
-        /*viewModelScope.launch {
+        viewModelScope.launch {
             val deferredList = KeyType.values().map { keyType ->
                 async {
                     getFilterUseCase(keyType.name).collect { filterName ->
@@ -101,8 +105,7 @@ internal class HomeViewModel(
 
             onState { it.copy(characters = emptyList()) }
             getCharacters(state.value.filter)
-        }*/
-        getCharacters(state.value.filter)
+        }
     }
 
     private fun errorMessage(cause: Throwable): Int = when (cause) {

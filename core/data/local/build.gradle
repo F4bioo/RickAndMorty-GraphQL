@@ -5,15 +5,16 @@ plugins {
 apply from: "$rootDir/plugins/android-build.gradle"
 
 android {
-    namespace "${Config.applicationId}.hubsrc"
+    namespace "${Config.applicationId}.core.data.local"
+    defaultConfig {
+        buildConfigField "String", "PREFS_NAME", '"Prefs"'
+    }
 }
 
 dependencies {
     // Libs
 
     // Modules
-    implementation project(Modules.local)
-    implementation project(Modules.remote)
     implementation project(Modules.domain)
-    implementation project(Modules.arch)
+
 }

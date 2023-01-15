@@ -6,7 +6,7 @@ import com.apollographql.apollo3.annotations.ApolloExperimental
 import com.apollographql.apollo3.mockserver.MockServer
 import com.apollographql.apollo3.mockserver.enqueue
 import com.fappslab.rickandmortygraphql.domain.repository.RickAndMortyRepository
-import com.fappslab.rickandmortygraphql.hubsrc.source.remote.RickAndMortyDataSourceImpl
+import com.fappslab.rickandmortygraphql.hubsrc.source.remote.RemoteRickAndMortyDataSourceImpl
 import com.fappslab.rickandmortygraphql.hubsrc.stub.filterStub
 import com.fappslab.rickandmortygraphql.hubsrc.utils.StubResponse.expectedFailureBodyResponse
 import com.fappslab.rickandmortygraphql.hubsrc.utils.StubResponse.expectedSuccessBodyResponse
@@ -44,7 +44,7 @@ internal class RickAndMortyRepositoryImplIntegrationTest {
         }
 
         subject = RickAndMortyRepositoryImpl(
-            remoteDataSource = RickAndMortyDataSourceImpl(
+            remoteDataSource = RemoteRickAndMortyDataSourceImpl(
                 client = apolloClient
             )
         )
