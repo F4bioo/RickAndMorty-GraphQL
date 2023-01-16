@@ -1,13 +1,18 @@
 package com.fappslab.rickandmortygraphql.home.presentation.viewmodel
 
 import com.fappslab.rickandmortygraphql.arch.rules.DispatcherTestRule
+import com.fappslab.rickandmortygraphql.arch.test.testActionFlow
 import com.fappslab.rickandmortygraphql.arch.test.testFlows
 import com.fappslab.rickandmortygraphql.arch.test.testStateFlow
 import com.fappslab.rickandmortygraphql.design.R
+import com.fappslab.rickandmortygraphql.domain.model.Characters
+import com.fappslab.rickandmortygraphql.domain.model.Filter
 import com.fappslab.rickandmortygraphql.domain.usecase.GetCharactersUseCase
+import com.fappslab.rickandmortygraphql.domain.usecase.GetFilterUseCase
 import com.fappslab.rickandmortygraphql.hubsrc.utils.StubResponse.expectedSuccessDataResponse
 import com.fappslab.rickandmortygraphql.hubsrc.utils.toCharacters
 import com.fappslab.rickandmortygraphql.remote.client.network.exception.RemoteThrowable.ClientThrowable
+import com.fappslab.rickandmortygraphql.remote.client.network.exception.RemoteThrowable.FilterThrowable
 import com.fappslab.rickandmortygraphql.remote.client.network.exception.RemoteThrowable.ServerThrowable
 import com.fappslab.rickandmortygraphql.remote.client.network.exception.RemoteThrowable.UnknownThrowable
 import io.mockk.clearAllMocks
@@ -32,6 +37,7 @@ internal class HomeViewModelTest {
 
     private val initialState = HomeViewState()
 
+    private val getFilterUseCase: GetFilterUseCase = mockk()
     private val getCharactersUseCase: GetCharactersUseCase = mockk()
     private lateinit var subject: HomeViewModel
 
@@ -44,26 +50,59 @@ internal class HomeViewModelTest {
     fun `initBlockSuccess Should update state When init block get success`() {
         // Given
         val characters = expectedSuccessDataResponse?.characters.toCharacters()
-        val expectedFirstState = initialState.copy(shouldShowLoading = true)
+        val expectedFirstState = initialState.copy(
+            shouldShowLoading = true,
+            shouldShowTryAgain = false
+        )
         val expectedSecondState = expectedFirstState.copy(
             characters = characters.characters,
-            totalPages = 42,
-            nextPage = 2
+            filter = Filter(page = 2),
+            totalPages = 42
         )
         val expectedFinalState = expectedSecondState.copy(shouldShowLoading = false)
 
         // When
-        subject = setupSubjectWithSuccess()
+        subject = createSubjectWithInitSuccess(characters)
 
-        // Then
         runTest {
-            verify { getCharactersUseCase(any()) }
+            // Then
             subject.testStateFlow(backgroundScope) {
                 assertStateIs { initialState }
                 assertStateIs { expectedFirstState }
                 assertStateIs { expectedSecondState }
                 assertStateIs { expectedFinalState }
             }
+            verify { getFilterUseCase(any()) }
+            verify { getCharactersUseCase(any()) }
+        }
+    }
+
+    @Test
+    fun `initBlockSuccess Should expose Error action When init block get success with empty list`() {
+        // Given
+        val characters = Characters(characters = emptyList(), totalPages = 0, nextPage = 0)
+        val expectedMessage = R.string.common_filter_error
+        val expectedFirstState = initialState.copy(
+            shouldShowLoading = true,
+            shouldShowTryAgain = false
+        )
+        val expectedFinalState = expectedFirstState.copy(shouldShowLoading = false)
+
+        // When
+        subject = createSubjectWithInitSuccess(characters)
+
+        runTest {
+            // Then
+            subject.testFlows(backgroundScope) { action ->
+                assertStateIs { initialState }
+                assertStateIs { expectedFirstState }
+                assertStateIs { expectedFinalState }
+
+                assertIs<HomeViewAction.Error>(action)
+                assertEquals(expectedMessage, (action as? HomeViewAction.Error)?.message)
+            }
+            verify { getFilterUseCase(any()) }
+            verify { getCharactersUseCase(any()) }
         }
     }
 
@@ -74,11 +113,10 @@ internal class HomeViewModelTest {
         val (expectedFirstState, expectedSecondState, expectedFinalState) = setupFailureStates()
 
         // When
-        subject = setupSubjectWithFailure(throwable = ClientThrowable())
+        subject = createSubjectWithInitFailure(ClientThrowable())
 
         // Then
         runTest {
-            verify { getCharactersUseCase(any()) }
             subject.testFlows(backgroundScope) { action ->
                 assertStateIs { initialState }
                 assertStateIs { expectedFirstState }
@@ -88,6 +126,8 @@ internal class HomeViewModelTest {
                 assertIs<HomeViewAction.Error>(action)
                 assertEquals(expectedMessage, (action as? HomeViewAction.Error)?.message)
             }
+            verify { getFilterUseCase(any()) }
+            verify { getCharactersUseCase(any()) }
         }
     }
 
@@ -98,11 +138,10 @@ internal class HomeViewModelTest {
         val (expectedFirstState, expectedSecondState, expectedFinalState) = setupFailureStates()
 
         // When
-        subject = setupSubjectWithFailure(throwable = ServerThrowable())
+        subject = createSubjectWithInitFailure(ServerThrowable())
 
         // Then
         runTest {
-            verify { getCharactersUseCase(any()) }
             subject.testFlows(backgroundScope) { action ->
                 assertStateIs { initialState }
                 assertStateIs { expectedFirstState }
@@ -112,6 +151,8 @@ internal class HomeViewModelTest {
                 assertIs<HomeViewAction.Error>(action)
                 assertEquals(expectedMessage, (action as? HomeViewAction.Error)?.message)
             }
+            verify { getFilterUseCase(any()) }
+            verify { getCharactersUseCase(any()) }
         }
     }
 
@@ -122,11 +163,10 @@ internal class HomeViewModelTest {
         val (expectedFirstState, expectedSecondState, expectedFinalState) = setupFailureStates()
 
         // When
-        subject = setupSubjectWithFailure(throwable = UnknownThrowable())
+        subject = createSubjectWithInitFailure(UnknownThrowable())
 
         // Then
         runTest {
-            verify { getCharactersUseCase(any()) }
             subject.testFlows(backgroundScope) { action ->
                 assertStateIs { initialState }
                 assertStateIs { expectedFirstState }
@@ -136,13 +176,16 @@ internal class HomeViewModelTest {
                 assertIs<HomeViewAction.Error>(action)
                 assertEquals(expectedMessage, (action as? HomeViewAction.Error)?.message)
             }
+            verify { getFilterUseCase(any()) }
+            verify { getCharactersUseCase(any()) }
         }
     }
 
     @Test
     fun `onPagination Should fetch next page When shouldFetchNextPage is true`() {
         // Given
-        runTest { subject = setupSubjectWithSuccess() }
+        val characters = expectedSuccessDataResponse?.characters.toCharacters()
+        runTest { subject = createSubjectWithInitSuccess(characters) }
 
         // When
         subject.onPagination(shouldFetchNextPage = true)
@@ -154,7 +197,8 @@ internal class HomeViewModelTest {
     @Test
     fun `onPagination Should not fetch next page When shouldFetchNextPage is false`() {
         // Given
-        runTest { subject = setupSubjectWithSuccess() }
+        val characters = expectedSuccessDataResponse?.characters.toCharacters()
+        runTest { subject = createSubjectWithInitSuccess(characters) }
 
         // When
         subject.onPagination(shouldFetchNextPage = false)
@@ -167,14 +211,13 @@ internal class HomeViewModelTest {
     fun `onFabVisibility Should update shouldFetchNextPage state When invoke onPagination`() {
         // Given
         val expectedState = initialState.copy(shouldShowFabButton = false)
-        subject = setupSubjectWithSuccess()
+        subject = createSubject()
 
         // When
         subject.onFabVisibility(shouldShowFabButton = false)
 
         // Then
         runTest {
-            verify { getCharactersUseCase(any()) }
             subject.testStateFlow(backgroundScope) {
                 assertStateIs { expectedState }
             }
@@ -182,57 +225,58 @@ internal class HomeViewModelTest {
     }
 
     @Test
-    fun `onShowDetails Should update state When invoke method to show details`() {
+    fun `onShowDetails Should expose Details action When invoke method to show details`() {
         // Given
-        val character = expectedSuccessDataResponse?.characters.toCharacters().characters.first()
-        val expectedState = initialState.copy(shouldShowDetails = true, character = character)
-        subject = setupSubjectWithSuccess()
+        val characters = expectedSuccessDataResponse?.characters.toCharacters().characters
+        val expectedCharacter = characters.first()
+        subject = createSubject()
 
         // When
-        subject.onShowDetails(character)
+        subject.onDetails(expectedCharacter)
 
         // Then
         runTest {
-            subject.testStateFlow(backgroundScope) {
-                assertStateIs { expectedState }
+            subject.testActionFlow { action ->
+                assertIs<HomeViewAction.Details>(action)
+                assertEquals(expectedCharacter, (action as? HomeViewAction.Details)?.character)
             }
         }
     }
 
     @Test
-    fun `onCloseDetails Should update state When invoke method to close details`() {
+    fun `onCloseError Should expose Filter action When invoke method to close error dialog`() {
         // Given
-        val expectedState = initialState.copy(shouldShowDetails = false)
-        subject = setupSubjectWithSuccess()
+        val cause = FilterThrowable()
+        subject = createSubject()
 
         // When
-        subject.onCloseDetails()
+        subject.onCloseError(cause)
 
         // Then
         runTest {
-            subject.testStateFlow(backgroundScope) {
-                assertStateIs { expectedState }
+            subject.testActionFlow { action ->
+                assertIs<HomeViewAction.Filter>(action)
             }
         }
     }
 
-    private fun setupSubjectWithFailure(throwable: Throwable): HomeViewModel {
-        every { getCharactersUseCase(any()) } returns flow { throw throwable }
-        return HomeViewModel(
-            getCharactersUseCase = getCharactersUseCase,
-            dispatcher = dispatcherRule.testDispatcher
-        )
+    private fun createSubjectWithInitFailure(cause: Throwable): HomeViewModel {
+        every { getFilterUseCase(any()) } returns flowOf(null)
+        every { getCharactersUseCase(any()) } returns flow { throw cause }
+        return createSubject()
     }
 
-    private fun setupSubjectWithSuccess(): HomeViewModel {
-        val characters = expectedSuccessDataResponse?.characters.toCharacters()
+    private fun createSubjectWithInitSuccess(characters: Characters): HomeViewModel {
+        every { getFilterUseCase(any()) } returns flowOf(null)
         every { getCharactersUseCase(any()) } returns flowOf(characters)
-
-        return HomeViewModel(
-            getCharactersUseCase = getCharactersUseCase,
-            dispatcher = dispatcherRule.testDispatcher
-        )
+        return createSubject()
     }
+
+    private fun createSubject(): HomeViewModel = HomeViewModel(
+        getFilterUseCase = getFilterUseCase,
+        getCharactersUseCase = getCharactersUseCase,
+        dispatcher = dispatcherRule.testDispatcher
+    )
 
     private fun setupFailureStates(): Triple<HomeViewState, HomeViewState, HomeViewState> {
         val expectedFirstState = initialState.copy(

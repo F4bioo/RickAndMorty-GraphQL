@@ -1,7 +1,9 @@
 package com.fappslab.rickandmortygraphql.domain.usecase
 
 import app.cash.turbine.test
+import com.fappslab.rickandmortygraphql.domain.model.Filter
 import com.fappslab.rickandmortygraphql.domain.repository.RickAndMortyRepository
+import com.fappslab.rickandmortygraphql.domain.stub.characterStub
 import io.mockk.clearAllMocks
 import io.mockk.every
 import io.mockk.mockk
@@ -13,18 +15,18 @@ import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
-import com.fappslab.rickandmortygraphql.domain.stub.characterStub
 import kotlin.test.assertEquals
 
 @ExperimentalCoroutinesApi
 internal class GetCharactersUseCaseTest {
 
+    private val filter = Filter(page = 1)
     private val repository: RickAndMortyRepository = mockk()
     private lateinit var subject: GetCharactersUseCase
 
     @Before
     fun setUp() {
-        subject = GetCharactersUseCase(repository::getCharacters)
+        subject = GetCharactersUseCase(repository::getCharactersFilter)
     }
 
     @After
@@ -36,14 +38,14 @@ internal class GetCharactersUseCaseTest {
     fun `getCharactersSuccess Should return expected result When invoke subject`() {
         // Given
         val expectedCharacter = characterStub()
-        every { repository.getCharacters(any()) } returns flowOf(expectedCharacter)
+        every { repository.getCharactersFilter(any()) } returns flowOf(expectedCharacter)
 
         // When
-        val result = subject(1)
+        val result = subject(filter)
 
         // Then
         runTest {
-            verify { repository.getCharacters(any()) }
+            verify { repository.getCharactersFilter(any()) }
             result.test {
                 assertEquals(expectedCharacter, awaitItem())
                 cancelAndConsumeRemainingEvents()
@@ -55,14 +57,14 @@ internal class GetCharactersUseCaseTest {
     fun `getCharactersFailure Should throw expected throwable When invoke subject`() {
         // Given
         val expectedThrowable = Throwable("Error message.")
-        every { repository.getCharacters(any()) } returns flow { throw expectedThrowable }
+        every { repository.getCharactersFilter(any()) } returns flow { throw expectedThrowable }
 
         // When
-        val result = subject(1)
+        val result = subject(filter)
 
         // Then
         runTest {
-            verify { repository.getCharacters(any()) }
+            verify { repository.getCharactersFilter(any()) }
             result.test {
                 assertEquals(expectedThrowable.message, awaitError().message)
                 cancelAndConsumeRemainingEvents()
