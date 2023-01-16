@@ -1,9 +1,7 @@
 package com.fappslab.rickandmortygraphql.home.di
 
-import com.apollographql.apollo3.ApolloClient
 import com.fappslab.rickandmortygraphql.arch.rules.DispatcherTestRule
-import com.fappslab.rickandmortygraphql.remote.client.HttpClientImpl
-import com.fappslab.rickandmortygraphql.remote.client.network.HttpClient
+import com.fappslab.rickandmortygraphql.domain.repository.RickAndMortyRepository
 import io.mockk.mockk
 import org.junit.Rule
 import org.junit.Test
@@ -18,9 +16,7 @@ internal class HomeModuleTest : AutoCloseKoinTest() {
     val dispatcherRule = DispatcherTestRule()
 
     private val networkModules = module {
-        single<HttpClient<ApolloClient>> {
-            HttpClientImpl(mockk(relaxed = true))
-        }
+        factory<RickAndMortyRepository> { mockk(relaxed = true) }
     }
 
     @Test

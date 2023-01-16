@@ -64,14 +64,6 @@ internal class HomeViewModel(
         onState { it.copy(shouldShowFabButton = shouldShowFabButton) }
     }
 
-    fun onShowDetails(character: Character) {
-        onState { it.copy(shouldShowDetails = true, character = character) }
-    }
-
-    fun onCloseDetails() {
-        onState { it.copy(shouldShowDetails = false) }
-    }
-
     fun onTryAgain() {
         getCharacters(state.value.filter)
     }

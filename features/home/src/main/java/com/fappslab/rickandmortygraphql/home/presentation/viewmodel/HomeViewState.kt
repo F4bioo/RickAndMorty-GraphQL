@@ -56,6 +56,5 @@ internal data class HomeViewState(
         KeyType.KeyStatus -> copy(filter = filter.copy(status = filterName, page = FIRST_PAGE))
         KeyType.KeyGender -> copy(filter = filter.copy(gender = filterName, page = FIRST_PAGE))
         KeyType.KeySpecies -> copy(filter = filter.copy(species = filterName, page = FIRST_PAGE))
-        else -> this
     }
 }

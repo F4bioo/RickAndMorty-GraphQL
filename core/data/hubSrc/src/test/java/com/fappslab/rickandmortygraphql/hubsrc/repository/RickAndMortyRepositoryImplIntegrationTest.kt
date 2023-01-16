@@ -15,6 +15,7 @@ import com.fappslab.rickandmortygraphql.hubsrc.utils.toCharacters
 import com.fappslab.rickandmortygraphql.remote.client.network.exception.CLIENT_DEFAULT_ERROR_MESSAGE
 import com.fappslab.rickandmortygraphql.remote.client.network.exception.SERVER_DEFAULT_ERROR_MESSAGE
 import com.fappslab.rickandmortygraphql.remote.client.network.exception.UNKNOWN_DEFAULT_ERROR_MESSAGE
+import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.After
@@ -44,6 +45,7 @@ internal class RickAndMortyRepositoryImplIntegrationTest {
         }
 
         subject = RickAndMortyRepositoryImpl(
+            localDataSource = mockk(),
             remoteDataSource = RemoteRickAndMortyDataSourceImpl(
                 client = apolloClient
             )
