@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.home.presentation.model.extension
+package com.fappslab.rickandmortygraphql.features.home.presentation.model.extension
 
 import com.fappslab.rickandmortygraphql.domain.model.Character
 import com.fappslab.rickandmortygraphql.navigation.CharacterArgs

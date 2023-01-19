@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.home.presentation.viewmodel
+package com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel
 
 import androidx.lifecycle.viewModelScope
 import com.fappslab.rickandmortygraphql.libraries.arch.viewmodel.ViewModel

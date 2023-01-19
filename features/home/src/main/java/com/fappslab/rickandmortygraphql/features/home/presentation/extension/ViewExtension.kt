@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.home.presentation.extension
+package com.fappslab.rickandmortygraphql.features.home.presentation.extension
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -14,12 +14,12 @@ import com.fappslab.rickandmortygraphql.libraries.design.dsmodal.dsModalHost
 import com.fappslab.rickandmortygraphql.domain.model.Character
 import com.fappslab.rickandmortygraphql.home.R
 import com.fappslab.rickandmortygraphql.home.databinding.HomeCharacterItemBinding
-import com.fappslab.rickandmortygraphql.home.presentation.HomeFragment
-import com.fappslab.rickandmortygraphql.home.presentation.model.StatusType.Alive
-import com.fappslab.rickandmortygraphql.home.presentation.model.StatusType.Dead
-import com.fappslab.rickandmortygraphql.home.presentation.model.StatusType.Unknown
-import com.fappslab.rickandmortygraphql.home.presentation.model.extension.toCharacterArgs
-import com.fappslab.rickandmortygraphql.home.presentation.viewmodel.HomeViewState
+import com.fappslab.rickandmortygraphql.features.home.presentation.HomeFragment
+import com.fappslab.rickandmortygraphql.features.home.presentation.model.StatusType.Alive
+import com.fappslab.rickandmortygraphql.features.home.presentation.model.StatusType.Dead
+import com.fappslab.rickandmortygraphql.features.home.presentation.model.StatusType.Unknown
+import com.fappslab.rickandmortygraphql.features.home.presentation.model.extension.toCharacterArgs
+import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.HomeViewState
 import com.fappslab.rickandmortygraphql.navigation.DetailsNavigation
 import com.fappslab.rickandmortygraphql.navigation.FilterNavigation
 import com.google.android.material.floatingactionbutton.FloatingActionButton

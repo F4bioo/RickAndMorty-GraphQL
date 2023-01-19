@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.home.presentation
+package com.fappslab.rickandmortygraphql.features.home.presentation
 
 import android.os.Bundle
 import android.view.View
@@ -15,18 +15,18 @@ import com.fappslab.rickandmortygraphql.domain.model.Character
 import com.fappslab.rickandmortygraphql.home.R
 import com.fappslab.rickandmortygraphql.home.databinding.HomeCharacterItemBinding
 import com.fappslab.rickandmortygraphql.home.databinding.HomeFragmentBinding
-import com.fappslab.rickandmortygraphql.home.presentation.extension.bind
-import com.fappslab.rickandmortygraphql.home.presentation.extension.inflate
-import com.fappslab.rickandmortygraphql.home.presentation.extension.loadingEmptyListVisibility
-import com.fappslab.rickandmortygraphql.home.presentation.extension.loadingFooterVisibility
-import com.fappslab.rickandmortygraphql.home.presentation.extension.showDetails
-import com.fappslab.rickandmortygraphql.home.presentation.extension.showErrorDialog
-import com.fappslab.rickandmortygraphql.home.presentation.extension.showFilter
-import com.fappslab.rickandmortygraphql.home.presentation.extension.visibilityHandle
-import com.fappslab.rickandmortygraphql.home.presentation.viewmodel.HomeViewAction
-import com.fappslab.rickandmortygraphql.home.presentation.viewmodel.HomeViewModel
-import com.fappslab.rickandmortygraphql.home.presentation.viewmodel.HomeViewState
-import com.fappslab.rickandmortygraphql.home.presentation.viewmodel.PAGING_SPAN_COUNT_PORTRAIT
+import com.fappslab.rickandmortygraphql.features.home.presentation.extension.bind
+import com.fappslab.rickandmortygraphql.features.home.presentation.extension.inflate
+import com.fappslab.rickandmortygraphql.features.home.presentation.extension.loadingEmptyListVisibility
+import com.fappslab.rickandmortygraphql.features.home.presentation.extension.loadingFooterVisibility
+import com.fappslab.rickandmortygraphql.features.home.presentation.extension.showDetails
+import com.fappslab.rickandmortygraphql.features.home.presentation.extension.showErrorDialog
+import com.fappslab.rickandmortygraphql.features.home.presentation.extension.showFilter
+import com.fappslab.rickandmortygraphql.features.home.presentation.extension.visibilityHandle
+import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.HomeViewAction
+import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.HomeViewModel
+import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.HomeViewState
+import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.PAGING_SPAN_COUNT_PORTRAIT
 import com.fappslab.rickandmortygraphql.navigation.DetailsNavigation
 import com.fappslab.rickandmortygraphql.navigation.FilterNavigation
 import org.koin.android.ext.android.inject

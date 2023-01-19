@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.home.presentation.model
+package com.fappslab.rickandmortygraphql.features.home.presentation.model
 
 import androidx.annotation.DrawableRes
 import com.fappslab.rickandmortygraphql.libraries.design.R

@@ -1,10 +1,10 @@
-package com.fappslab.rickandmortygraphql.home.di
+package com.fappslab.rickandmortygraphql.features.home.di
 
 import com.fappslab.rickandmortygraphql.domain.repository.RickAndMortyRepository
 import com.fappslab.rickandmortygraphql.domain.usecase.GetCharactersUseCase
 import com.fappslab.rickandmortygraphql.domain.usecase.GetFilterUseCase
-import com.fappslab.rickandmortygraphql.home.navigation.HomeNavigationImpl
-import com.fappslab.rickandmortygraphql.home.presentation.viewmodel.HomeViewModel
+import com.fappslab.rickandmortygraphql.features.home.navigation.HomeNavigationImpl
+import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.HomeViewModel
 import com.fappslab.rickandmortygraphql.navigation.HomeNavigation
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module

@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.home.presentation.viewmodel
+package com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel
 
 import com.fappslab.rickandmortygraphql.libraries.arch.rules.DispatcherTestRule
 import com.fappslab.rickandmortygraphql.libraries.arch.test.testActionFlow
@@ -9,6 +9,9 @@ import com.fappslab.rickandmortygraphql.domain.model.Characters
 import com.fappslab.rickandmortygraphql.domain.model.Filter
 import com.fappslab.rickandmortygraphql.domain.usecase.GetCharactersUseCase
 import com.fappslab.rickandmortygraphql.domain.usecase.GetFilterUseCase
+import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.HomeViewAction
+import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.HomeViewModel
+import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.HomeViewState
 import com.fappslab.rickandmortygraphql.hubsrc.utils.StubResponse.expectedSuccessDataResponse
 import com.fappslab.rickandmortygraphql.hubsrc.utils.toCharacters
 import com.fappslab.rickandmortygraphql.remote.client.network.exception.RemoteThrowable.ClientThrowable

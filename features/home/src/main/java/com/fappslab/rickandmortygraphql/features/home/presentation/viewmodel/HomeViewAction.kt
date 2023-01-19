@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.home.presentation.viewmodel
+package com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel
 
 import androidx.annotation.StringRes
 import com.fappslab.rickandmortygraphql.domain.model.Character
