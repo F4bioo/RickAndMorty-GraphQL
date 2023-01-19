@@ -5,7 +5,7 @@ plugins {
 apply from: "$rootDir/plugins/android-build.gradle"
 
 android {
-    namespace "${Config.applicationId}.details"
+    namespace "${Config.applicationId}.features.details"
     resourcePrefix "details"
 }
 
