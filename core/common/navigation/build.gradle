@@ -5,5 +5,5 @@ plugins {
 apply from: "$rootDir/plugins/android-build.gradle"
 
 android {
-    namespace "${Config.applicationId}.navigation"
+    namespace "${Config.applicationId}.core.common.navigation"
 }
