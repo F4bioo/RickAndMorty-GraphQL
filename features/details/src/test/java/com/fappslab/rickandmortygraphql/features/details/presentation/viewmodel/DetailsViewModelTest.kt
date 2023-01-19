@@ -1,9 +1,11 @@
-package com.fappslab.rickandmortygraphql.details.presentation.viewmodel
+package com.fappslab.rickandmortygraphql.features.details.presentation.viewmodel
 
 import app.cash.turbine.test
 import com.fappslab.rickandmortygraphql.libraries.arch.rules.DispatcherTestRule
-import com.fappslab.rickandmortygraphql.details.presentation.model.StatusType
-import com.fappslab.rickandmortygraphql.details.stub.characterArgsStub
+import com.fappslab.rickandmortygraphql.features.details.presentation.model.StatusType
+import com.fappslab.rickandmortygraphql.features.details.stub.characterArgsStub
+import com.fappslab.rickandmortygraphql.features.details.presentation.viewmodel.DetailsViewModel
+import com.fappslab.rickandmortygraphql.features.details.presentation.viewmodel.DetailsViewState
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Rule

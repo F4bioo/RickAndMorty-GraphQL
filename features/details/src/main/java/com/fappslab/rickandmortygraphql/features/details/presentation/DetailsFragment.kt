@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.details.presentation
+package com.fappslab.rickandmortygraphql.features.details.presentation
 
 import android.os.Bundle
 import android.view.View
@@ -13,8 +13,8 @@ import com.fappslab.rickandmortygraphql.libraries.arch.args.view.withArgs
 import com.fappslab.rickandmortygraphql.libraries.arch.viewbinding.viewBinding
 import com.fappslab.rickandmortygraphql.details.R
 import com.fappslab.rickandmortygraphql.details.databinding.DetailsFragmentBinding
-import com.fappslab.rickandmortygraphql.details.presentation.viewmodel.DetailsViewModel
-import com.fappslab.rickandmortygraphql.details.presentation.viewmodel.DetailsViewState
+import com.fappslab.rickandmortygraphql.features.details.presentation.viewmodel.DetailsViewModel
+import com.fappslab.rickandmortygraphql.features.details.presentation.viewmodel.DetailsViewState
 import com.fappslab.rickandmortygraphql.navigation.CharacterArgs
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel

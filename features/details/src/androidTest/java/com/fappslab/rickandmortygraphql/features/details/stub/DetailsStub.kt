@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.details.stub
+package com.fappslab.rickandmortygraphql.features.details.stub
 
 import com.fappslab.rickandmortygraphql.navigation.CharacterArgs
 

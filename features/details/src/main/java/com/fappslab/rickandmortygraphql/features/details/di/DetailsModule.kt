@@ -1,7 +1,7 @@
-package com.fappslab.rickandmortygraphql.details.di
+package com.fappslab.rickandmortygraphql.features.details.di
 
-import com.fappslab.rickandmortygraphql.details.navigation.DetailsNavigationImpl
-import com.fappslab.rickandmortygraphql.details.presentation.viewmodel.DetailsViewModel
+import com.fappslab.rickandmortygraphql.features.details.navigation.DetailsNavigationImpl
+import com.fappslab.rickandmortygraphql.features.details.presentation.viewmodel.DetailsViewModel
 import com.fappslab.rickandmortygraphql.navigation.CharacterArgs
 import com.fappslab.rickandmortygraphql.navigation.DetailsNavigation
 import org.koin.androidx.viewmodel.dsl.viewModel

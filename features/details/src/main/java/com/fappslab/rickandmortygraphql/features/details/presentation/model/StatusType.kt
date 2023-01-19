@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.details.presentation.model
+package com.fappslab.rickandmortygraphql.features.details.presentation.model
 
 import androidx.annotation.ColorRes
 import com.fappslab.rickandmortygraphql.libraries.design.R

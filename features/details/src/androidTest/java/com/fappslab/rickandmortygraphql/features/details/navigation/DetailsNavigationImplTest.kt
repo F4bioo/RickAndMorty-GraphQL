@@ -1,13 +1,14 @@
-package com.fappslab.rickandmortygraphql.details.navigation
+package com.fappslab.rickandmortygraphql.features.details.navigation
 
 import androidx.core.os.bundleOf
 import androidx.fragment.app.testing.launchFragment
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.fappslab.rickandmortygraphql.design.R
-import com.fappslab.rickandmortygraphql.details.presentation.DetailsFragment
-import com.fappslab.rickandmortygraphql.details.presentation.viewmodel.DetailsViewModel
-import com.fappslab.rickandmortygraphql.details.presentation.viewmodel.DetailsViewState
-import com.fappslab.rickandmortygraphql.details.stub.characterArgsStub
+import com.fappslab.rickandmortygraphql.features.details.presentation.DetailsFragment
+import com.fappslab.rickandmortygraphql.features.details.presentation.viewmodel.DetailsViewModel
+import com.fappslab.rickandmortygraphql.features.details.presentation.viewmodel.DetailsViewState
+import com.fappslab.rickandmortygraphql.features.details.stub.characterArgsStub
+import com.fappslab.rickandmortygraphql.features.details.navigation.DetailsNavigationImpl
 import com.fappslab.rickandmortygraphql.navigation.CharacterArgs
 import io.mockk.every
 import io.mockk.mockk

@@ -1,7 +1,8 @@
-package com.fappslab.rickandmortygraphql.details.di
+package com.fappslab.rickandmortygraphql.features.details.di
 
-import com.fappslab.rickandmortygraphql.details.presentation.viewmodel.DetailsViewModel
-import com.fappslab.rickandmortygraphql.details.stub.characterArgsStub
+import com.fappslab.rickandmortygraphql.features.details.presentation.viewmodel.DetailsViewModel
+import com.fappslab.rickandmortygraphql.features.details.stub.characterArgsStub
+import com.fappslab.rickandmortygraphql.features.details.di.DetailsModule
 import org.junit.Test
 import org.koin.core.context.startKoin
 import org.koin.core.parameter.parametersOf
