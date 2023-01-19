@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.hubsrc.source.remote
+package com.fappslab.rickandmortygraphql.core.data.hubsrc.source.remote
 
 import com.apollographql.apollo3.ApolloClient
 import com.fappslab.rickandmortygraphql.remote.GetCharactersFilterQuery

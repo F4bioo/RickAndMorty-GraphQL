@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.hubsrc.source.local
+package com.fappslab.rickandmortygraphql.core.data.hubsrc.source.local
 
 import android.content.SharedPreferences
 import com.fappslab.rickandmortygraphql.core.data.local.source.LocalRickAndMortyDataSource

@@ -12,8 +12,8 @@ import com.fappslab.rickandmortygraphql.domain.usecase.GetFilterUseCase
 import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.HomeViewAction
 import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.HomeViewModel
 import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.HomeViewState
-import com.fappslab.rickandmortygraphql.hubsrc.utils.StubResponse.expectedSuccessDataResponse
-import com.fappslab.rickandmortygraphql.hubsrc.utils.toCharacters
+import com.fappslab.rickandmortygraphql.core.data.hubsrc.utils.StubResponse.expectedSuccessDataResponse
+import com.fappslab.rickandmortygraphql.core.data.hubsrc.utils.toCharacters
 import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.RemoteThrowable.ClientThrowable
 import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.RemoteThrowable.FilterThrowable
 import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.RemoteThrowable.ServerThrowable

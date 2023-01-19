@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.hubsrc.utils
+package com.fappslab.rickandmortygraphql.core.data.hubsrc.utils
 
 import androidx.annotation.VisibleForTesting
 import com.fappslab.rickandmortygraphql.libraries.arch.jsonhandle.readFromJSONToModel

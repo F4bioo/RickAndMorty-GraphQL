@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.hubsrc.repository
+package com.fappslab.rickandmortygraphql.core.data.hubsrc.repository
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -7,14 +7,15 @@ import com.apollographql.apollo3.ApolloClient
 import com.apollographql.apollo3.annotations.ApolloExperimental
 import com.apollographql.apollo3.mockserver.MockServer
 import com.apollographql.apollo3.mockserver.enqueue
+import com.fappslab.rickandmortygraphql.core.data.hubsrc.repository.RickAndMortyRepositoryImpl
 import com.fappslab.rickandmortygraphql.domain.repository.RickAndMortyRepository
-import com.fappslab.rickandmortygraphql.hubsrc.source.local.LocalRickAndMortyDataSourceImpl
-import com.fappslab.rickandmortygraphql.hubsrc.source.remote.RemoteRickAndMortyDataSourceImpl
-import com.fappslab.rickandmortygraphql.hubsrc.stub.filterStub
-import com.fappslab.rickandmortygraphql.hubsrc.utils.StubResponse.expectedFailureBodyResponse
-import com.fappslab.rickandmortygraphql.hubsrc.utils.StubResponse.expectedSuccessBodyResponse
-import com.fappslab.rickandmortygraphql.hubsrc.utils.StubResponse.expectedSuccessDataResponse
-import com.fappslab.rickandmortygraphql.hubsrc.utils.toCharacters
+import com.fappslab.rickandmortygraphql.core.data.hubsrc.source.local.LocalRickAndMortyDataSourceImpl
+import com.fappslab.rickandmortygraphql.core.data.hubsrc.source.remote.RemoteRickAndMortyDataSourceImpl
+import com.fappslab.rickandmortygraphql.core.data.hubsrc.stub.filterStub
+import com.fappslab.rickandmortygraphql.core.data.hubsrc.utils.StubResponse.expectedFailureBodyResponse
+import com.fappslab.rickandmortygraphql.core.data.hubsrc.utils.StubResponse.expectedSuccessBodyResponse
+import com.fappslab.rickandmortygraphql.core.data.hubsrc.utils.StubResponse.expectedSuccessDataResponse
+import com.fappslab.rickandmortygraphql.core.data.hubsrc.utils.toCharacters
 import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.CLIENT_DEFAULT_ERROR_MESSAGE
 import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.SERVER_DEFAULT_ERROR_MESSAGE
 import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.UNKNOWN_DEFAULT_ERROR_MESSAGE

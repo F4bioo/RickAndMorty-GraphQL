@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.hubsrc.stub
+package com.fappslab.rickandmortygraphql.core.data.hubsrc.stub
 
 import com.fappslab.rickandmortygraphql.domain.model.Filter
 

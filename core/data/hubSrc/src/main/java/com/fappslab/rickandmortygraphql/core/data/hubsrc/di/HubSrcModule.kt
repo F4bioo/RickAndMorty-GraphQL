@@ -1,12 +1,12 @@
-package com.fappslab.rickandmortygraphql.hubsrc.di
+package com.fappslab.rickandmortygraphql.core.data.hubsrc.di
 
 import android.content.SharedPreferences
 import com.apollographql.apollo3.ApolloClient
 import com.fappslab.rickandmortygraphql.core.data.local.prefs.LocalClient
 import com.fappslab.rickandmortygraphql.domain.repository.RickAndMortyRepository
-import com.fappslab.rickandmortygraphql.hubsrc.repository.RickAndMortyRepositoryImpl
-import com.fappslab.rickandmortygraphql.hubsrc.source.local.LocalRickAndMortyDataSourceImpl
-import com.fappslab.rickandmortygraphql.hubsrc.source.remote.RemoteRickAndMortyDataSourceImpl
+import com.fappslab.rickandmortygraphql.core.data.hubsrc.repository.RickAndMortyRepositoryImpl
+import com.fappslab.rickandmortygraphql.core.data.hubsrc.source.local.LocalRickAndMortyDataSourceImpl
+import com.fappslab.rickandmortygraphql.core.data.hubsrc.source.remote.RemoteRickAndMortyDataSourceImpl
 import com.fappslab.rickandmortygraphql.core.data.remote.client.network.HttpClient
 import org.koin.core.module.Module
 import org.koin.dsl.module

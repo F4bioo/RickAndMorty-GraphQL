@@ -1,7 +1,8 @@
-package com.fappslab.rickandmortygraphql.hubsrc.di
+package com.fappslab.rickandmortygraphql.core.data.hubsrc.di
 
 import android.content.SharedPreferences
 import com.apollographql.apollo3.ApolloClient
+import com.fappslab.rickandmortygraphql.core.data.hubsrc.di.HubSrcModule
 import com.fappslab.rickandmortygraphql.core.data.local.prefs.LocalClient
 import com.fappslab.rickandmortygraphql.core.data.local.prefs.LocalClientImpl
 import com.fappslab.rickandmortygraphql.core.data.remote.client.HttpClientImpl

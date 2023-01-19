@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.hubsrc.extension
+package com.fappslab.rickandmortygraphql.core.data.hubsrc.extension
 
 import com.apollographql.apollo3.api.Optional
 import com.fappslab.rickandmortygraphql.libraries.arch.extension.orZero

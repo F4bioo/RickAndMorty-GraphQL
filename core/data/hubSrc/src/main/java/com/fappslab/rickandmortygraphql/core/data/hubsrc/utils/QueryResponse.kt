@@ -1,12 +1,12 @@
-package com.fappslab.rickandmortygraphql.hubsrc.utils
+package com.fappslab.rickandmortygraphql.core.data.hubsrc.utils
 
 import com.fappslab.rickandmortygraphql.libraries.arch.extension.orZero
 import com.fappslab.rickandmortygraphql.domain.model.Character
 import com.fappslab.rickandmortygraphql.domain.model.Characters
-import com.fappslab.rickandmortygraphql.hubsrc.utils.QueryResponse.DataResponse.CharactersResponse
-import com.fappslab.rickandmortygraphql.hubsrc.utils.QueryResponse.DataResponse.CharactersResponse.ResultResponse
-import com.fappslab.rickandmortygraphql.hubsrc.utils.QueryResponse.DataResponse.CharactersResponse.ResultResponse.EpisodeResponse
-import com.fappslab.rickandmortygraphql.hubsrc.utils.QueryResponse.DataResponse.CharactersResponse.ResultResponse.OriginResponse
+import com.fappslab.rickandmortygraphql.core.data.hubsrc.utils.QueryResponse.DataResponse.CharactersResponse
+import com.fappslab.rickandmortygraphql.core.data.hubsrc.utils.QueryResponse.DataResponse.CharactersResponse.ResultResponse
+import com.fappslab.rickandmortygraphql.core.data.hubsrc.utils.QueryResponse.DataResponse.CharactersResponse.ResultResponse.EpisodeResponse
+import com.fappslab.rickandmortygraphql.core.data.hubsrc.utils.QueryResponse.DataResponse.CharactersResponse.ResultResponse.OriginResponse
 import com.google.gson.annotations.SerializedName
 
 data class QueryResponse(
