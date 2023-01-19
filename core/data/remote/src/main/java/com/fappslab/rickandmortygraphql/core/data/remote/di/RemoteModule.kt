@@ -1,7 +1,7 @@
 package com.fappslab.rickandmortygraphql.core.data.remote.di
 
 import com.apollographql.apollo3.ApolloClient
-import com.fappslab.rickandmortygraphql.remote.BuildConfig
+import com.fappslab.rickandmortygraphql.core.data.remote.BuildConfig
 import com.fappslab.rickandmortygraphql.core.data.remote.client.Apollo
 import com.fappslab.rickandmortygraphql.core.data.remote.client.network.HttpClient
 import com.fappslab.rickandmortygraphql.core.data.remote.client.HttpClientImpl

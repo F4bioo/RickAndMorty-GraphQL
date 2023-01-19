@@ -5,7 +5,7 @@ plugins {
 apply from: "$rootDir/plugins/android-build.gradle"
 
 android {
-    namespace "${Config.applicationId}.hubsrc"
+    namespace "${Config.applicationId}.core.data.hubsrc"
 }
 
 dependencies {

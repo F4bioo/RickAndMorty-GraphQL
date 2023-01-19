@@ -7,21 +7,21 @@ import android.widget.ProgressBar
 import androidx.annotation.StringRes
 import androidx.core.view.isVisible
 import coil.load
-import com.fappslab.rickandmortygraphql.libraries.design.dsdialogsm.build
-import com.fappslab.rickandmortygraphql.libraries.design.dsdialogsm.dsDialogSm
-import com.fappslab.rickandmortygraphql.libraries.design.dsmodal.build
-import com.fappslab.rickandmortygraphql.libraries.design.dsmodal.dsModalHost
 import com.fappslab.rickandmortygraphql.core.common.domain.model.Character
-import com.fappslab.rickandmortygraphql.home.R
-import com.fappslab.rickandmortygraphql.home.databinding.HomeCharacterItemBinding
+import com.fappslab.rickandmortygraphql.core.common.navigation.DetailsNavigation
+import com.fappslab.rickandmortygraphql.core.common.navigation.FilterNavigation
+import com.fappslab.rickandmortygraphql.features.home.R
+import com.fappslab.rickandmortygraphql.features.home.databinding.HomeCharacterItemBinding
 import com.fappslab.rickandmortygraphql.features.home.presentation.HomeFragment
 import com.fappslab.rickandmortygraphql.features.home.presentation.model.StatusType.Alive
 import com.fappslab.rickandmortygraphql.features.home.presentation.model.StatusType.Dead
 import com.fappslab.rickandmortygraphql.features.home.presentation.model.StatusType.Unknown
 import com.fappslab.rickandmortygraphql.features.home.presentation.model.extension.toCharacterArgs
 import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.HomeViewState
-import com.fappslab.rickandmortygraphql.core.common.navigation.DetailsNavigation
-import com.fappslab.rickandmortygraphql.core.common.navigation.FilterNavigation
+import com.fappslab.rickandmortygraphql.libraries.design.dsdialogsm.build
+import com.fappslab.rickandmortygraphql.libraries.design.dsdialogsm.dsDialogSm
+import com.fappslab.rickandmortygraphql.libraries.design.dsmodal.build
+import com.fappslab.rickandmortygraphql.libraries.design.dsmodal.dsModalHost
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.fappslab.rickandmortygraphql.libraries.design.R as DS
 

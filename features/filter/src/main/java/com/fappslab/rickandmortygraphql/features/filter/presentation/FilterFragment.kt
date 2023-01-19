@@ -8,8 +8,8 @@ import com.fappslab.rickandmortygraphql.libraries.arch.viewmodel.onViewAction
 import com.fappslab.rickandmortygraphql.libraries.arch.viewmodel.onViewState
 import com.fappslab.rickandmortygraphql.libraries.design.dsmodal.DsModalHost
 import com.fappslab.rickandmortygraphql.core.common.domain.model.KeyType
-import com.fappslab.rickandmortygraphql.filter.R
-import com.fappslab.rickandmortygraphql.filter.databinding.FilterFragmentBinding
+import com.fappslab.rickandmortygraphql.features.filter.R
+import com.fappslab.rickandmortygraphql.features.filter.databinding.FilterFragmentBinding
 import com.fappslab.rickandmortygraphql.features.filter.presentation.viewmodel.FilterViewAction
 import com.fappslab.rickandmortygraphql.features.filter.presentation.viewmodel.FilterViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel

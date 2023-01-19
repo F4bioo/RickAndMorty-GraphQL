@@ -2,7 +2,7 @@ package com.fappslab.rickandmortygraphql.features.filter.presentation.model
 
 import com.fappslab.rickandmortygraphql.core.common.domain.model.FilterType
 import com.fappslab.rickandmortygraphql.core.common.domain.model.KeyType
-import com.fappslab.rickandmortygraphql.filter.R
+import com.fappslab.rickandmortygraphql.features.filter.R
 import kotlin.collections.Map.Entry
 
 internal object FilterMapper {
