@@ -2,7 +2,7 @@ package com.fappslab.rickandmortygraphql.core.data.remote.client
 
 import com.apollographql.apollo3.ApolloClient
 import com.apollographql.apollo3.network.okHttpClient
-import com.fappslab.rickandmortygraphql.remote.BuildConfig
+import com.fappslab.rickandmortygraphql.core.data.remote.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
