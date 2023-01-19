@@ -15,7 +15,7 @@ internal data class FilterViewState(
         return when (keyType) {
             KeyType.KeyStatus -> copy(idRadioStatus = id ?: R.id.radio_no_status)
             KeyType.KeyGender -> copy(idRadioGender = id ?: R.id.radio_no_gender)
-            else -> copy(idRadioSpecies = id ?: R.id.radio_no_species)
+            KeyType.KeySpecies -> copy(idRadioSpecies = id ?: R.id.radio_no_species)
         }
     }
 }
