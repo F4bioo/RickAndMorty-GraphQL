@@ -2,12 +2,12 @@ package com.fappslab.rickandmortygraphql
 
 import android.app.Application
 import com.fappslab.rickandmortygraphql.core.data.local.di.LocalModule
-import com.fappslab.rickandmortygraphql.details.di.DetailsModule
+import com.fappslab.rickandmortygraphql.features.details.di.DetailsModule
 import com.fappslab.rickandmortygraphql.di.AppModule
-import com.fappslab.rickandmortygraphql.filter.di.FilterModule
-import com.fappslab.rickandmortygraphql.home.di.HomeModule
-import com.fappslab.rickandmortygraphql.hubsrc.di.HubSrcModule
-import com.fappslab.rickandmortygraphql.remote.di.RemoteModule
+import com.fappslab.rickandmortygraphql.features.filter.di.FilterModule
+import com.fappslab.rickandmortygraphql.features.home.di.HomeModule
+import com.fappslab.rickandmortygraphql.core.data.hubsrc.di.HubSrcModule
+import com.fappslab.rickandmortygraphql.core.data.remote.di.RemoteModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.loadKoinModules
