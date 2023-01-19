@@ -1,6 +1,6 @@
 package com.fappslab.rickandmortygraphql.features.details.stub
 
-import com.fappslab.rickandmortygraphql.navigation.CharacterArgs
+import com.fappslab.rickandmortygraphql.core.common.navigation.CharacterArgs
 
 internal fun characterArgsStub() =
     CharacterArgs(

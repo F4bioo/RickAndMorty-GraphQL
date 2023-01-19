@@ -27,8 +27,8 @@ import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.Hom
 import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.HomeViewModel
 import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.HomeViewState
 import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.PAGING_SPAN_COUNT_PORTRAIT
-import com.fappslab.rickandmortygraphql.navigation.DetailsNavigation
-import com.fappslab.rickandmortygraphql.navigation.FilterNavigation
+import com.fappslab.rickandmortygraphql.core.common.navigation.DetailsNavigation
+import com.fappslab.rickandmortygraphql.core.common.navigation.FilterNavigation
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 

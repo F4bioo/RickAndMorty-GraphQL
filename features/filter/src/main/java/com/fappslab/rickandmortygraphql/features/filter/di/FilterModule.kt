@@ -6,7 +6,7 @@ import com.fappslab.rickandmortygraphql.features.filter.domain.usecase.DeleteFil
 import com.fappslab.rickandmortygraphql.features.filter.domain.usecase.SetFilterUseCase
 import com.fappslab.rickandmortygraphql.features.filter.navigation.FilterNavigationImpl
 import com.fappslab.rickandmortygraphql.features.filter.presentation.viewmodel.FilterViewModel
-import com.fappslab.rickandmortygraphql.navigation.FilterNavigation
+import com.fappslab.rickandmortygraphql.core.common.navigation.FilterNavigation
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module

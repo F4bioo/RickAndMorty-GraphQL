@@ -15,7 +15,7 @@ import com.fappslab.rickandmortygraphql.details.R
 import com.fappslab.rickandmortygraphql.details.databinding.DetailsFragmentBinding
 import com.fappslab.rickandmortygraphql.features.details.presentation.viewmodel.DetailsViewModel
 import com.fappslab.rickandmortygraphql.features.details.presentation.viewmodel.DetailsViewState
-import com.fappslab.rickandmortygraphql.navigation.CharacterArgs
+import com.fappslab.rickandmortygraphql.core.common.navigation.CharacterArgs
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf

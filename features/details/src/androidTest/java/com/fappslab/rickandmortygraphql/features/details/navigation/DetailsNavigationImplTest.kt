@@ -9,7 +9,7 @@ import com.fappslab.rickandmortygraphql.features.details.presentation.viewmodel.
 import com.fappslab.rickandmortygraphql.features.details.presentation.viewmodel.DetailsViewState
 import com.fappslab.rickandmortygraphql.features.details.stub.characterArgsStub
 import com.fappslab.rickandmortygraphql.features.details.navigation.DetailsNavigationImpl
-import com.fappslab.rickandmortygraphql.navigation.CharacterArgs
+import com.fappslab.rickandmortygraphql.core.common.navigation.CharacterArgs
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.MutableStateFlow

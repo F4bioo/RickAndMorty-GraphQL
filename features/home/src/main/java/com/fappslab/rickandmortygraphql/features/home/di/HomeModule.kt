@@ -5,7 +5,7 @@ import com.fappslab.rickandmortygraphql.domain.usecase.GetCharactersUseCase
 import com.fappslab.rickandmortygraphql.domain.usecase.GetFilterUseCase
 import com.fappslab.rickandmortygraphql.features.home.navigation.HomeNavigationImpl
 import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.HomeViewModel
-import com.fappslab.rickandmortygraphql.navigation.HomeNavigation
+import com.fappslab.rickandmortygraphql.core.common.navigation.HomeNavigation
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module

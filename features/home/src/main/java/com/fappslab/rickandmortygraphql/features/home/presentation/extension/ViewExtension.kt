@@ -20,8 +20,8 @@ import com.fappslab.rickandmortygraphql.features.home.presentation.model.StatusT
 import com.fappslab.rickandmortygraphql.features.home.presentation.model.StatusType.Unknown
 import com.fappslab.rickandmortygraphql.features.home.presentation.model.extension.toCharacterArgs
 import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.HomeViewState
-import com.fappslab.rickandmortygraphql.navigation.DetailsNavigation
-import com.fappslab.rickandmortygraphql.navigation.FilterNavigation
+import com.fappslab.rickandmortygraphql.core.common.navigation.DetailsNavigation
+import com.fappslab.rickandmortygraphql.core.common.navigation.FilterNavigation
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.fappslab.rickandmortygraphql.libraries.design.R as DS
 

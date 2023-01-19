@@ -2,7 +2,7 @@ package com.fappslab.rickandmortygraphql.features.details.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import com.fappslab.rickandmortygraphql.features.details.presentation.model.StatusType
-import com.fappslab.rickandmortygraphql.navigation.CharacterArgs
+import com.fappslab.rickandmortygraphql.core.common.navigation.CharacterArgs
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update

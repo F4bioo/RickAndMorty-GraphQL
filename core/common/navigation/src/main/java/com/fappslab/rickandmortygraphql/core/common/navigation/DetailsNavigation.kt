@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.navigation
+package com.fappslab.rickandmortygraphql.core.common.navigation
 
 import android.os.Parcelable
 import androidx.fragment.app.Fragment
