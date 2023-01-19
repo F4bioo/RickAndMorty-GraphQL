@@ -1,7 +1,7 @@
 package com.fappslab.rickandmortygraphql.features.filter.di
 
-import com.fappslab.rickandmortygraphql.domain.repository.RickAndMortyRepository
-import com.fappslab.rickandmortygraphql.domain.usecase.GetFilterUseCase
+import com.fappslab.rickandmortygraphql.core.common.domain.repository.RickAndMortyRepository
+import com.fappslab.rickandmortygraphql.core.common.domain.usecase.GetFilterUseCase
 import com.fappslab.rickandmortygraphql.features.filter.domain.usecase.DeleteFilterUseCase
 import com.fappslab.rickandmortygraphql.features.filter.domain.usecase.SetFilterUseCase
 import com.fappslab.rickandmortygraphql.features.filter.navigation.FilterNavigationImpl

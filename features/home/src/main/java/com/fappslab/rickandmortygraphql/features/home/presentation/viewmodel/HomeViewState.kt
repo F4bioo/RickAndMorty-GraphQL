@@ -1,10 +1,10 @@
 package com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel
 
 import com.fappslab.rickandmortygraphql.libraries.arch.extension.orZero
-import com.fappslab.rickandmortygraphql.domain.model.Character
-import com.fappslab.rickandmortygraphql.domain.model.Characters
-import com.fappslab.rickandmortygraphql.domain.model.Filter
-import com.fappslab.rickandmortygraphql.domain.model.KeyType
+import com.fappslab.rickandmortygraphql.core.common.domain.model.Character
+import com.fappslab.rickandmortygraphql.core.common.domain.model.Characters
+import com.fappslab.rickandmortygraphql.core.common.domain.model.Filter
+import com.fappslab.rickandmortygraphql.core.common.domain.model.KeyType
 
 internal const val FIRST_PAGE = 1
 internal const val PAGING_SPAN_COUNT_PORTRAIT = 3

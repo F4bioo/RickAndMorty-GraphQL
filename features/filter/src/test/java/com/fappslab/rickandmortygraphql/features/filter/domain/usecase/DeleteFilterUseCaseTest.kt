@@ -1,7 +1,7 @@
 package com.fappslab.rickandmortygraphql.features.filter.domain.usecase
 
 import app.cash.turbine.test
-import com.fappslab.rickandmortygraphql.domain.repository.RickAndMortyRepository
+import com.fappslab.rickandmortygraphql.core.common.domain.repository.RickAndMortyRepository
 import com.fappslab.rickandmortygraphql.features.filter.domain.usecase.DeleteFilterUseCase
 import io.mockk.clearAllMocks
 import io.mockk.every

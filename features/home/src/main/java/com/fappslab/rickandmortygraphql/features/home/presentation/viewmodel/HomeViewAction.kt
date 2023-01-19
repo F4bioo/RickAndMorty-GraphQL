@@ -1,7 +1,7 @@
 package com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel
 
 import androidx.annotation.StringRes
-import com.fappslab.rickandmortygraphql.domain.model.Character
+import com.fappslab.rickandmortygraphql.core.common.domain.model.Character
 
 internal sealed class HomeViewAction {
     object Filter : HomeViewAction()

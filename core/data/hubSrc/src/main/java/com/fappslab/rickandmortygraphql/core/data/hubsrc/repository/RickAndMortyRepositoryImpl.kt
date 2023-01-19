@@ -1,9 +1,9 @@
 package com.fappslab.rickandmortygraphql.core.data.hubsrc.repository
 
 import com.fappslab.rickandmortygraphql.core.data.local.source.LocalRickAndMortyDataSource
-import com.fappslab.rickandmortygraphql.domain.model.Characters
-import com.fappslab.rickandmortygraphql.domain.model.Filter
-import com.fappslab.rickandmortygraphql.domain.repository.RickAndMortyRepository
+import com.fappslab.rickandmortygraphql.core.common.domain.model.Characters
+import com.fappslab.rickandmortygraphql.core.common.domain.model.Filter
+import com.fappslab.rickandmortygraphql.core.common.domain.repository.RickAndMortyRepository
 import com.fappslab.rickandmortygraphql.core.data.hubsrc.extension.toCharacters
 import com.fappslab.rickandmortygraphql.core.data.hubsrc.extension.toFilterCharacter
 import com.fappslab.rickandmortygraphql.core.data.remote.source.RemoteRickAndMortyDataSource

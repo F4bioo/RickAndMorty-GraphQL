@@ -2,12 +2,12 @@ package com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel
 
 import androidx.lifecycle.viewModelScope
 import com.fappslab.rickandmortygraphql.libraries.arch.viewmodel.ViewModel
-import com.fappslab.rickandmortygraphql.domain.model.Character
-import com.fappslab.rickandmortygraphql.domain.model.Characters
-import com.fappslab.rickandmortygraphql.domain.model.Filter
-import com.fappslab.rickandmortygraphql.domain.model.KeyType
-import com.fappslab.rickandmortygraphql.domain.usecase.GetCharactersUseCase
-import com.fappslab.rickandmortygraphql.domain.usecase.GetFilterUseCase
+import com.fappslab.rickandmortygraphql.core.common.domain.model.Character
+import com.fappslab.rickandmortygraphql.core.common.domain.model.Characters
+import com.fappslab.rickandmortygraphql.core.common.domain.model.Filter
+import com.fappslab.rickandmortygraphql.core.common.domain.model.KeyType
+import com.fappslab.rickandmortygraphql.core.common.domain.usecase.GetCharactersUseCase
+import com.fappslab.rickandmortygraphql.core.common.domain.usecase.GetFilterUseCase
 import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.RemoteThrowable.ClientThrowable
 import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.RemoteThrowable.FilterThrowable
 import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.RemoteThrowable.ServerThrowable

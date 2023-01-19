@@ -8,7 +8,7 @@ import com.apollographql.apollo3.annotations.ApolloExperimental
 import com.apollographql.apollo3.mockserver.MockServer
 import com.apollographql.apollo3.mockserver.enqueue
 import com.fappslab.rickandmortygraphql.core.data.hubsrc.repository.RickAndMortyRepositoryImpl
-import com.fappslab.rickandmortygraphql.domain.repository.RickAndMortyRepository
+import com.fappslab.rickandmortygraphql.core.common.domain.repository.RickAndMortyRepository
 import com.fappslab.rickandmortygraphql.core.data.hubsrc.source.local.LocalRickAndMortyDataSourceImpl
 import com.fappslab.rickandmortygraphql.core.data.hubsrc.source.remote.RemoteRickAndMortyDataSourceImpl
 import com.fappslab.rickandmortygraphql.core.data.hubsrc.stub.filterStub

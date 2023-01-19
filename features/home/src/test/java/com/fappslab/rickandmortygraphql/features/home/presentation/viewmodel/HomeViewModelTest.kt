@@ -5,10 +5,10 @@ import com.fappslab.rickandmortygraphql.libraries.arch.test.testActionFlow
 import com.fappslab.rickandmortygraphql.libraries.arch.test.testFlows
 import com.fappslab.rickandmortygraphql.libraries.arch.test.testStateFlow
 import com.fappslab.rickandmortygraphql.design.R
-import com.fappslab.rickandmortygraphql.domain.model.Characters
-import com.fappslab.rickandmortygraphql.domain.model.Filter
-import com.fappslab.rickandmortygraphql.domain.usecase.GetCharactersUseCase
-import com.fappslab.rickandmortygraphql.domain.usecase.GetFilterUseCase
+import com.fappslab.rickandmortygraphql.core.common.domain.model.Characters
+import com.fappslab.rickandmortygraphql.core.common.domain.model.Filter
+import com.fappslab.rickandmortygraphql.core.common.domain.usecase.GetCharactersUseCase
+import com.fappslab.rickandmortygraphql.core.common.domain.usecase.GetFilterUseCase
 import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.HomeViewAction
 import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.HomeViewModel
 import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.HomeViewState

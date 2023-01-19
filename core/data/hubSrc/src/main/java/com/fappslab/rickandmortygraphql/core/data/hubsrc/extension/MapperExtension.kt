@@ -2,9 +2,9 @@ package com.fappslab.rickandmortygraphql.core.data.hubsrc.extension
 
 import com.apollographql.apollo3.api.Optional
 import com.fappslab.rickandmortygraphql.libraries.arch.extension.orZero
-import com.fappslab.rickandmortygraphql.domain.model.Character
-import com.fappslab.rickandmortygraphql.domain.model.Characters
-import com.fappslab.rickandmortygraphql.domain.model.Filter
+import com.fappslab.rickandmortygraphql.core.common.domain.model.Character
+import com.fappslab.rickandmortygraphql.core.common.domain.model.Characters
+import com.fappslab.rickandmortygraphql.core.common.domain.model.Filter
 import com.fappslab.rickandmortygraphql.remote.GetCharactersFilterQuery
 import com.fappslab.rickandmortygraphql.remote.type.FilterCharacter
 

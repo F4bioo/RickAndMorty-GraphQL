@@ -11,7 +11,7 @@ import com.fappslab.rickandmortygraphql.libraries.design.dsdialogsm.build
 import com.fappslab.rickandmortygraphql.libraries.design.dsdialogsm.dsDialogSm
 import com.fappslab.rickandmortygraphql.libraries.design.dsmodal.build
 import com.fappslab.rickandmortygraphql.libraries.design.dsmodal.dsModalHost
-import com.fappslab.rickandmortygraphql.domain.model.Character
+import com.fappslab.rickandmortygraphql.core.common.domain.model.Character
 import com.fappslab.rickandmortygraphql.home.R
 import com.fappslab.rickandmortygraphql.home.databinding.HomeCharacterItemBinding
 import com.fappslab.rickandmortygraphql.features.home.presentation.HomeFragment

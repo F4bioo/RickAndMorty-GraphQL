@@ -1,8 +1,8 @@
 package com.fappslab.rickandmortygraphql.features.home.di
 
-import com.fappslab.rickandmortygraphql.domain.repository.RickAndMortyRepository
-import com.fappslab.rickandmortygraphql.domain.usecase.GetCharactersUseCase
-import com.fappslab.rickandmortygraphql.domain.usecase.GetFilterUseCase
+import com.fappslab.rickandmortygraphql.core.common.domain.repository.RickAndMortyRepository
+import com.fappslab.rickandmortygraphql.core.common.domain.usecase.GetCharactersUseCase
+import com.fappslab.rickandmortygraphql.core.common.domain.usecase.GetFilterUseCase
 import com.fappslab.rickandmortygraphql.features.home.navigation.HomeNavigationImpl
 import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.HomeViewModel
 import com.fappslab.rickandmortygraphql.core.common.navigation.HomeNavigation

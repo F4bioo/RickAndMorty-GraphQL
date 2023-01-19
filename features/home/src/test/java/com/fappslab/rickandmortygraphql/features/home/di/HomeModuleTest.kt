@@ -1,7 +1,7 @@
 package com.fappslab.rickandmortygraphql.features.home.di
 
 import com.fappslab.rickandmortygraphql.libraries.arch.rules.DispatcherTestRule
-import com.fappslab.rickandmortygraphql.domain.repository.RickAndMortyRepository
+import com.fappslab.rickandmortygraphql.core.common.domain.repository.RickAndMortyRepository
 import com.fappslab.rickandmortygraphql.features.home.di.HomeModule
 import io.mockk.mockk
 import org.junit.Rule

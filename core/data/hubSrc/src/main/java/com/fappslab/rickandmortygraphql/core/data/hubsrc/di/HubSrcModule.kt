@@ -3,7 +3,7 @@ package com.fappslab.rickandmortygraphql.core.data.hubsrc.di
 import android.content.SharedPreferences
 import com.apollographql.apollo3.ApolloClient
 import com.fappslab.rickandmortygraphql.core.data.local.prefs.LocalClient
-import com.fappslab.rickandmortygraphql.domain.repository.RickAndMortyRepository
+import com.fappslab.rickandmortygraphql.core.common.domain.repository.RickAndMortyRepository
 import com.fappslab.rickandmortygraphql.core.data.hubsrc.repository.RickAndMortyRepositoryImpl
 import com.fappslab.rickandmortygraphql.core.data.hubsrc.source.local.LocalRickAndMortyDataSourceImpl
 import com.fappslab.rickandmortygraphql.core.data.hubsrc.source.remote.RemoteRickAndMortyDataSourceImpl

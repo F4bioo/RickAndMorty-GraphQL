@@ -1,6 +1,6 @@
 package com.fappslab.rickandmortygraphql.features.filter.di
 
-import com.fappslab.rickandmortygraphql.domain.repository.RickAndMortyRepository
+import com.fappslab.rickandmortygraphql.core.common.domain.repository.RickAndMortyRepository
 import com.fappslab.rickandmortygraphql.features.filter.di.FilterModule
 import io.mockk.mockk
 import org.junit.Test

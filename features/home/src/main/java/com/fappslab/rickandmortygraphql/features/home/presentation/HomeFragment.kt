@@ -11,7 +11,7 @@ import com.fappslab.rickandmortygraphql.libraries.arch.paging.pagingscroll.Pagin
 import com.fappslab.rickandmortygraphql.libraries.arch.viewbinding.viewBinding
 import com.fappslab.rickandmortygraphql.libraries.arch.viewmodel.onViewAction
 import com.fappslab.rickandmortygraphql.libraries.arch.viewmodel.onViewState
-import com.fappslab.rickandmortygraphql.domain.model.Character
+import com.fappslab.rickandmortygraphql.core.common.domain.model.Character
 import com.fappslab.rickandmortygraphql.home.R
 import com.fappslab.rickandmortygraphql.home.databinding.HomeCharacterItemBinding
 import com.fappslab.rickandmortygraphql.home.databinding.HomeFragmentBinding

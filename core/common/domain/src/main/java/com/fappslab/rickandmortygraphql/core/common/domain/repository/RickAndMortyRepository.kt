@@ -1,7 +1,7 @@
-package com.fappslab.rickandmortygraphql.domain.repository
+package com.fappslab.rickandmortygraphql.core.common.domain.repository
 
-import com.fappslab.rickandmortygraphql.domain.model.Characters
-import com.fappslab.rickandmortygraphql.domain.model.Filter
+import com.fappslab.rickandmortygraphql.core.common.domain.model.Characters
+import com.fappslab.rickandmortygraphql.core.common.domain.model.Filter
 import kotlinx.coroutines.flow.Flow
 
 interface RickAndMortyRepository {

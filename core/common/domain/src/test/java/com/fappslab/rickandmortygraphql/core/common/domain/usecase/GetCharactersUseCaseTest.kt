@@ -1,9 +1,10 @@
-package com.fappslab.rickandmortygraphql.domain.usecase
+package com.fappslab.rickandmortygraphql.core.common.domain.usecase
 
 import app.cash.turbine.test
-import com.fappslab.rickandmortygraphql.domain.model.Filter
-import com.fappslab.rickandmortygraphql.domain.repository.RickAndMortyRepository
-import com.fappslab.rickandmortygraphql.domain.stub.characterStub
+import com.fappslab.rickandmortygraphql.core.common.domain.model.Filter
+import com.fappslab.rickandmortygraphql.core.common.domain.repository.RickAndMortyRepository
+import com.fappslab.rickandmortygraphql.core.common.domain.usecase.GetCharactersUseCase
+import com.fappslab.rickandmortygraphql.core.common.domain.stub.characterStub
 import io.mockk.clearAllMocks
 import io.mockk.every
 import io.mockk.mockk

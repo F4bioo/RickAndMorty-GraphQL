@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.domain.model
+package com.fappslab.rickandmortygraphql.core.common.domain.model
 
 enum class FilterType(val value: String) {
     StatusAlive(value = "alive"),
