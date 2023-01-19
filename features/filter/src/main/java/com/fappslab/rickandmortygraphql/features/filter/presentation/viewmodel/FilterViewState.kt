@@ -1,8 +1,8 @@
-package com.fappslab.rickandmortygraphql.filter.presentation.viewmodel
+package com.fappslab.rickandmortygraphql.features.filter.presentation.viewmodel
 
 import com.fappslab.rickandmortygraphql.domain.model.KeyType
 import com.fappslab.rickandmortygraphql.filter.R
-import com.fappslab.rickandmortygraphql.filter.presentation.model.FilterMapper
+import com.fappslab.rickandmortygraphql.features.filter.presentation.model.FilterMapper
 
 internal data class FilterViewState(
     val idRadioStatus: Int = R.id.radio_no_status,

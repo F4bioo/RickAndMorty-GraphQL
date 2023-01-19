@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.filter.presentation
+package com.fappslab.rickandmortygraphql.features.filter.presentation
 
 import android.os.Bundle
 import android.view.View
@@ -10,8 +10,8 @@ import com.fappslab.rickandmortygraphql.libraries.design.dsmodal.DsModalHost
 import com.fappslab.rickandmortygraphql.domain.model.KeyType
 import com.fappslab.rickandmortygraphql.filter.R
 import com.fappslab.rickandmortygraphql.filter.databinding.FilterFragmentBinding
-import com.fappslab.rickandmortygraphql.filter.presentation.viewmodel.FilterViewAction
-import com.fappslab.rickandmortygraphql.filter.presentation.viewmodel.FilterViewModel
+import com.fappslab.rickandmortygraphql.features.filter.presentation.viewmodel.FilterViewAction
+import com.fappslab.rickandmortygraphql.features.filter.presentation.viewmodel.FilterViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 internal class FilterFragment : Fragment(R.layout.filter_fragment) {

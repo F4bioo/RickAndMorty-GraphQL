@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.filter.presentation.model
+package com.fappslab.rickandmortygraphql.features.filter.presentation.model
 
 import com.fappslab.rickandmortygraphql.domain.model.FilterType
 import com.fappslab.rickandmortygraphql.domain.model.KeyType

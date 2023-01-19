@@ -1,11 +1,12 @@
-package com.fappslab.rickandmortygraphql.filter.navigation
+package com.fappslab.rickandmortygraphql.features.filter.navigation
 
 import androidx.fragment.app.testing.launchFragment
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.fappslab.rickandmortygraphql.design.R
-import com.fappslab.rickandmortygraphql.filter.presentation.FilterFragment
-import com.fappslab.rickandmortygraphql.filter.presentation.viewmodel.FilterViewModel
-import com.fappslab.rickandmortygraphql.filter.presentation.viewmodel.FilterViewState
+import com.fappslab.rickandmortygraphql.features.filter.navigation.FilterNavigationImpl
+import com.fappslab.rickandmortygraphql.features.filter.presentation.FilterFragment
+import com.fappslab.rickandmortygraphql.features.filter.presentation.viewmodel.FilterViewModel
+import com.fappslab.rickandmortygraphql.features.filter.presentation.viewmodel.FilterViewState
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.MutableSharedFlow

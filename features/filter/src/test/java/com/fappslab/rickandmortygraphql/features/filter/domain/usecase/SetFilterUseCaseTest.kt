@@ -1,7 +1,8 @@
-package com.fappslab.rickandmortygraphql.filter.domain.usecase
+package com.fappslab.rickandmortygraphql.features.filter.domain.usecase
 
 import app.cash.turbine.test
 import com.fappslab.rickandmortygraphql.domain.repository.RickAndMortyRepository
+import com.fappslab.rickandmortygraphql.features.filter.domain.usecase.SetFilterUseCase
 import io.mockk.clearAllMocks
 import io.mockk.every
 import io.mockk.mockk
@@ -15,14 +16,14 @@ import org.junit.Test
 import kotlin.test.assertEquals
 
 @ExperimentalCoroutinesApi
-internal class DeleteFilterUseCaseTest {
+internal class SetFilterUseCaseTest {
 
     private val repository: RickAndMortyRepository = mockk()
-    private lateinit var subject: DeleteFilterUseCase
+    private lateinit var subject: SetFilterUseCase
 
     @Before
     fun setUp() {
-        subject = DeleteFilterUseCase(
+        subject = SetFilterUseCase(
             repository = repository
         )
     }
@@ -33,13 +34,13 @@ internal class DeleteFilterUseCaseTest {
     }
 
     @Test
-    fun `deleteFilter Should delete prefs value When invoke deleteFilter`() {
+    fun `setFilter Should save prefs value When invoke setFilter`() {
         // Given
         val expectedResult = Unit
-        every { repository.deleteFilter(any()) } returns flowOf(expectedResult)
+        every { repository.setFilter(any(), any()) } returns flowOf(expectedResult)
 
         // When
-        val result = subject(prefsKey = "status")
+        val result = subject(prefsKey = "status", value = "alive")
 
         // Then
         runTest {
@@ -47,7 +48,7 @@ internal class DeleteFilterUseCaseTest {
                 assertEquals(expectedResult, awaitItem())
                 cancelAndConsumeRemainingEvents()
             }
-            verify { repository.deleteFilter(any()) }
+            verify { repository.setFilter(any(), any()) }
         }
     }
 }

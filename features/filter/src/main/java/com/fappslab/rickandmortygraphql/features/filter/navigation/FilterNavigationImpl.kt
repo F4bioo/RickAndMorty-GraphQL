@@ -1,7 +1,7 @@
-package com.fappslab.rickandmortygraphql.filter.navigation
+package com.fappslab.rickandmortygraphql.features.filter.navigation
 
 import androidx.fragment.app.Fragment
-import com.fappslab.rickandmortygraphql.filter.presentation.FilterFragment
+import com.fappslab.rickandmortygraphql.features.filter.presentation.FilterFragment
 import com.fappslab.rickandmortygraphql.navigation.FilterNavigation
 
 internal class FilterNavigationImpl : FilterNavigation {

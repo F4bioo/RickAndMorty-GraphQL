@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.filter.domain.usecase
+package com.fappslab.rickandmortygraphql.features.filter.domain.usecase
 
 import com.fappslab.rickandmortygraphql.domain.repository.RickAndMortyRepository
 import kotlinx.coroutines.flow.Flow

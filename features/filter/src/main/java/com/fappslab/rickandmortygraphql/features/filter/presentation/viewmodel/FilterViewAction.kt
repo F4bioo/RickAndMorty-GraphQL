@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.filter.presentation.viewmodel
+package com.fappslab.rickandmortygraphql.features.filter.presentation.viewmodel
 
 internal sealed class FilterViewAction {
     object Done : FilterViewAction()

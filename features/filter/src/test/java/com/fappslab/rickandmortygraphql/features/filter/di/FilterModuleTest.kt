@@ -1,6 +1,7 @@
-package com.fappslab.rickandmortygraphql.filter.di
+package com.fappslab.rickandmortygraphql.features.filter.di
 
 import com.fappslab.rickandmortygraphql.domain.repository.RickAndMortyRepository
+import com.fappslab.rickandmortygraphql.features.filter.di.FilterModule
 import io.mockk.mockk
 import org.junit.Test
 import org.koin.core.context.startKoin
