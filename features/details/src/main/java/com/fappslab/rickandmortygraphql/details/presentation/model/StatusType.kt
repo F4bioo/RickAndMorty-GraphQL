@@ -1,7 +1,7 @@
 package com.fappslab.rickandmortygraphql.details.presentation.model
 
 import androidx.annotation.ColorRes
-import com.fappslab.rickandmortygraphql.design.R
+import com.fappslab.rickandmortygraphql.libraries.design.R
 
 internal enum class StatusType(@ColorRes val colorRes: Int) {
     Alive(colorRes = R.color.ds_color_green),

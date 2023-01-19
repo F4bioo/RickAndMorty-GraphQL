@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.design.dsmodal
+package com.fappslab.rickandmortygraphql.libraries.design.dsmodal
 
 import android.content.DialogInterface
 import android.os.Bundle
@@ -8,8 +8,8 @@ import android.widget.FrameLayout.LayoutParams.MATCH_PARENT
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.fappslab.rickandmortygraphql.arch.viewbinding.viewBinding
-import com.fappslab.rickandmortygraphql.design.R
-import com.fappslab.rickandmortygraphql.design.databinding.LayoutDsmodaHostBinding
+import com.fappslab.rickandmortygraphql.libraries.design.R
+import com.fappslab.rickandmortygraphql.libraries.design.databinding.LayoutDsmodaHostBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment

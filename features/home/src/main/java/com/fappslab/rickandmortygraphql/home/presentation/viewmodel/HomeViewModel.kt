@@ -21,7 +21,7 @@ import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
-import com.fappslab.rickandmortygraphql.design.R as DS
+import com.fappslab.rickandmortygraphql.libraries.design.R as DS
 
 internal class HomeViewModel(
     private val getFilterUseCase: GetFilterUseCase,

@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.design.dsmodal
+package com.fappslab.rickandmortygraphql.libraries.design.dsmodal
 
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.LifecycleOwner

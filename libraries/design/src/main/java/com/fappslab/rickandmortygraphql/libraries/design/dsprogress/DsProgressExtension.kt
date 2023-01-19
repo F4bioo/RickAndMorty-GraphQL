@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.design.dsprogress
+package com.fappslab.rickandmortygraphql.libraries.design.dsprogress
 
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.LifecycleOwner

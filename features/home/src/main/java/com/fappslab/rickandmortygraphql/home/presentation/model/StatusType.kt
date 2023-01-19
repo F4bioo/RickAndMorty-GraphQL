@@ -1,7 +1,7 @@
 package com.fappslab.rickandmortygraphql.home.presentation.model
 
 import androidx.annotation.DrawableRes
-import com.fappslab.rickandmortygraphql.design.R
+import com.fappslab.rickandmortygraphql.libraries.design.R
 
 internal enum class StatusType(@DrawableRes val iconRes: Int) {
     Alive(iconRes = R.drawable.ds_ic_circle_green),

@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.design.extention
+package com.fappslab.rickandmortygraphql.libraries.design.extention
 
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.WindowCompat

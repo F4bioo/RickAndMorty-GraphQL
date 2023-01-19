@@ -7,10 +7,10 @@ import android.widget.ProgressBar
 import androidx.annotation.StringRes
 import androidx.core.view.isVisible
 import coil.load
-import com.fappslab.rickandmortygraphql.design.dsdialogsm.build
-import com.fappslab.rickandmortygraphql.design.dsdialogsm.dsDialogSm
-import com.fappslab.rickandmortygraphql.design.dsmodal.build
-import com.fappslab.rickandmortygraphql.design.dsmodal.dsModalHost
+import com.fappslab.rickandmortygraphql.libraries.design.dsdialogsm.build
+import com.fappslab.rickandmortygraphql.libraries.design.dsdialogsm.dsDialogSm
+import com.fappslab.rickandmortygraphql.libraries.design.dsmodal.build
+import com.fappslab.rickandmortygraphql.libraries.design.dsmodal.dsModalHost
 import com.fappslab.rickandmortygraphql.domain.model.Character
 import com.fappslab.rickandmortygraphql.home.R
 import com.fappslab.rickandmortygraphql.home.databinding.HomeCharacterItemBinding
@@ -23,7 +23,7 @@ import com.fappslab.rickandmortygraphql.home.presentation.viewmodel.HomeViewStat
 import com.fappslab.rickandmortygraphql.navigation.DetailsNavigation
 import com.fappslab.rickandmortygraphql.navigation.FilterNavigation
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.fappslab.rickandmortygraphql.design.R as DS
+import com.fappslab.rickandmortygraphql.libraries.design.R as DS
 
 internal fun HomeFragment.bind(
     binding: HomeCharacterItemBinding,

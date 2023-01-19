@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.design.dsdialogsm
+package com.fappslab.rickandmortygraphql.libraries.design.dsdialogsm
 
 import android.app.AlertDialog
 import android.app.Dialog
@@ -14,8 +14,8 @@ import android.widget.TextView
 import androidx.annotation.StringRes
 import androidx.core.view.isVisible
 import androidx.fragment.app.DialogFragment
-import com.fappslab.rickandmortygraphql.design.R
-import com.fappslab.rickandmortygraphql.design.databinding.LayoutDsdialogSmBinding
+import com.fappslab.rickandmortygraphql.libraries.design.R
+import com.fappslab.rickandmortygraphql.libraries.design.databinding.LayoutDsdialogSmBinding
 
 class DsDialogSm : DialogFragment(R.layout.layout_dsdialog_sm) {
 
