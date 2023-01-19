@@ -1,10 +1,10 @@
-package com.fappslab.rickandmortygraphql.remote.di
+package com.fappslab.rickandmortygraphql.core.data.remote.di
 
 import com.apollographql.apollo3.ApolloClient
 import com.fappslab.rickandmortygraphql.remote.BuildConfig
-import com.fappslab.rickandmortygraphql.remote.client.Apollo
-import com.fappslab.rickandmortygraphql.remote.client.network.HttpClient
-import com.fappslab.rickandmortygraphql.remote.client.HttpClientImpl
+import com.fappslab.rickandmortygraphql.core.data.remote.client.Apollo
+import com.fappslab.rickandmortygraphql.core.data.remote.client.network.HttpClient
+import com.fappslab.rickandmortygraphql.core.data.remote.client.HttpClientImpl
 import org.koin.core.module.Module
 import org.koin.dsl.module
 

@@ -1,7 +1,7 @@
-package com.fappslab.rickandmortygraphql.remote.client
+package com.fappslab.rickandmortygraphql.core.data.remote.client
 
 import com.apollographql.apollo3.ApolloClient
-import com.fappslab.rickandmortygraphql.remote.client.network.HttpClient
+import com.fappslab.rickandmortygraphql.core.data.remote.client.network.HttpClient
 
 class HttpClientImpl(
     private val apollo: Apollo

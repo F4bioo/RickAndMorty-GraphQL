@@ -15,9 +15,9 @@ import com.fappslab.rickandmortygraphql.hubsrc.utils.StubResponse.expectedFailur
 import com.fappslab.rickandmortygraphql.hubsrc.utils.StubResponse.expectedSuccessBodyResponse
 import com.fappslab.rickandmortygraphql.hubsrc.utils.StubResponse.expectedSuccessDataResponse
 import com.fappslab.rickandmortygraphql.hubsrc.utils.toCharacters
-import com.fappslab.rickandmortygraphql.remote.client.network.exception.CLIENT_DEFAULT_ERROR_MESSAGE
-import com.fappslab.rickandmortygraphql.remote.client.network.exception.SERVER_DEFAULT_ERROR_MESSAGE
-import com.fappslab.rickandmortygraphql.remote.client.network.exception.UNKNOWN_DEFAULT_ERROR_MESSAGE
+import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.CLIENT_DEFAULT_ERROR_MESSAGE
+import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.SERVER_DEFAULT_ERROR_MESSAGE
+import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.UNKNOWN_DEFAULT_ERROR_MESSAGE
 import io.mockk.clearAllMocks
 import io.mockk.every
 import io.mockk.mockk

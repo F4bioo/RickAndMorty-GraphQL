@@ -14,10 +14,10 @@ import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.Hom
 import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.HomeViewState
 import com.fappslab.rickandmortygraphql.hubsrc.utils.StubResponse.expectedSuccessDataResponse
 import com.fappslab.rickandmortygraphql.hubsrc.utils.toCharacters
-import com.fappslab.rickandmortygraphql.remote.client.network.exception.RemoteThrowable.ClientThrowable
-import com.fappslab.rickandmortygraphql.remote.client.network.exception.RemoteThrowable.FilterThrowable
-import com.fappslab.rickandmortygraphql.remote.client.network.exception.RemoteThrowable.ServerThrowable
-import com.fappslab.rickandmortygraphql.remote.client.network.exception.RemoteThrowable.UnknownThrowable
+import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.RemoteThrowable.ClientThrowable
+import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.RemoteThrowable.FilterThrowable
+import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.RemoteThrowable.ServerThrowable
+import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.RemoteThrowable.UnknownThrowable
 import io.mockk.clearAllMocks
 import io.mockk.every
 import io.mockk.mockk

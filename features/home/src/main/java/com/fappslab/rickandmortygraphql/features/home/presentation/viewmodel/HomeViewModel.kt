@@ -8,9 +8,9 @@ import com.fappslab.rickandmortygraphql.domain.model.Filter
 import com.fappslab.rickandmortygraphql.domain.model.KeyType
 import com.fappslab.rickandmortygraphql.domain.usecase.GetCharactersUseCase
 import com.fappslab.rickandmortygraphql.domain.usecase.GetFilterUseCase
-import com.fappslab.rickandmortygraphql.remote.client.network.exception.RemoteThrowable.ClientThrowable
-import com.fappslab.rickandmortygraphql.remote.client.network.exception.RemoteThrowable.FilterThrowable
-import com.fappslab.rickandmortygraphql.remote.client.network.exception.RemoteThrowable.ServerThrowable
+import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.RemoteThrowable.ClientThrowable
+import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.RemoteThrowable.FilterThrowable
+import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.RemoteThrowable.ServerThrowable
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async

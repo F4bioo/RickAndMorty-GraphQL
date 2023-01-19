@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.remote.client
+package com.fappslab.rickandmortygraphql.core.data.remote.client
 
 import com.apollographql.apollo3.ApolloClient
 import com.apollographql.apollo3.network.okHttpClient

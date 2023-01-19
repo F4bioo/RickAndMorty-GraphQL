@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.remote.source
+package com.fappslab.rickandmortygraphql.core.data.remote.source
 
 import com.fappslab.rickandmortygraphql.remote.GetCharactersFilterQuery
 import com.fappslab.rickandmortygraphql.remote.type.FilterCharacter

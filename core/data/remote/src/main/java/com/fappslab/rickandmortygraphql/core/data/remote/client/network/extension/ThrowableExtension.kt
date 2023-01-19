@@ -1,13 +1,13 @@
-package com.fappslab.rickandmortygraphql.remote.client.network.extension
+package com.fappslab.rickandmortygraphql.core.data.remote.client.network.extension
 
 import com.apollographql.apollo3.ApolloCall
 import com.apollographql.apollo3.api.Query
 import com.apollographql.apollo3.exception.ApolloException
 import com.apollographql.apollo3.exception.ApolloHttpException
-import com.fappslab.rickandmortygraphql.remote.client.network.exception.RemoteThrowable
-import com.fappslab.rickandmortygraphql.remote.client.network.exception.RemoteThrowable.ClientThrowable
-import com.fappslab.rickandmortygraphql.remote.client.network.exception.RemoteThrowable.ServerThrowable
-import com.fappslab.rickandmortygraphql.remote.client.network.exception.RemoteThrowable.UnknownThrowable
+import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.RemoteThrowable
+import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.RemoteThrowable.ClientThrowable
+import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.RemoteThrowable.ServerThrowable
+import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.RemoteThrowable.UnknownThrowable
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map

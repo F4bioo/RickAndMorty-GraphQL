@@ -4,8 +4,8 @@ import android.content.SharedPreferences
 import com.apollographql.apollo3.ApolloClient
 import com.fappslab.rickandmortygraphql.core.data.local.prefs.LocalClient
 import com.fappslab.rickandmortygraphql.core.data.local.prefs.LocalClientImpl
-import com.fappslab.rickandmortygraphql.remote.client.HttpClientImpl
-import com.fappslab.rickandmortygraphql.remote.client.network.HttpClient
+import com.fappslab.rickandmortygraphql.core.data.remote.client.HttpClientImpl
+import com.fappslab.rickandmortygraphql.core.data.remote.client.network.HttpClient
 import io.mockk.mockk
 import org.junit.Test
 import org.koin.core.context.startKoin

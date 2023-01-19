@@ -6,7 +6,7 @@ import com.fappslab.rickandmortygraphql.domain.model.Filter
 import com.fappslab.rickandmortygraphql.domain.repository.RickAndMortyRepository
 import com.fappslab.rickandmortygraphql.hubsrc.extension.toCharacters
 import com.fappslab.rickandmortygraphql.hubsrc.extension.toFilterCharacter
-import com.fappslab.rickandmortygraphql.remote.source.RemoteRickAndMortyDataSource
+import com.fappslab.rickandmortygraphql.core.data.remote.source.RemoteRickAndMortyDataSource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 

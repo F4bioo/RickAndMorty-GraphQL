@@ -1,6 +1,6 @@
-package com.fappslab.rickandmortygraphql.remote.network.di
+package com.fappslab.rickandmortygraphql.core.data.remote.network.di
 
-import com.fappslab.rickandmortygraphql.remote.di.RemoteModule
+import com.fappslab.rickandmortygraphql.core.data.remote.di.RemoteModule
 import org.junit.Test
 import org.koin.core.context.startKoin
 import org.koin.test.AutoCloseKoinTest
