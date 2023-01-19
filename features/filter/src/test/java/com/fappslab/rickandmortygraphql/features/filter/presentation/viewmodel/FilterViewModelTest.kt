@@ -1,15 +1,13 @@
 package com.fappslab.rickandmortygraphql.features.filter.presentation.viewmodel
 
 import app.cash.turbine.test
-import com.fappslab.rickandmortygraphql.libraries.arch.rules.DispatcherTestRule
 import com.fappslab.rickandmortygraphql.core.common.domain.model.FilterType
 import com.fappslab.rickandmortygraphql.core.common.domain.model.KeyType
 import com.fappslab.rickandmortygraphql.core.common.domain.usecase.GetFilterUseCase
-import com.fappslab.rickandmortygraphql.filter.R
+import com.fappslab.rickandmortygraphql.features.filter.R
 import com.fappslab.rickandmortygraphql.features.filter.domain.usecase.DeleteFilterUseCase
 import com.fappslab.rickandmortygraphql.features.filter.domain.usecase.SetFilterUseCase
-import com.fappslab.rickandmortygraphql.features.filter.presentation.viewmodel.FilterViewModel
-import com.fappslab.rickandmortygraphql.features.filter.presentation.viewmodel.FilterViewState
+import com.fappslab.rickandmortygraphql.libraries.arch.rules.DispatcherTestRule
 import io.mockk.clearAllMocks
 import io.mockk.every
 import io.mockk.mockk
