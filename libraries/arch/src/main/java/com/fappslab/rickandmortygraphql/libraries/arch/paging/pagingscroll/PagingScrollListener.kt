@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.arch.paging.pagingscroll
+package com.fappslab.rickandmortygraphql.libraries.arch.paging.pagingscroll
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView

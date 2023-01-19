@@ -1,7 +1,7 @@
 package com.fappslab.rickandmortygraphql.filter.presentation.viewmodel
 
 import androidx.lifecycle.viewModelScope
-import com.fappslab.rickandmortygraphql.arch.viewmodel.ViewModel
+import com.fappslab.rickandmortygraphql.libraries.arch.viewmodel.ViewModel
 import com.fappslab.rickandmortygraphql.domain.model.KeyType
 import com.fappslab.rickandmortygraphql.domain.usecase.GetFilterUseCase
 import com.fappslab.rickandmortygraphql.filter.domain.usecase.DeleteFilterUseCase

@@ -1,7 +1,7 @@
 package com.fappslab.rickandmortygraphql.home.presentation.viewmodel
 
 import androidx.lifecycle.viewModelScope
-import com.fappslab.rickandmortygraphql.arch.viewmodel.ViewModel
+import com.fappslab.rickandmortygraphql.libraries.arch.viewmodel.ViewModel
 import com.fappslab.rickandmortygraphql.domain.model.Character
 import com.fappslab.rickandmortygraphql.domain.model.Characters
 import com.fappslab.rickandmortygraphql.domain.model.Filter

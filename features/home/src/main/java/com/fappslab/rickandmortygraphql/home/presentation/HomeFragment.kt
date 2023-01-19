@@ -6,11 +6,11 @@ import androidx.annotation.StringRes
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import com.fappslab.rickandmortygraphql.arch.adapter.GenericAdapter
-import com.fappslab.rickandmortygraphql.arch.paging.pagingscroll.PagingScrollListener
-import com.fappslab.rickandmortygraphql.arch.viewbinding.viewBinding
-import com.fappslab.rickandmortygraphql.arch.viewmodel.onViewAction
-import com.fappslab.rickandmortygraphql.arch.viewmodel.onViewState
+import com.fappslab.rickandmortygraphql.libraries.arch.adapter.GenericAdapter
+import com.fappslab.rickandmortygraphql.libraries.arch.paging.pagingscroll.PagingScrollListener
+import com.fappslab.rickandmortygraphql.libraries.arch.viewbinding.viewBinding
+import com.fappslab.rickandmortygraphql.libraries.arch.viewmodel.onViewAction
+import com.fappslab.rickandmortygraphql.libraries.arch.viewmodel.onViewState
 import com.fappslab.rickandmortygraphql.domain.model.Character
 import com.fappslab.rickandmortygraphql.home.R
 import com.fappslab.rickandmortygraphql.home.databinding.HomeCharacterItemBinding

@@ -2,7 +2,7 @@ package com.fappslab.rickandmortygraphql.libraries.design.dsdialogsm
 
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.LifecycleOwner
-import com.fappslab.rickandmortygraphql.arch.extension.isNotNull
+import com.fappslab.rickandmortygraphql.libraries.arch.extension.isNotNull
 
 private const val DS_DIALOG_SM_TAG = "DsDialogSm"
 

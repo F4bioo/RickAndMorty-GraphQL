@@ -1,7 +1,7 @@
 package com.fappslab.rickandmortygraphql.hubsrc.extension
 
 import com.apollographql.apollo3.api.Optional
-import com.fappslab.rickandmortygraphql.arch.extension.orZero
+import com.fappslab.rickandmortygraphql.libraries.arch.extension.orZero
 import com.fappslab.rickandmortygraphql.domain.model.Character
 import com.fappslab.rickandmortygraphql.domain.model.Characters
 import com.fappslab.rickandmortygraphql.domain.model.Filter

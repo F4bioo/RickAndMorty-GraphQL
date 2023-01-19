@@ -7,10 +7,10 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import coil.load
-import com.fappslab.rickandmortygraphql.arch.args.view.putArguments
-import com.fappslab.rickandmortygraphql.arch.args.view.viewArgs
-import com.fappslab.rickandmortygraphql.arch.args.view.withArgs
-import com.fappslab.rickandmortygraphql.arch.viewbinding.viewBinding
+import com.fappslab.rickandmortygraphql.libraries.arch.args.view.putArguments
+import com.fappslab.rickandmortygraphql.libraries.arch.args.view.viewArgs
+import com.fappslab.rickandmortygraphql.libraries.arch.args.view.withArgs
+import com.fappslab.rickandmortygraphql.libraries.arch.viewbinding.viewBinding
 import com.fappslab.rickandmortygraphql.details.R
 import com.fappslab.rickandmortygraphql.details.databinding.DetailsFragmentBinding
 import com.fappslab.rickandmortygraphql.details.presentation.viewmodel.DetailsViewModel

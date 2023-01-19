@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.arch.extension
+package com.fappslab.rickandmortygraphql.libraries.arch.extension
 
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment

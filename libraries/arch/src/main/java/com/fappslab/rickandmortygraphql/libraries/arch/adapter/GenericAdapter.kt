@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.arch.adapter
+package com.fappslab.rickandmortygraphql.libraries.arch.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter

@@ -1,9 +1,9 @@
-package com.fappslab.rickandmortygraphql.arch.test
+package com.fappslab.rickandmortygraphql.libraries.arch.test
 
 import androidx.annotation.VisibleForTesting
 import app.cash.turbine.test
 import app.cash.turbine.testIn
-import com.fappslab.rickandmortygraphql.arch.viewmodel.ViewModel
+import com.fappslab.rickandmortygraphql.libraries.arch.viewmodel.ViewModel
 import kotlinx.coroutines.CoroutineScope
 import java.lang.reflect.Modifier
 import kotlin.test.assertEquals

@@ -3,7 +3,7 @@ package com.fappslab.rickandmortygraphql.presentation
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
-import com.fappslab.rickandmortygraphql.arch.viewbinding.viewBinding
+import com.fappslab.rickandmortygraphql.libraries.arch.viewbinding.viewBinding
 import com.fappslab.rickandmortygraphql.databinding.ActivityMainBinding
 import com.fappslab.rickandmortygraphql.libraries.design.extention.setDarkTheme
 import com.fappslab.rickandmortygraphql.navigation.HomeNavigation

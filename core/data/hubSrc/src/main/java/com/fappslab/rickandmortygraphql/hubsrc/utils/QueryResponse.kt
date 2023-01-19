@@ -1,6 +1,6 @@
 package com.fappslab.rickandmortygraphql.hubsrc.utils
 
-import com.fappslab.rickandmortygraphql.arch.extension.orZero
+import com.fappslab.rickandmortygraphql.libraries.arch.extension.orZero
 import com.fappslab.rickandmortygraphql.domain.model.Character
 import com.fappslab.rickandmortygraphql.domain.model.Characters
 import com.fappslab.rickandmortygraphql.hubsrc.utils.QueryResponse.DataResponse.CharactersResponse

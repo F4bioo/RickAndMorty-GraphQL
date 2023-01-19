@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.arch.args
+package com.fappslab.rickandmortygraphql.libraries.arch.args
 
 import android.os.Bundle
 import android.os.Parcelable

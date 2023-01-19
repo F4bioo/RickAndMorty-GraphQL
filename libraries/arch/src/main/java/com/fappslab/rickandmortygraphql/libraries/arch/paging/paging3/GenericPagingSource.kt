@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.arch.paging.paging3
+package com.fappslab.rickandmortygraphql.libraries.arch.paging.paging3
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState

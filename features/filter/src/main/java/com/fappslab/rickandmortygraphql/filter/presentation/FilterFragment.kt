@@ -3,9 +3,9 @@ package com.fappslab.rickandmortygraphql.filter.presentation
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.fappslab.rickandmortygraphql.arch.viewbinding.viewBinding
-import com.fappslab.rickandmortygraphql.arch.viewmodel.onViewAction
-import com.fappslab.rickandmortygraphql.arch.viewmodel.onViewState
+import com.fappslab.rickandmortygraphql.libraries.arch.viewbinding.viewBinding
+import com.fappslab.rickandmortygraphql.libraries.arch.viewmodel.onViewAction
+import com.fappslab.rickandmortygraphql.libraries.arch.viewmodel.onViewState
 import com.fappslab.rickandmortygraphql.libraries.design.dsmodal.DsModalHost
 import com.fappslab.rickandmortygraphql.domain.model.KeyType
 import com.fappslab.rickandmortygraphql.filter.R

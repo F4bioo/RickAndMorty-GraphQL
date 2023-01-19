@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.arch.viewmodel
+package com.fappslab.rickandmortygraphql.libraries.arch.viewmodel
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner

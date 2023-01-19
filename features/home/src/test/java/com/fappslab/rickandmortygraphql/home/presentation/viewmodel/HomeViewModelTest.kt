@@ -1,9 +1,9 @@
 package com.fappslab.rickandmortygraphql.home.presentation.viewmodel
 
-import com.fappslab.rickandmortygraphql.arch.rules.DispatcherTestRule
-import com.fappslab.rickandmortygraphql.arch.test.testActionFlow
-import com.fappslab.rickandmortygraphql.arch.test.testFlows
-import com.fappslab.rickandmortygraphql.arch.test.testStateFlow
+import com.fappslab.rickandmortygraphql.libraries.arch.rules.DispatcherTestRule
+import com.fappslab.rickandmortygraphql.libraries.arch.test.testActionFlow
+import com.fappslab.rickandmortygraphql.libraries.arch.test.testFlows
+import com.fappslab.rickandmortygraphql.libraries.arch.test.testStateFlow
 import com.fappslab.rickandmortygraphql.design.R
 import com.fappslab.rickandmortygraphql.domain.model.Characters
 import com.fappslab.rickandmortygraphql.domain.model.Filter

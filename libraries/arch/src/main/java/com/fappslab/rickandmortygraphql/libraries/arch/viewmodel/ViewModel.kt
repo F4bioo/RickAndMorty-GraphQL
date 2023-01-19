@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.arch.viewmodel
+package com.fappslab.rickandmortygraphql.libraries.arch.viewmodel
 
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableSharedFlow

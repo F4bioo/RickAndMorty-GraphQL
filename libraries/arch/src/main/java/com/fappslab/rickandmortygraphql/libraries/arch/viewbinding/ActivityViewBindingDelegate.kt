@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.arch.viewbinding
+package com.fappslab.rickandmortygraphql.libraries.arch.viewbinding
 
 import android.view.LayoutInflater
 import androidx.activity.ComponentActivity

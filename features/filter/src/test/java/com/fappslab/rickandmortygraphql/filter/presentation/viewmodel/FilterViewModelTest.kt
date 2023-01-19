@@ -1,7 +1,7 @@
 package com.fappslab.rickandmortygraphql.filter.presentation.viewmodel
 
 import app.cash.turbine.test
-import com.fappslab.rickandmortygraphql.arch.rules.DispatcherTestRule
+import com.fappslab.rickandmortygraphql.libraries.arch.rules.DispatcherTestRule
 import com.fappslab.rickandmortygraphql.domain.model.FilterType
 import com.fappslab.rickandmortygraphql.domain.model.KeyType
 import com.fappslab.rickandmortygraphql.domain.usecase.GetFilterUseCase

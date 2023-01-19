@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.arch.extension
+package com.fappslab.rickandmortygraphql.libraries.arch.extension
 
 private const val TRUE = 1
 private const val FALSE = 0

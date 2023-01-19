@@ -1,8 +1,8 @@
 package com.fappslab.rickandmortygraphql.hubsrc.utils
 
 import androidx.annotation.VisibleForTesting
-import com.fappslab.rickandmortygraphql.arch.jsonhandle.readFromJSONToModel
-import com.fappslab.rickandmortygraphql.arch.jsonhandle.readFromJSONToString
+import com.fappslab.rickandmortygraphql.libraries.arch.jsonhandle.readFromJSONToModel
+import com.fappslab.rickandmortygraphql.libraries.arch.jsonhandle.readFromJSONToString
 
 private const val SUCCESS_RESPONSE = "success_response.json"
 private const val FAILURE_RESPONSE = "failure_response.json"

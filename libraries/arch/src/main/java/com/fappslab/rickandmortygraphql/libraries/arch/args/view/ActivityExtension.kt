@@ -1,11 +1,11 @@
-package com.fappslab.rickandmortygraphql.arch.args.view
+package com.fappslab.rickandmortygraphql.libraries.arch.args.view
 
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Parcelable
-import com.fappslab.rickandmortygraphql.arch.args.ArgsProperty
-import com.fappslab.rickandmortygraphql.arch.args.KEY_ARGS
+import com.fappslab.rickandmortygraphql.libraries.arch.args.ArgsProperty
+import com.fappslab.rickandmortygraphql.libraries.arch.args.KEY_ARGS
 import kotlin.properties.ReadOnlyProperty
 
 inline fun <reified A : Activity> Context.createIntent(

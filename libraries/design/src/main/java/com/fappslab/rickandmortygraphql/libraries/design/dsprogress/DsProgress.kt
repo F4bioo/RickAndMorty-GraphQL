@@ -8,7 +8,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.DialogFragment
-import com.fappslab.rickandmortygraphql.arch.viewbinding.viewBinding
+import com.fappslab.rickandmortygraphql.libraries.arch.viewbinding.viewBinding
 import com.fappslab.rickandmortygraphql.libraries.design.R
 import com.fappslab.rickandmortygraphql.libraries.design.databinding.LayoutDsprogressBinding
 

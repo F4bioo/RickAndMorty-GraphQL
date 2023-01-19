@@ -1,7 +1,7 @@
 package com.fappslab.rickandmortygraphql.details.presentation.viewmodel
 
 import app.cash.turbine.test
-import com.fappslab.rickandmortygraphql.arch.rules.DispatcherTestRule
+import com.fappslab.rickandmortygraphql.libraries.arch.rules.DispatcherTestRule
 import com.fappslab.rickandmortygraphql.details.presentation.model.StatusType
 import com.fappslab.rickandmortygraphql.details.stub.characterArgsStub
 import kotlinx.coroutines.ExperimentalCoroutinesApi
