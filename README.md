@@ -6,3 +6,9 @@ This project was built with Android Studio Dolphin, using clean layered architec
 <img src="images/graph.svg"/>
 <img src="images/core.png" width="50%"/>
 
+## Screens
+<img src="images/1.jpg"/> <img src="images/2.jpg"/> <img src="images/3.jpg"/>
+<img src="images/4.jpg"/> <img src="images/5.jpg"/> <img src="images/6.jpg"/>
+
+## GIFS
+<img src="images/1.gif"/> <img src="images/2.gif"/> <img src="images/3.gif"/>
