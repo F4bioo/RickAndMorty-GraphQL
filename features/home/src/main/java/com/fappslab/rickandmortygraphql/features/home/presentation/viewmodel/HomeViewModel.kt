@@ -1,7 +1,6 @@
 package com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel
 
 import androidx.lifecycle.viewModelScope
-import com.fappslab.rickandmortygraphql.libraries.arch.viewmodel.ViewModel
 import com.fappslab.rickandmortygraphql.core.common.domain.model.Character
 import com.fappslab.rickandmortygraphql.core.common.domain.model.Characters
 import com.fappslab.rickandmortygraphql.core.common.domain.model.Filter
@@ -11,6 +10,8 @@ import com.fappslab.rickandmortygraphql.core.common.domain.usecase.GetFilterUseC
 import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.RemoteThrowable.ClientThrowable
 import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.RemoteThrowable.FilterThrowable
 import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.RemoteThrowable.ServerThrowable
+import com.fappslab.rickandmortygraphql.libraries.arch.viewmodel.ViewModel
+import com.fappslab.rickandmortygraphql.libraries.design.R
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -21,7 +22,6 @@ import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
-import com.fappslab.rickandmortygraphql.libraries.design.R as DS
 
 internal class HomeViewModel(
     private val getFilterUseCase: GetFilterUseCase,
@@ -44,14 +44,13 @@ internal class HomeViewModel(
     }
 
     private fun getCharactersFailure(cause: Throwable) {
-        onState { it.getCharactersFailureState() }
-        onError(cause)
+        onState { it.getCharactersFailureState(errorMessageRes(cause)) }
     }
 
     private fun getCharactersSuccess(characters: Characters) {
         if (characters.characters.isNotEmpty()) {
             onState { it.getCharactersSuccessState(characters) }
-        } else onError(FilterThrowable())
+        } else getCharactersFailure(FilterThrowable())
     }
 
     fun onPagination(shouldFetchNextPage: Boolean) {
@@ -65,7 +64,9 @@ internal class HomeViewModel(
     }
 
     fun onTryAgain() {
-        getCharacters(state.value.filter)
+        if (state.value.errorMessageRes != R.string.common_filter_error) {
+            getCharacters(state.value.filter)
+        } else onFilter()
     }
 
     fun onFilter() {
@@ -73,15 +74,15 @@ internal class HomeViewModel(
     }
 
     fun onDetails(character: Character) {
-        onAction { HomeViewAction.Details(character) }
+        onState { it.copy(shouldShowDetails = true, character = character) }
     }
 
-    fun onCloseError(cause: Throwable) {
-        if (cause is FilterThrowable) onFilter()
+    fun onCloseDetails() {
+        onState { it.copy(shouldShowDetails = false) }
     }
 
-    private fun onError(cause: Throwable) {
-        onAction { HomeViewAction.Error(errorMessage(cause), cause) }
+    fun onCloseError() {
+        onState { it.copy(shouldShowError = false) }
     }
 
     fun setFilter() {
@@ -100,10 +101,10 @@ internal class HomeViewModel(
         }
     }
 
-    private fun errorMessage(cause: Throwable): Int = when (cause) {
-        is ClientThrowable -> DS.string.common_client_error
-        is ServerThrowable -> DS.string.common_server_error
-        is FilterThrowable -> DS.string.common_filter_error
-        else -> DS.string.common_unknown_error
+    private fun errorMessageRes(cause: Throwable): Int = when (cause) {
+        is ClientThrowable -> R.string.common_client_error
+        is ServerThrowable -> R.string.common_server_error
+        is FilterThrowable -> R.string.common_filter_error
+        else -> R.string.common_unknown_error
     }
 }

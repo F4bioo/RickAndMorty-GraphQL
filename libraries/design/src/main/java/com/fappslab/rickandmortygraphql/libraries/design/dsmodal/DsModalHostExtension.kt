@@ -11,8 +11,21 @@ fun LifecycleOwner.dsModalHost(
     block: DsModalHost.() -> Unit
 ): DsModalHost = DsModalHost().apply(block)
 
-fun DsModalHost.build(manager: FragmentManager, tag: String = DS_MODAL_HOST_TAG) {
-    takeIf {
-        manager.findFragmentByTag(tag).isNotNull()
-    } ?: show(manager, tag)
+fun DsModalHost.build(shouldShow: Boolean, manager: FragmentManager) {
+    manager.hide()
+    if (shouldShow) {
+        show(manager, DS_MODAL_HOST_TAG)
+    }
+}
+
+private fun FragmentManager.hide() {
+    if (isShowing()) {
+        val dialog = findFragmentByTag(DS_MODAL_HOST_TAG)
+        if (dialog is DsModalHost) dialog.dismissAllowingStateLoss()
+    }
+}
+
+private fun FragmentManager.isShowing(): Boolean {
+    executePendingTransactions()
+    return findFragmentByTag(DS_MODAL_HOST_TAG).isNotNull()
 }

@@ -25,6 +25,7 @@ private fun ApolloHttpException.parseError(): RemoteThrowable = when (statusCode
 
 private fun Throwable.toThrowable(): RemoteThrowable = when (this) {
     is ApolloHttpException -> parseError()
+    is ApolloException -> ClientThrowable(throwable = this)
     else -> UnknownThrowable(throwable = this, message = this.message)
 }
 
