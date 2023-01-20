@@ -2,7 +2,6 @@ package com.fappslab.rickandmortygraphql.features.home.presentation
 
 import android.os.Bundle
 import android.view.View
-import androidx.annotation.StringRes
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
@@ -19,11 +18,11 @@ import com.fappslab.rickandmortygraphql.features.home.presentation.extension.loa
 import com.fappslab.rickandmortygraphql.features.home.presentation.extension.showDetails
 import com.fappslab.rickandmortygraphql.features.home.presentation.extension.showErrorDialog
 import com.fappslab.rickandmortygraphql.features.home.presentation.extension.showFilter
+import com.fappslab.rickandmortygraphql.features.home.presentation.extension.spanCount
 import com.fappslab.rickandmortygraphql.features.home.presentation.extension.visibilityHandle
 import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.HomeViewAction
 import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.HomeViewModel
 import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.HomeViewState
-import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.PAGING_SPAN_COUNT_PORTRAIT
 import com.fappslab.rickandmortygraphql.libraries.arch.adapter.GenericAdapter
 import com.fappslab.rickandmortygraphql.libraries.arch.paging.pagingscroll.PagingScrollListener
 import com.fappslab.rickandmortygraphql.libraries.arch.viewbinding.viewBinding
@@ -60,13 +59,13 @@ internal class HomeFragment : Fragment(R.layout.home_fragment) {
             submitListState(state.characters)
             tryAgainState(state.shouldShowTryAgain)
             emptyLayoutState(state.shouldShowEmptyLayout)
+            showErrorDialogState(state.errorMessageRes, state.shouldShowError)
+            state.character?.showDetailsState(state.shouldShowDetails)
         }
 
         onViewAction(viewModel) { action ->
             when (action) {
                 HomeViewAction.Filter -> showFilterAction()
-                is HomeViewAction.Details -> showDetailsAction(action.character)
-                is HomeViewAction.Error -> showErrorDialogAction(action.message, action.cause)
             }
         }
     }
@@ -86,7 +85,7 @@ internal class HomeFragment : Fragment(R.layout.home_fragment) {
         setHasFixedSize(true)
         itemAnimator = null
         adapter = charactersAdapter
-        layoutManager = GridLayoutManager(context, PAGING_SPAN_COUNT_PORTRAIT)
+        layoutManager = GridLayoutManager(context, spanCount())
     }
 
     private fun loadingState(state: HomeViewState) {
@@ -111,15 +110,17 @@ internal class HomeFragment : Fragment(R.layout.home_fragment) {
     }
 
     private fun showFilterAction() {
-        showFilter(filterNavigation, closeAction = viewModel::setFilter)
+        showFilter(filterNavigation, viewModel::setFilter)
     }
 
-    private fun showDetailsAction(character: Character) {
-        showDetails(character, detailsNavigation)
+    private fun Character.showDetailsState(shouldShowDetails: Boolean) {
+        showDetails(character = this, detailsNavigation, shouldShowDetails) {
+            viewModel.onCloseDetails()
+        }
     }
 
-    private fun showErrorDialogAction(@StringRes messageRes: Int, cause: Throwable) {
-        showErrorDialog(messageRes, cause, closeAction = viewModel::onCloseError)
+    private fun showErrorDialogState(errorMessageRes: Int, shouldShowError: Boolean) {
+        showErrorDialog(errorMessageRes, shouldShowError, viewModel::onCloseError)
     }
 
     companion object {

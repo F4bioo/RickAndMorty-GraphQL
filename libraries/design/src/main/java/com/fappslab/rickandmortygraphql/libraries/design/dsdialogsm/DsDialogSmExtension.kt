@@ -11,9 +11,21 @@ fun LifecycleOwner.dsDialogSm(
     block: DsDialogSm.() -> Unit = {}
 ): DsDialogSm = DsDialogSm().apply(block)
 
+fun DsDialogSm.build(shouldShow: Boolean, manager: FragmentManager) {
+    manager.hide()
+    if (shouldShow) {
+        show(manager, DS_DIALOG_SM_TAG)
+    }
+}
 
-fun DsDialogSm.build(manager: FragmentManager, tag: String = DS_DIALOG_SM_TAG) {
-    takeIf {
-        manager.findFragmentByTag(tag).isNotNull()
-    } ?: show(manager, tag)
+private fun FragmentManager.hide() {
+    if (isShowing()) {
+        val dialog = findFragmentByTag(DS_DIALOG_SM_TAG)
+        if (dialog is DsDialogSm) dialog.dismissAllowingStateLoss()
+    }
+}
+
+private fun FragmentManager.isShowing(): Boolean {
+    executePendingTransactions()
+    return findFragmentByTag(DS_DIALOG_SM_TAG).isNotNull()
 }

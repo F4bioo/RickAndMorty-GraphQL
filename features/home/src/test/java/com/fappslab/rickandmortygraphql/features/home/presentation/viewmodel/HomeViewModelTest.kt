@@ -7,12 +7,9 @@ import com.fappslab.rickandmortygraphql.core.common.domain.usecase.GetFilterUseC
 import com.fappslab.rickandmortygraphql.core.data.hubsrc.utils.StubResponse.expectedSuccessDataResponse
 import com.fappslab.rickandmortygraphql.core.data.hubsrc.utils.toCharacters
 import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.RemoteThrowable.ClientThrowable
-import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.RemoteThrowable.FilterThrowable
 import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.RemoteThrowable.ServerThrowable
 import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.RemoteThrowable.UnknownThrowable
 import com.fappslab.rickandmortygraphql.libraries.arch.rules.DispatcherTestRule
-import com.fappslab.rickandmortygraphql.libraries.arch.test.testActionFlow
-import com.fappslab.rickandmortygraphql.libraries.arch.test.testFlows
 import com.fappslab.rickandmortygraphql.libraries.arch.test.testStateFlow
 import com.fappslab.rickandmortygraphql.libraries.design.R
 import io.mockk.clearAllMocks
@@ -26,8 +23,6 @@ import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Rule
 import org.junit.Test
-import kotlin.test.assertEquals
-import kotlin.test.assertIs
 
 @ExperimentalCoroutinesApi
 internal class HomeViewModelTest {
@@ -78,28 +73,31 @@ internal class HomeViewModelTest {
     }
 
     @Test
-    fun `initBlockSuccess Should expose Error action When init block get success with empty list`() {
+    fun `initBlockSuccess Should update state When init block get success with empty list`() {
         // Given
         val characters = Characters(characters = emptyList(), totalPages = 0, nextPage = 0)
-        val expectedMessage = R.string.common_filter_error
         val expectedFirstState = initialState.copy(
             shouldShowLoading = true,
             shouldShowTryAgain = false
         )
-        val expectedFinalState = expectedFirstState.copy(shouldShowLoading = false)
+        val expectedSecondState = expectedFirstState.copy(
+            shouldShowEmptyLayout = true,
+            shouldShowTryAgain = true,
+            shouldShowError = true,
+            errorMessageRes = R.string.common_filter_error
+        )
+        val expectedFinalState = expectedSecondState.copy(shouldShowLoading = false)
 
         // When
         subject = createSubjectWithInitSuccess(characters)
 
         runTest {
             // Then
-            subject.testFlows(backgroundScope) { action ->
+            subject.testStateFlow(backgroundScope) {
                 assertStateIs { initialState }
                 assertStateIs { expectedFirstState }
+                assertStateIs { expectedSecondState }
                 assertStateIs { expectedFinalState }
-
-                assertIs<HomeViewAction.Error>(action)
-                assertEquals(expectedMessage, (action as? HomeViewAction.Error)?.message)
             }
             verify { getFilterUseCase(any()) }
             verify { getCharactersUseCase(any()) }
@@ -107,24 +105,21 @@ internal class HomeViewModelTest {
     }
 
     @Test
-    fun `initBlockFailure Should expose state When init block get ClientThrowable`() {
+    fun `initBlockFailure Should Should update state When init block get ClientThrowable`() {
         // Given
-        val expectedMessage = R.string.common_client_error
-        val (expectedFirstState, expectedSecondState, expectedFinalState) = setupFailureStates()
+        val (expectedFirstState, expectedSecondState, expectedFinalState) =
+            setupFailureStates(errorMessageRes = R.string.common_client_error)
 
         // When
         subject = createSubjectWithInitFailure(ClientThrowable())
 
         // Then
         runTest {
-            subject.testFlows(backgroundScope) { action ->
+            subject.testStateFlow(backgroundScope) {
                 assertStateIs { initialState }
                 assertStateIs { expectedFirstState }
                 assertStateIs { expectedSecondState }
                 assertStateIs { expectedFinalState }
-
-                assertIs<HomeViewAction.Error>(action)
-                assertEquals(expectedMessage, (action as? HomeViewAction.Error)?.message)
             }
             verify { getFilterUseCase(any()) }
             verify { getCharactersUseCase(any()) }
@@ -132,24 +127,21 @@ internal class HomeViewModelTest {
     }
 
     @Test
-    fun `initBlockFailure Should expose state When init block get ServerThrowable`() {
+    fun `initBlockFailure Should update state When init block get ServerThrowable`() {
         // Given
-        val expectedMessage = R.string.common_server_error
-        val (expectedFirstState, expectedSecondState, expectedFinalState) = setupFailureStates()
+        val (expectedFirstState, expectedSecondState, expectedFinalState) =
+            setupFailureStates(errorMessageRes = R.string.common_server_error)
 
         // When
         subject = createSubjectWithInitFailure(ServerThrowable())
 
         // Then
         runTest {
-            subject.testFlows(backgroundScope) { action ->
+            subject.testStateFlow(backgroundScope) {
                 assertStateIs { initialState }
                 assertStateIs { expectedFirstState }
                 assertStateIs { expectedSecondState }
                 assertStateIs { expectedFinalState }
-
-                assertIs<HomeViewAction.Error>(action)
-                assertEquals(expectedMessage, (action as? HomeViewAction.Error)?.message)
             }
             verify { getFilterUseCase(any()) }
             verify { getCharactersUseCase(any()) }
@@ -157,24 +149,21 @@ internal class HomeViewModelTest {
     }
 
     @Test
-    fun `initBlockFailure Should expose state When init block get UnknownThrowable`() {
+    fun `initBlockFailure Should update state When init block get UnknownThrowable`() {
         // Given
-        val expectedMessage = R.string.common_unknown_error
-        val (expectedFirstState, expectedSecondState, expectedFinalState) = setupFailureStates()
+        val (expectedFirstState, expectedSecondState, expectedFinalState) =
+            setupFailureStates(errorMessageRes = R.string.common_unknown_error)
 
         // When
         subject = createSubjectWithInitFailure(UnknownThrowable())
 
         // Then
         runTest {
-            subject.testFlows(backgroundScope) { action ->
+            subject.testStateFlow(backgroundScope) {
                 assertStateIs { initialState }
                 assertStateIs { expectedFirstState }
                 assertStateIs { expectedSecondState }
                 assertStateIs { expectedFinalState }
-
-                assertIs<HomeViewAction.Error>(action)
-                assertEquals(expectedMessage, (action as? HomeViewAction.Error)?.message)
             }
             verify { getFilterUseCase(any()) }
             verify { getCharactersUseCase(any()) }
@@ -225,10 +214,14 @@ internal class HomeViewModelTest {
     }
 
     @Test
-    fun `onShowDetails Should expose Details action When invoke method to show details`() {
+    fun `onShowDetails Should update state When invoke method to show details`() {
         // Given
         val characters = expectedSuccessDataResponse?.characters.toCharacters().characters
         val expectedCharacter = characters.first()
+        val expectedState = initialState.copy(
+            shouldShowDetails = true,
+            character = expectedCharacter
+        )
         subject = createSubject()
 
         // When
@@ -236,26 +229,25 @@ internal class HomeViewModelTest {
 
         // Then
         runTest {
-            subject.testActionFlow { action ->
-                assertIs<HomeViewAction.Details>(action)
-                assertEquals(expectedCharacter, (action as? HomeViewAction.Details)?.character)
+            subject.testStateFlow(backgroundScope) {
+                assertStateIs { expectedState }
             }
         }
     }
 
     @Test
-    fun `onCloseError Should expose Filter action When invoke method to close error dialog`() {
+    fun `onCloseError Should update state When invoke method to close error dialog`() {
         // Given
-        val cause = FilterThrowable()
+        val expectedState = initialState.copy(shouldShowError = false)
         subject = createSubject()
 
         // When
-        subject.onCloseError(cause)
+        subject.onCloseError()
 
         // Then
         runTest {
-            subject.testActionFlow { action ->
-                assertIs<HomeViewAction.Filter>(action)
+            subject.testStateFlow(backgroundScope) {
+                assertStateIs { expectedState }
             }
         }
     }
@@ -278,7 +270,9 @@ internal class HomeViewModelTest {
         dispatcher = dispatcherRule.testDispatcher
     )
 
-    private fun setupFailureStates(): Triple<HomeViewState, HomeViewState, HomeViewState> {
+    private fun setupFailureStates(
+        errorMessageRes: Int
+    ): Triple<HomeViewState, HomeViewState, HomeViewState> {
         val expectedFirstState = initialState.copy(
             shouldShowLoading = true,
             shouldShowTryAgain = false
@@ -288,7 +282,9 @@ internal class HomeViewModelTest {
         )
         val expectedFinalState = initialState.copy(
             shouldShowEmptyLayout = true,
-            shouldShowTryAgain = true
+            shouldShowTryAgain = true,
+            shouldShowError = true,
+            errorMessageRes = errorMessageRes
         )
         return Triple(expectedFirstState, expectedSecondState, expectedFinalState)
     }
