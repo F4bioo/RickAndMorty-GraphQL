@@ -3,7 +3,7 @@ package com.fappslab.rickandmortygraphql.features.details.presentation.viewmodel
 import app.cash.turbine.test
 import com.fappslab.rickandmortygraphql.features.details.presentation.model.StatusType
 import com.fappslab.rickandmortygraphql.features.details.stub.characterArgsStub
-import com.fappslab.rickandmortygraphql.libraries.arch.rules.DispatcherTestRule
+import com.fappslab.rickandmortygraphql.libraries.arch.testing.rules.DispatcherTestRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Rule

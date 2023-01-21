@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.libraries.arch.rules
+package com.fappslab.rickandmortygraphql.libraries.arch.testing.rules
 
 import androidx.annotation.VisibleForTesting
 import kotlinx.coroutines.Dispatchers

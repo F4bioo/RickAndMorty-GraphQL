@@ -9,8 +9,8 @@ import com.fappslab.rickandmortygraphql.core.data.hubsrc.utils.toCharacters
 import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.RemoteThrowable.ClientThrowable
 import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.RemoteThrowable.ServerThrowable
 import com.fappslab.rickandmortygraphql.core.data.remote.client.network.exception.RemoteThrowable.UnknownThrowable
-import com.fappslab.rickandmortygraphql.libraries.arch.rules.DispatcherTestRule
-import com.fappslab.rickandmortygraphql.libraries.arch.test.testStateFlow
+import com.fappslab.rickandmortygraphql.libraries.arch.testing.rules.DispatcherTestRule
+import com.fappslab.rickandmortygraphql.libraries.arch.testing.turbine.testStateFlow
 import com.fappslab.rickandmortygraphql.libraries.design.R
 import io.mockk.clearAllMocks
 import io.mockk.every

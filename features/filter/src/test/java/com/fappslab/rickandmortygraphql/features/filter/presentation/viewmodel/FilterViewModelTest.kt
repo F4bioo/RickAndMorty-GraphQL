@@ -7,7 +7,7 @@ import com.fappslab.rickandmortygraphql.core.common.domain.usecase.GetFilterUseC
 import com.fappslab.rickandmortygraphql.features.filter.R
 import com.fappslab.rickandmortygraphql.features.filter.domain.usecase.DeleteFilterUseCase
 import com.fappslab.rickandmortygraphql.features.filter.domain.usecase.SetFilterUseCase
-import com.fappslab.rickandmortygraphql.libraries.arch.rules.DispatcherTestRule
+import com.fappslab.rickandmortygraphql.libraries.arch.testing.rules.DispatcherTestRule
 import io.mockk.clearAllMocks
 import io.mockk.every
 import io.mockk.mockk
