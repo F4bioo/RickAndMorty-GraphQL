@@ -1,4 +1,4 @@
-package com.fappslab.rickandmortygraphql.libraries.arch.test
+package com.fappslab.rickandmortygraphql.libraries.arch.testing.turbine
 
 import androidx.annotation.VisibleForTesting
 import app.cash.turbine.test

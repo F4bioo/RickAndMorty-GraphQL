@@ -3,6 +3,7 @@ dependencies {
     implementation(TestLibs.kotlinTest)
     implementation(TestLibs.kotlinJUnitTest)
     implementation(TestLibs.turbineTest)
+    implementation(TestLibs.espressoTest)
 
     testImplementation(TestLibs.junitTest)
     testImplementation(TestLibs.koinTest)
