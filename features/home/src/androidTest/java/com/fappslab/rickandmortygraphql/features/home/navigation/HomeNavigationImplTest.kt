@@ -2,11 +2,10 @@ package com.fappslab.rickandmortygraphql.features.home.navigation
 
 import androidx.fragment.app.testing.launchFragment
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.fappslab.rickandmortygraphql.design.R
-import com.fappslab.rickandmortygraphql.features.home.navigation.HomeNavigationImpl
 import com.fappslab.rickandmortygraphql.features.home.presentation.HomeFragment
 import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.HomeViewModel
 import com.fappslab.rickandmortygraphql.features.home.presentation.viewmodel.HomeViewState
+import com.fappslab.rickandmortygraphql.libraries.design.R
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.MutableSharedFlow
