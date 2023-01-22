@@ -8,7 +8,7 @@ object Versions {
     const val detekt_version = "1.22.0"
     const val koin_version = "2.2.3"
     const val lifecycle_version = "2.5.1"
-    const val fragment_version = "1.5.5"
+    const val fragment_version = "1.6.0-alpha04"
     const val gson_version = "2.9.0"
     const val okhttp_version = "4.9.0"
     const val apollo_version = "3.7.3"
@@ -27,5 +27,5 @@ object Versions {
     const val turbine_version = "0.8.0"
     const val testRules_version = "1.3.0"
     const val kotlin_version = "1.7.20"
-    const val fragmentTest_version = "1.5.5"
+    const val coreTest_version = "2.1.0"
 }
