@@ -43,10 +43,10 @@
             android:textColor="#03A9F4"
             android:textSize="@dimen/ds_text_size_04"
             android:textStyle="bold|italic"
-            app:layout_constraintEnd_toStartOf="@+id/image_character"
+            app:layout_constraintEnd_toStartOf="@id/image_character"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="#826" />
+            tools:text="#\826" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/container_body"
@@ -71,8 +71,8 @@
                 tools:text="@tools:sample/lorem" />
 
             <include
-                android:id="@+id/include_title_details"
-                layout="@layout/details_include_title"
+                android:id="@+id/include_details"
+                layout="@layout/details_include_details"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/ds_size_08"
@@ -81,44 +81,14 @@
                 app:layout_constraintTop_toBottomOf="@id/text_name" />
 
             <include
-                android:id="@+id/include_details_gender"
-                layout="@layout/details_include_detail"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/ds_size_02"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/include_title_details" />
-
-            <include
-                android:id="@+id/include_details_species"
-                layout="@layout/details_include_detail"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/ds_size_02"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/include_details_gender" />
-
-            <include
-                android:id="@+id/include_title_origin"
-                layout="@layout/details_include_title"
+                android:id="@+id/include_origin"
+                layout="@layout/details_include_origin"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/ds_size_04"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/include_details_species" />
-
-            <include
-                android:id="@+id/include_origin_name"
-                layout="@layout/details_include_detail"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/ds_size_02"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/include_title_origin" />
+                app:layout_constraintTop_toBottomOf="@id/include_details" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

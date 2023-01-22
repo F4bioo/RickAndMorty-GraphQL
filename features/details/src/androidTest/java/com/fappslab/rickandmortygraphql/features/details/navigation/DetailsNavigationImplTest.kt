@@ -21,7 +21,7 @@ import org.koin.dsl.module
 import org.koin.test.KoinTestRule
 import kotlin.test.assertIs
 
-internal const val KEY_ARGS = "arch:key_args"
+private const val KEY_ARGS = "arch:key_args"
 
 @RunWith(AndroidJUnit4::class)
 internal class DetailsNavigationImplTest {

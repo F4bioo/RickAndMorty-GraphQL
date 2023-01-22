@@ -46,14 +46,9 @@ internal class DetailsFragment : Fragment(R.layout.details_fragment) {
         chipStatus.text = character.status
         textName.text = character.name
         textId.text = getString(R.string.details_character_id, character.id)
-        includeTitleDetails.textTitle.text = getString(R.string.details_title)
-        includeDetailsGender.textTitle.text = getString(R.string.details_gender_title)
-        includeDetailsGender.textContent.text = character.gender
-        includeDetailsSpecies.textTitle.text = getString(R.string.details_species_title)
-        includeDetailsSpecies.textContent.text = character.species
-        includeTitleOrigin.textTitle.text = getString(R.string.details_origin_title)
-        includeOriginName.textTitle.text = getString(R.string.details_name_title)
-        includeOriginName.textContent.text = character.originName
+        includeDetails.textDetailsGenderContent.text = character.gender
+        includeDetails.textDetailsSpeciesContent.text = character.species
+        includeOrigin.textOriginNameContent.text = character.originName
         chipStatus.setChipBackgroundColorResource(statusType.colorRes)
         imageCharacter.setStrokeColorResource(statusType.colorRes)
     }

@@ -1,7 +1,9 @@
-package com.fappslab.rickandmortygraphql.libraries.arch.testing.robot.checks
+package com.fappslab.rickandmortygraphql.libraries.arch.testing.robot.assertions
 
+import android.graphics.drawable.ColorDrawable
 import android.view.View
 import android.widget.ImageView
+import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.IdRes
 import androidx.core.content.ContextCompat
@@ -11,12 +13,14 @@ import androidx.test.espresso.ViewAction
 import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import com.google.android.material.chip.Chip
+import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.textfield.TextInputLayout
 import org.hamcrest.CoreMatchers.allOf
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 
-fun withEndIcon(@DrawableRes iconRes: Int): Matcher<View> {
+internal fun withEndIcon(@DrawableRes iconRes: Int): Matcher<View> {
     return object : BoundedMatcher<View, TextInputLayout>(TextInputLayout::class.java) {
         override fun describeTo(description: Description) {
             description.appendText("with end icon drawable")
@@ -30,7 +34,7 @@ fun withEndIcon(@DrawableRes iconRes: Int): Matcher<View> {
     }
 }
 
-fun endIconTextInputLayoutDrawable(@DrawableRes iconRes: Int) =
+internal fun endIconTextInputLayoutDrawable(@DrawableRes iconRes: Int) =
     object : BoundedMatcher<View, TextInputLayout>(TextInputLayout::class.java) {
         override fun describeTo(description: Description) {
             description.appendText("is end icon drawable")
@@ -44,7 +48,7 @@ fun endIconTextInputLayoutDrawable(@DrawableRes iconRes: Int) =
         }
     }
 
-fun endIconTextInputLayoutClicked(@IdRes idRes: Int): ViewAction {
+internal fun endIconTextInputLayoutClicked(@IdRes idRes: Int): ViewAction {
     return object : ViewAction {
         override fun getConstraints(): Matcher<View> {
             return allOf(
@@ -61,6 +65,51 @@ fun endIconTextInputLayoutClicked(@IdRes idRes: Int): ViewAction {
             val textInputLayout = view as TextInputLayout
             val endIcon = textInputLayout.findViewById<ImageView>(idRes)
             endIcon.performClick()
+        }
+    }
+}
+
+internal fun withChipViewBackground(
+    @ColorRes expectedColorRes: Int
+): BoundedMatcher<View, Chip> {
+    return object : BoundedMatcher<View, Chip>(Chip::class.java) {
+        override fun describeTo(description: Description?) {
+            description?.appendText("with background color: $expectedColorRes")
+        }
+
+        override fun matchesSafely(item: Chip): Boolean {
+            return item.chipBackgroundColor?.defaultColor ==
+                    ContextCompat.getColor(item.context, expectedColorRes)
+        }
+    }
+}
+
+internal fun withShapeableImageViewStrokeColor(
+    @ColorRes expectedColorRes: Int
+): BoundedMatcher<View, ShapeableImageView> {
+    return object : BoundedMatcher<View, ShapeableImageView>(ShapeableImageView::class.java) {
+        override fun describeTo(description: Description?) {
+            description?.appendText("with stroke color: $expectedColorRes")
+        }
+
+        override fun matchesSafely(item: ShapeableImageView): Boolean {
+            return item.strokeColor?.defaultColor ==
+                    ContextCompat.getColor(item.context, expectedColorRes)
+        }
+    }
+}
+
+internal fun withViewBackground(
+    @ColorRes expectedColorRes: Int
+): BoundedMatcher<View, View> {
+    return object : BoundedMatcher<View, View>(View::class.java) {
+        override fun describeTo(description: Description?) {
+            description?.appendText("with background color: $expectedColorRes")
+        }
+
+        override fun matchesSafely(item: View): Boolean {
+            return (item.background as? ColorDrawable)?.color ==
+                    ContextCompat.getColor(item.context, expectedColorRes)
         }
     }
 }
