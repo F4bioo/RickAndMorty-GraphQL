@@ -34,6 +34,8 @@ This project was built with Android Studio Dolphin, with clean architecture in a
 
 * [Apollo cliet](https://www.apollographql.com/docs/kotlin/v2/)
 
+* [GraphQL](https://graphql.org/)
+
 
 ## Unit tests, integration tests and instrumentation tests with
 
