@@ -144,7 +144,7 @@ complexity:
     ignoreStringsRegex: '$^'
   TooManyFunctions:
     active: true
-    excludes: ['**/test/**', '**/androidTest/**', '**/commonTest/**', '**/jvmTest/**', '**/jsTest/**', '**/iosTest/**']
+    excludes: ['**/arch/**', '**/test/**', '**/androidTest/**', '**/commonTest/**', '**/jvmTest/**', '**/jsTest/**', '**/iosTest/**']
     thresholdInFiles: 15
     thresholdInClasses: 15
     thresholdInInterfaces: 15
@@ -642,7 +642,7 @@ style:
   UnusedPrivateClass:
     active: true
   UnusedPrivateMember:
-    active: false
+    active: true
     allowedNames: '(_|ignored|expected|serialVersionUID)'
   UseAnyOrNoneInsteadOfFind:
     active: false
